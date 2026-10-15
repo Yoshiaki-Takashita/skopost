@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run build)",
+      "Read"
+    ],
+    "ask": [
+      "WebSearch"
+    ],
+    "deny": [
+      "Write",
+      "mcp__mail__send_message"
+    ],
+    "defaultMode": "acceptEdits"
+  },
+  "telemetryProfile": "x"
+}

@@ -1,0 +1,509 @@
+{
+  "skopost": 1,
+  "name": "mcp-desktop-notes.mcp.json",
+  "exit_code": 2,
+  "summary": {
+    "tools": 4,
+    "allowed": 4,
+    "paths": 24,
+    "paths_declared_only": 0,
+    "missed_by_declared": 24,
+    "mismatches": 7,
+    "assumed_unknown": 15,
+    "seconds": X
+  },
+  "paths": [
+    {
+      "kind": "exec",
+      "tools": [
+        "notes.search_notes"
+      ],
+      "confidence": "不明",
+      "via": [
+        "exec"
+      ]
+    },
+    {
+      "kind": "act",
+      "tools": [
+        "notes.search_notes"
+      ],
+      "confidence": "不明",
+      "via": [
+        "acts:send,purchase,delete,publish,grant,pay"
+      ]
+    },
+    {
+      "kind": "exec",
+      "tools": [
+        "notes.delete_note"
+      ],
+      "confidence": "不明",
+      "via": [
+        "exec"
+      ]
+    },
+    {
+      "kind": "act",
+      "tools": [
+        "notes.delete_note"
+      ],
+      "confidence": "不明",
+      "via": [
+        "acts:send,purchase,delete,publish,grant,pay"
+      ]
+    },
+    {
+      "kind": "exec",
+      "tools": [
+        "web.fetch_url"
+      ],
+      "confidence": "不明",
+      "via": [
+        "exec"
+      ]
+    },
+    {
+      "kind": "act",
+      "tools": [
+        "web.fetch_url"
+      ],
+      "confidence": "不明",
+      "via": [
+        "acts:send,purchase,delete,publish,grant,pay"
+      ]
+    },
+    {
+      "kind": "exec",
+      "tools": [
+        "mailer.send_email"
+      ],
+      "confidence": "不明",
+      "via": [
+        "exec"
+      ]
+    },
+    {
+      "kind": "act",
+      "tools": [
+        "mailer.send_email"
+      ],
+      "confidence": "不明",
+      "via": [
+        "acts:send,purchase,delete,publish,grant,pay"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "notes.search_notes",
+        "notes.search_notes"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "notes.search_notes",
+        "notes.delete_note"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "notes.search_notes",
+        "web.fetch_url"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "notes.search_notes",
+        "mailer.send_email"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "notes.delete_note",
+        "notes.search_notes"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "notes.delete_note",
+        "notes.delete_note"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "notes.delete_note",
+        "web.fetch_url"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "notes.delete_note",
+        "mailer.send_email"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "web.fetch_url",
+        "notes.search_notes"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "web.fetch_url",
+        "notes.delete_note"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "web.fetch_url",
+        "web.fetch_url"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "web.fetch_url",
+        "mailer.send_email"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "mailer.send_email",
+        "notes.search_notes"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "mailer.send_email",
+        "notes.delete_note"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "mailer.send_email",
+        "web.fetch_url"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "mailer.send_email",
+        "mailer.send_email"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    }
+  ],
+  "mismatches": [
+    {
+      "tool": "notes.search_notes",
+      "cap": "reads_untrusted",
+      "declared": false,
+      "observed": true,
+      "confidence": "推",
+      "evidence": "名前 'search_notes' の語；説明文の語（資料として読んだだけ）",
+      "severity": "under"
+    },
+    {
+      "tool": "notes.search_notes",
+      "cap": "net_out",
+      "declared": false,
+      "observed": true,
+      "confidence": "推",
+      "evidence": "名前 'search_notes' の語；説明文の語（資料として読んだだけ）",
+      "severity": "under"
+    },
+    {
+      "tool": "notes.search_notes",
+      "cap": "args_leave",
+      "declared": false,
+      "observed": true,
+      "confidence": "推",
+      "evidence": "名前 'search_notes' の語；説明文の語（資料として読んだだけ）",
+      "severity": "under"
+    },
+    {
+      "tool": "web.fetch_url",
+      "cap": "reads_untrusted",
+      "declared": false,
+      "observed": true,
+      "confidence": "推",
+      "evidence": "openWorldHint=true；入力スキーマの引数名；名前 'fetch_url' の語；説明文の語（資料として読んだだけ）",
+      "severity": "under"
+    },
+    {
+      "tool": "web.fetch_url",
+      "cap": "args_leave",
+      "declared": false,
+      "observed": true,
+      "confidence": "推",
+      "evidence": "入力スキーマの引数名；名前 'fetch_url' の語；説明文の語（資料として読んだだけ）",
+      "severity": "under"
+    },
+    {
+      "tool": "mailer.send_email",
+      "cap": "reads_untrusted",
+      "declared": false,
+      "observed": true,
+      "confidence": "推",
+      "evidence": "openWorldHint=true",
+      "severity": "under"
+    },
+    {
+      "tool": "mailer.send_email",
+      "cap": "args_leave",
+      "declared": false,
+      "observed": true,
+      "confidence": "推",
+      "evidence": "入力スキーマの引数名；名前 'send_email' の語；説明文の語（資料として読んだだけ）",
+      "severity": "under"
+    }
+  ],
+  "assumed": [
+    {
+      "tool": "notes.search_notes",
+      "cap": "exec"
+    },
+    {
+      "tool": "notes.search_notes",
+      "cap": "reads_secret"
+    },
+    {
+      "tool": "notes.search_notes",
+      "cap": "acts"
+    },
+    {
+      "tool": "notes.delete_note",
+      "cap": "reads_untrusted"
+    },
+    {
+      "tool": "notes.delete_note",
+      "cap": "args_leave"
+    },
+    {
+      "tool": "notes.delete_note",
+      "cap": "exec"
+    },
+    {
+      "tool": "notes.delete_note",
+      "cap": "net_out"
+    },
+    {
+      "tool": "notes.delete_note",
+      "cap": "reads_secret"
+    },
+    {
+      "tool": "notes.delete_note",
+      "cap": "acts"
+    },
+    {
+      "tool": "web.fetch_url",
+      "cap": "exec"
+    },
+    {
+      "tool": "web.fetch_url",
+      "cap": "reads_secret"
+    },
+    {
+      "tool": "web.fetch_url",
+      "cap": "acts"
+    },
+    {
+      "tool": "mailer.send_email",
+      "cap": "exec"
+    },
+    {
+      "tool": "mailer.send_email",
+      "cap": "reads_secret"
+    },
+    {
+      "tool": "mailer.send_email",
+      "cap": "acts"
+    }
+  ],
+  "checkpoints": {
+    "exact": true,
+    "primary": [
+      "notes.search_notes",
+      "notes.delete_note",
+      "web.fetch_url",
+      "mailer.send_email"
+    ],
+    "alternatives": [],
+    "size": 4,
+    "reasons": {
+      "notes.search_notes": [
+        "exec: notes.search_notes",
+        "act: notes.search_notes",
+        "exfil: notes.search_notes>notes.search_notes",
+        "exfil: notes.search_notes>notes.delete_note",
+        "exfil: notes.search_notes>web.fetch_url",
+        "exfil: notes.search_notes>mailer.send_email",
+        "exfil: notes.delete_note>notes.search_notes",
+        "exfil: web.fetch_url>notes.search_notes",
+        "exfil: mailer.send_email>notes.search_notes"
+      ],
+      "notes.delete_note": [
+        "exec: notes.delete_note",
+        "act: notes.delete_note",
+        "exfil: notes.search_notes>notes.delete_note",
+        "exfil: notes.delete_note>notes.search_notes",
+        "exfil: notes.delete_note>notes.delete_note",
+        "exfil: notes.delete_note>web.fetch_url",
+        "exfil: notes.delete_note>mailer.send_email",
+        "exfil: web.fetch_url>notes.delete_note",
+        "exfil: mailer.send_email>notes.delete_note"
+      ],
+      "web.fetch_url": [
+        "exec: web.fetch_url",
+        "act: web.fetch_url",
+        "exfil: notes.search_notes>web.fetch_url",
+        "exfil: notes.delete_note>web.fetch_url",
+        "exfil: web.fetch_url>notes.search_notes",
+        "exfil: web.fetch_url>notes.delete_note",
+        "exfil: web.fetch_url>web.fetch_url",
+        "exfil: web.fetch_url>mailer.send_email",
+        "exfil: mailer.send_email>web.fetch_url"
+      ],
+      "mailer.send_email": [
+        "exec: mailer.send_email",
+        "act: mailer.send_email",
+        "exfil: notes.search_notes>mailer.send_email",
+        "exfil: notes.delete_note>mailer.send_email",
+        "exfil: web.fetch_url>mailer.send_email",
+        "exfil: mailer.send_email>notes.search_notes",
+        "exfil: mailer.send_email>notes.delete_note",
+        "exfil: mailer.send_email>web.fetch_url",
+        "exfil: mailer.send_email>mailer.send_email"
+      ]
+    }
+  },
+  "declared_only": {
+    "cut": [],
+    "holds": false,
+    "surviving_paths": 24,
+    "surviving": [
+      "notes.search_notes",
+      "notes.search_notes",
+      "notes.delete_note",
+      "notes.delete_note",
+      "web.fetch_url",
+      "web.fetch_url",
+      "mailer.send_email",
+      "mailer.send_email",
+      "notes.search_notes>notes.search_notes",
+      "notes.search_notes>notes.delete_note",
+      "notes.search_notes>web.fetch_url",
+      "notes.search_notes>mailer.send_email",
+      "notes.delete_note>notes.search_notes",
+      "notes.delete_note>notes.delete_note",
+      "notes.delete_note>web.fetch_url",
+      "notes.delete_note>mailer.send_email",
+      "web.fetch_url>notes.search_notes",
+      "web.fetch_url>notes.delete_note",
+      "web.fetch_url>web.fetch_url",
+      "web.fetch_url>mailer.send_email",
+      "mailer.send_email>notes.search_notes",
+      "mailer.send_email>notes.delete_note",
+      "mailer.send_email>web.fetch_url",
+      "mailer.send_email>mailer.send_email"
+    ]
+  },
+  "not_checked": [
+    "人の確認の素通し（ask にした道具を人が実際に止めるか）は測っていない",
+    "文脈の中の値の流れは追っていない（文脈は 1 つの汚れうる場所として丸めた）",
+    "札の正しさは確かめていない（札は入力。確度と根拠を見て判断すること）"
+  ]
+}

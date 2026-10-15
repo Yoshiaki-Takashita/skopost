@@ -1,0 +1,81 @@
+{
+  "mcpServers": {
+    "mail": {
+      "type": "sse",
+      "url": "https://mcp.example.org/mail",
+      "headers": {
+        "X-Client": "corpus"
+      },
+      "tools": [
+        {
+          "name": "send_message",
+          "description": "Send an email message to a recipient.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "to": {
+                "type": "string"
+              },
+              "subject": {
+                "type": "string"
+              },
+              "body": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": true,
+            "destructiveHint": false
+          }
+        }
+      ]
+    },
+    "payments": {
+      "type": "http",
+      "url": "http://localhost:3057/mcp",
+      "headers": {
+        "X-Client": "corpus"
+      },
+      "tools": [
+        {
+          "name": "list_invoices",
+          "description": "List invoices for the account.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "refund_payment",
+          "description": "Refund a payment to the customer.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "payment": {
+                "type": "string"
+              },
+              "amount": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": true,
+            "destructiveHint": true
+          }
+        }
+      ]
+    }
+  }
+}

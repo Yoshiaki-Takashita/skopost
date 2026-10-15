@@ -1,0 +1,37 @@
+skopost: mcp-desktop-notes.mcp.json
+危ない道 24 本・関所 4 か所
+  [不明] 実行: notes.search_notes  (exec)
+  [不明] 取り返しのつかない操作: notes.search_notes  (acts:send,purchase,delete,publish,grant,pay)
+  [不明] 実行: notes.delete_note  (exec)
+  [不明] 取り返しのつかない操作: notes.delete_note  (acts:send,purchase,delete,publish,grant,pay)
+  [不明] 実行: web.fetch_url  (exec)
+  [不明] 取り返しのつかない操作: web.fetch_url  (acts:send,purchase,delete,publish,grant,pay)
+  [不明] 実行: mailer.send_email  (exec)
+  [不明] 取り返しのつかない操作: mailer.send_email  (acts:send,purchase,delete,publish,grant,pay)
+  [不明] 持ち出し: notes.search_notes>notes.search_notes  (reads_secret -> net_out)
+  [不明] 持ち出し: notes.search_notes>notes.delete_note  (reads_secret -> net_out)
+  [不明] 持ち出し: notes.search_notes>web.fetch_url  (reads_secret -> net_out)
+  [不明] 持ち出し: notes.search_notes>mailer.send_email  (reads_secret -> net_out)
+  [不明] 持ち出し: notes.delete_note>notes.search_notes  (reads_secret -> net_out)
+  [不明] 持ち出し: notes.delete_note>notes.delete_note  (reads_secret -> net_out)
+  [不明] 持ち出し: notes.delete_note>web.fetch_url  (reads_secret -> net_out)
+  [不明] 持ち出し: notes.delete_note>mailer.send_email  (reads_secret -> net_out)
+  [不明] 持ち出し: web.fetch_url>notes.search_notes  (reads_secret -> net_out)
+  [不明] 持ち出し: web.fetch_url>notes.delete_note  (reads_secret -> net_out)
+  [不明] 持ち出し: web.fetch_url>web.fetch_url  (reads_secret -> net_out)
+  [不明] 持ち出し: web.fetch_url>mailer.send_email  (reads_secret -> net_out)
+  [不明] 持ち出し: mailer.send_email>notes.search_notes  (reads_secret -> net_out)
+  [不明] 持ち出し: mailer.send_email>notes.delete_note  (reads_secret -> net_out)
+  [不明] 持ち出し: mailer.send_email>web.fetch_url  (reads_secret -> net_out)
+  [不明] 持ち出し: mailer.send_email>mailer.send_email  (reads_secret -> net_out)
+関所:
+  notes.search_notes (Search the user's notes by keyword.) -> mode: ask
+  notes.delete_note (Delete a note permanently.) -> mode: ask
+  web.fetch_url (Fetch a web page and return its text.) -> mode: ask
+  mailer.send_email (Send an email to a recipient.) -> mode: ask
+申告より危ない食い違い: notes.search_notes.reads_untrusted, notes.search_notes.net_out, notes.search_notes.args_leave, web.fetch_url.reads_untrusted, web.fetch_url.args_leave, mailer.send_email.reads_untrusted, mailer.send_email.args_leave
+不明として危ない側に倒した項目: notes.search_notes.exec, notes.search_notes.reads_secret, notes.search_notes.acts, notes.delete_note.reads_untrusted, notes.delete_note.args_leave, notes.delete_note.exec, notes.delete_note.net_out, notes.delete_note.reads_secret, notes.delete_note.acts, web.fetch_url.exec, web.fetch_url.reads_secret, web.fetch_url.acts, mailer.send_email.exec, mailer.send_email.reads_secret, mailer.send_email.acts
+走らせなかった検査・限界:
+  - 人の確認の素通し（ask にした道具を人が実際に止めるか）は測っていない
+  - 文脈の中の値の流れは追っていない（文脈は 1 つの汚れうる場所として丸めた）
+  - 札の正しさは確かめていない（札は入力。確度と根拠を見て判断すること）

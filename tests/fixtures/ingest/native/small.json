@@ -1,0 +1,1 @@
+{"skopost": 2, "name": "native-small", "tools": [{"id": "fetch", "mode": "allow", "observed": {"net_out": {"value": true, "confidence": "推", "evidence": "読んだ範囲"}}}]}

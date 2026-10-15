@@ -1,0 +1,124 @@
+{
+  "mcpServers": {
+    "files": {
+      "command": "uvx",
+      "args": [
+        "./servers/files/main"
+      ],
+      "env": {
+        "LOG_LEVEL": "info"
+      },
+      "tools": [
+        {
+          "name": "list_dir",
+          "description": "List entries of a directory.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "read_file",
+          "description": "Read a file from the workspace.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string"
+              }
+            }
+          },
+          "examples": "x"
+        },
+        {
+          "name": "write_file",
+          "description": "Write text to a file in the workspace.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string"
+              },
+              "content": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "notes": {
+      "command": "uvx",
+      "args": [
+        "./servers/notes/main"
+      ],
+      "tools": [
+        {
+          "name": "delete_note",
+          "description": "Delete a note permanently.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false,
+            "destructiveHint": true
+          }
+        },
+        {
+          "name": "search_notes",
+          "description": "Search notes by keyword.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "query": {
+                "type": "string"
+              },
+              "limit": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "create_note",
+          "description": "Create a new note.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "body": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false,
+            "destructiveHint": false
+          }
+        }
+      ]
+    }
+  },
+  "defaults": 1
+}

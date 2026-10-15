@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "NotebookEdit",
+      "WebSearch",
+      "mcp__notes__search_notes"
+    ],
+    "ask": [
+      "Write"
+    ],
+    "deny": [
+      "Bash(git diff *)",
+      "Bash(curl *)"
+    ]
+  },
+  "editorHints": "x"
+}

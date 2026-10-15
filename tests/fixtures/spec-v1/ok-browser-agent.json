@@ -1,0 +1,109 @@
+{
+  "skopost": 1,
+  "name": "例：AI のブラウザ操作（合成。実物の製品ではない）",
+  "stores": [
+    { "id": "downloads", "label": "ダウンロード先", "external": false, "executes": false, "secret": false },
+    { "id": "profile", "label": "ブラウザのプロファイル（Cookie・保存したパスワード）", "external": false, "executes": false, "secret": true },
+    { "id": "clipboard", "label": "クリップボード（他のアプリが読む）", "external": true, "executes": false, "secret": false }
+  ],
+  "tools": [
+    {
+      "id": "navigate", "label": "ページを開く", "mode": "allow", "frequency": 30,
+      "declared": { "reads_untrusted": true },
+      "observed": {
+        "reads_untrusted": { "value": true, "confidence": "確", "evidence": "合成" },
+        "args_leave": { "value": true, "confidence": "確", "evidence": "合成：URL（と中の文字列）が宛先へ届く" },
+        "net_out": { "value": false, "confidence": "論", "evidence": "合成：本文は送らないが、URL は長い文字列を運べる" },
+        "reads_secret": { "value": false, "confidence": "確", "evidence": "合成" },
+        "exec": { "value": false, "confidence": "確", "evidence": "合成" },
+        "acts": { "value": [], "confidence": "確", "evidence": "合成" },
+        "writes_stores": { "value": [], "confidence": "確", "evidence": "合成" },
+        "reads_stores": { "value": [], "confidence": "確", "evidence": "合成" }
+      }
+    },
+    {
+      "id": "read_page", "label": "ページの文字を読む", "mode": "allow", "frequency": 30,
+      "declared": { "reads_untrusted": true },
+      "observed": {
+        "reads_untrusted": { "value": true, "confidence": "確", "evidence": "合成" },
+        "reads_secret": { "value": true, "confidence": "論", "evidence": "合成：ログイン済みのページには個人情報が表示される" },
+        "net_out": { "value": false, "confidence": "確", "evidence": "合成" },
+        "args_leave": { "value": false, "confidence": "確", "evidence": "合成" },
+        "exec": { "value": false, "confidence": "確", "evidence": "合成" },
+        "acts": { "value": [], "confidence": "確", "evidence": "合成" },
+        "writes_stores": { "value": [], "confidence": "確", "evidence": "合成" },
+        "reads_stores": { "value": [], "confidence": "確", "evidence": "合成" }
+      }
+    },
+    {
+      "id": "click", "label": "クリック", "mode": "allow", "frequency": 40,
+      "declared": {},
+      "observed": {
+        "acts": { "value": ["send", "purchase", "delete", "publish"], "confidence": "論", "evidence": "合成：ボタンが何をするかは画面次第。送信・購入・削除・投稿のどれにもなりうる" },
+        "exec": { "value": false, "confidence": "確", "evidence": "合成" },
+        "net_out": { "value": false, "confidence": "確", "evidence": "合成" },
+        "args_leave": { "value": false, "confidence": "確", "evidence": "合成" },
+        "reads_secret": { "value": false, "confidence": "確", "evidence": "合成" },
+        "reads_untrusted": { "value": true, "confidence": "確", "evidence": "合成" },
+        "writes_stores": { "value": [], "confidence": "確", "evidence": "合成" },
+        "reads_stores": { "value": [], "confidence": "確", "evidence": "合成" }
+      }
+    },
+    {
+      "id": "type_text", "label": "文字を入力する", "mode": "allow", "frequency": 20,
+      "declared": {},
+      "observed": {
+        "net_out": { "value": true, "confidence": "論", "evidence": "合成：入力欄に書いた文は送信ボタンで外へ出る" },
+        "exec": { "value": false, "confidence": "確", "evidence": "合成" },
+        "args_leave": { "value": false, "confidence": "確", "evidence": "合成" },
+        "reads_secret": { "value": false, "confidence": "確", "evidence": "合成" },
+        "reads_untrusted": { "value": false, "confidence": "確", "evidence": "合成" },
+        "acts": { "value": [], "confidence": "確", "evidence": "合成" },
+        "writes_stores": { "value": [], "confidence": "確", "evidence": "合成" },
+        "reads_stores": { "value": [], "confidence": "確", "evidence": "合成" }
+      }
+    },
+    {
+      "id": "copy_to_clipboard", "label": "クリップボードへコピー", "mode": "allow", "frequency": 5,
+      "declared": {},
+      "observed": {
+        "writes_stores": { "value": ["clipboard"], "confidence": "確", "evidence": "合成" },
+        "exec": { "value": false, "confidence": "確", "evidence": "合成" },
+        "net_out": { "value": false, "confidence": "確", "evidence": "合成" },
+        "args_leave": { "value": false, "confidence": "確", "evidence": "合成" },
+        "reads_secret": { "value": false, "confidence": "確", "evidence": "合成" },
+        "reads_untrusted": { "value": false, "confidence": "確", "evidence": "合成" },
+        "acts": { "value": [], "confidence": "確", "evidence": "合成" },
+        "reads_stores": { "value": [], "confidence": "確", "evidence": "合成" }
+      }
+    },
+    {
+      "id": "download", "label": "ファイルをダウンロード", "mode": "allow", "frequency": 3,
+      "declared": { "writes_stores": ["downloads"] },
+      "observed": {
+        "writes_stores": { "value": ["downloads"], "confidence": "確", "evidence": "合成" },
+        "exec": { "value": false, "confidence": "不明", "evidence": "合成：落とした物が自動で開かれるか未確認" },
+        "net_out": { "value": false, "confidence": "確", "evidence": "合成" },
+        "args_leave": { "value": true, "confidence": "確", "evidence": "合成：URL が宛先へ届く" },
+        "reads_secret": { "value": false, "confidence": "確", "evidence": "合成" },
+        "reads_untrusted": { "value": true, "confidence": "確", "evidence": "合成" },
+        "acts": { "value": [], "confidence": "確", "evidence": "合成" },
+        "reads_stores": { "value": [], "confidence": "確", "evidence": "合成" }
+      }
+    },
+    {
+      "id": "screenshot", "label": "画面を撮る", "mode": "allow", "frequency": 20,
+      "declared": {},
+      "observed": {
+        "reads_secret": { "value": true, "confidence": "論", "evidence": "合成：画面に出ている個人情報が画像に入る" },
+        "reads_untrusted": { "value": true, "confidence": "確", "evidence": "合成" },
+        "exec": { "value": false, "confidence": "確", "evidence": "合成" },
+        "net_out": { "value": false, "confidence": "確", "evidence": "合成" },
+        "args_leave": { "value": false, "confidence": "確", "evidence": "合成" },
+        "acts": { "value": [], "confidence": "確", "evidence": "合成" },
+        "writes_stores": { "value": [], "confidence": "確", "evidence": "合成" },
+        "reads_stores": { "value": [], "confidence": "確", "evidence": "合成" }
+      }
+    }
+  ]
+}

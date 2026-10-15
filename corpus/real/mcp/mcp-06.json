@@ -1,0 +1,82 @@
+{
+  "mcpServers": {
+    "db": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "example-db-server"
+      ],
+      "env": {
+        "LOG_LEVEL": "info"
+      },
+      "tools": [
+        {
+          "name": "query_db",
+          "description": "Run a read-only SQL query.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "sql": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        }
+      ],
+      "displayName": "x"
+    },
+    "mail": {
+      "type": "sse",
+      "url": "https://mcp.example.org/mail",
+      "tools": [
+        {
+          "name": "send_message",
+          "description": "Send an email message to a recipient.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "to": {
+                "type": "string"
+              },
+              "subject": {
+                "type": "string"
+              },
+              "body": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": true,
+            "destructiveHint": false
+          }
+        },
+        {
+          "name": "list_inbox",
+          "description": "List recent messages in the inbox.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "folder": {
+                "type": "string"
+              },
+              "limit": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": true,
+            "costlyHint": true
+          }
+        }
+      ]
+    }
+  }
+}

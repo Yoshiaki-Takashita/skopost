@@ -1,0 +1,16 @@
+{
+  "skopost": 1,
+  "name": "例：読むだけの調べ物の道具（合成。道が無い構成）",
+  "untrusted_in_context": true,
+  "tools": [
+    {"id": "doc_search", "label": "社内文書を探す",
+     "observed": {"reads_untrusted": {"value": false, "confidence": "論", "evidence": "社内の文書だけ"},
+                  "reads_secret": {"value": false, "confidence": "論", "evidence": "公開区分だけ"},
+                  "net_out": {"value": false, "confidence": "確", "evidence": "通信なし"},
+                  "args_leave": {"value": false, "confidence": "確", "evidence": "通信なし"},
+                  "exec": {"value": false, "confidence": "確", "evidence": "実行しない"},
+                  "acts": {"value": [], "confidence": "確", "evidence": "操作なし"},
+                  "writes_stores": {"value": [], "confidence": "確", "evidence": "書かない"},
+                  "reads_stores": {"value": [], "confidence": "確", "evidence": "置き場なし"}}}
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Synthetic db API",
+    "version": "4"
+  },
+  "servers": [
+    {
+      "url": "https://db.example.org/v1"
+    }
+  ],
+  "paths": {
+    "/db": {
+      "get": {
+        "operationId": "query_db",
+        "summary": "Run a read-only SQL query.",
+        "parameters": [
+          {
+            "name": "sql",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      }
+    },
+    "/table/{id}": {
+      "post": {
+        "operationId": "drop_table",
+        "summary": "Drop a database table.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "table": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      }
+    },
+    "/file": {
+      "get": {
+        "operationId": "read_file",
+        "summary": "Read a file from the workspace.",
+        "parameters": [
+          {
+            "name": "path",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      }
+    },
+    "/message": {
+      "post": {
+        "operationId": "send_message",
+        "summary": "Send an email message to a recipient.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "to": {
+                    "type": "string"
+                  },
+                  "subject": {
+                    "type": "string"
+                  },
+                  "body": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      }
+    },
+    "/secret": {
+      "get": {
+        "operationId": "get_secret",
+        "summary": "Read a named credential from the local vault.",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      }
+    }
+  },
+  "generator": "x"
+}

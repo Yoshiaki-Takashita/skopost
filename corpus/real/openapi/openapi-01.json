@@ -1,0 +1,70 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Synthetic calendar API",
+    "version": "6"
+  },
+  "servers": [
+    {
+      "url": "https://api.example.com/calendar"
+    }
+  ],
+  "paths": {
+    "/events": {
+      "get": {
+        "operationId": "list_events",
+        "summary": "List calendar events in a range.",
+        "parameters": [
+          {
+            "name": "start",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      }
+    },
+    "/event": {
+      "post": {
+        "operationId": "create_event",
+        "summary": "Create a calendar event and invite attendees.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "attendees": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      },
+      "visibility": "x"
+    }
+  }
+}

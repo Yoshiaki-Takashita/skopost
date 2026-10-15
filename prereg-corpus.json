@@ -1,0 +1,18 @@
+{
+  "registered": "2026-10-13",
+  "seed": 20261013,
+  "generator": "corpus/gen.py（synth・real_corpus。real/MANIFEST.json の md5 1db5d760279d3f3a9aa713793025a414）",
+  "predictions": {
+    "C1":  {"desc": "実例風 72 件で、植えた鍵のうち x- 拡張でないものが ingest の notes に 100% 記録される（I3）", "metric": "unread_recall_non_x", "min": 1.0},
+    "C1b": {"desc": "OpenAPI の Path Item・Operation に植えた x- 拡張は記録されない（記録率 0%。コードを読んでの予言）", "metric": "unread_recall_x_path_op", "max": 0.0},
+    "C2":  {"desc": "混在コーパス（実例風 72＋合成 native 120）で自動判別の誤り率（誤判別＋判別拒否）< 2%（I4）", "metric": "detect_error", "max_exclusive": 0.02},
+    "C2b": {"desc": "同じコーパスでファイル名を全部 config.json にしても誤り率 < 2%", "metric": "detect_error_renamed", "max_exclusive": 0.02},
+    "C3":  {"desc": "実例風 72 件で infer の規則が足した札のうち「確」は 0 件（F2）", "metric": "inferred_kaku", "max": 0},
+    "C3b": {"desc": "規則が足した札のうち「推」の割合 >= 80%", "metric": "inferred_suisoku_share", "min": 0.8},
+    "C4":  {"desc": "合成 n=10〜14 の 1,000 構成で、厳密解の大きさ == 全探索の最小（G1。不一致 0）", "metric": "exact_vs_brute_mismatch", "max": 0},
+    "C5":  {"desc": "合成 n=64 の 50 構成で analyze の 95 パーセンタイル < 2 秒（G2）", "metric": "p95_seconds_n64", "max_exclusive": 2.0},
+    "C6":  {"desc": "合成 1,000 構成で monotone の道が v1 より少ない構成は 0", "metric": "monotone_shrink_configs", "max": 0},
+    "C6b": {"desc": "monotone で道が増える構成の割合は 10%〜50%", "metric": "monotone_grow_share", "min": 0.10, "max": 0.50},
+    "C6c": {"desc": "道の総数の増加率（monotone/v1 - 1）は 2%〜25%", "metric": "monotone_path_increase", "min": 0.02, "max": 0.25}
+  }
+}

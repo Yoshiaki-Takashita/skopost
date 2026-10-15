@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(./.env)",
+      "Bash(make *)",
+      "mcp__notes__search_notes"
+    ],
+    "ask": [
+      "Write",
+      "Bash(git push *)",
+      "Grep"
+    ],
+    "deny": [
+      "mcp__mail__send_message"
+    ]
+  }
+}

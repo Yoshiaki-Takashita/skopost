@@ -1,0 +1,140 @@
+{
+  "skopost": 1,
+  "name": "例：ノート・エージェントの道具（合成。実物の設定ではない）",
+  "exit_code": 2,
+  "summary": {
+    "tools": 8,
+    "allowed": 7,
+    "paths": 4,
+    "paths_declared_only": 2,
+    "missed_by_declared": 2,
+    "mismatches": 3,
+    "assumed_unknown": 2,
+    "seconds": X
+  },
+  "paths": [
+    {
+      "kind": "exec",
+      "tools": [
+        "addon_install"
+      ],
+      "confidence": "論",
+      "via": [
+        "writes_stores→addons（実行される置き場）"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "settings_read",
+        "web_import"
+      ],
+      "confidence": "論",
+      "via": [
+        "reads_stores→settings（秘密のある置き場）",
+        "args_leave"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "settings_read",
+        "share_export"
+      ],
+      "confidence": "論",
+      "via": [
+        "reads_stores→settings（秘密のある置き場）",
+        "writes_stores→share（外部の置き場）"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "settings_read",
+        "voice_synth"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_stores→settings（秘密のある置き場）",
+        "net_out"
+      ]
+    }
+  ],
+  "mismatches": [
+    {
+      "tool": "note_read",
+      "cap": "reads_untrusted",
+      "declared": false,
+      "observed": true,
+      "confidence": "確",
+      "evidence": "合成：取り込んだウェブの文が入る",
+      "severity": "under"
+    },
+    {
+      "tool": "web_import",
+      "cap": "args_leave",
+      "declared": false,
+      "observed": true,
+      "confidence": "確",
+      "evidence": "合成：URL がそのまま外へ出る（R-2 の型）",
+      "severity": "under"
+    },
+    {
+      "tool": "web_import",
+      "cap": "writes_stores",
+      "declared": [],
+      "observed": [
+        "notes"
+      ],
+      "confidence": "確",
+      "evidence": "合成",
+      "severity": "under"
+    }
+  ],
+  "assumed": [
+    {
+      "tool": "voice_synth",
+      "cap": "args_leave"
+    },
+    {
+      "tool": "voice_synth",
+      "cap": "net_out"
+    }
+  ],
+  "checkpoints": {
+    "exact": true,
+    "primary": [
+      "settings_read",
+      "addon_install"
+    ],
+    "alternatives": [],
+    "size": 2,
+    "reasons": {
+      "settings_read": [
+        "exfil: settings_read>web_import",
+        "exfil: settings_read>share_export",
+        "exfil: settings_read>voice_synth"
+      ],
+      "addon_install": [
+        "exec: addon_install"
+      ]
+    }
+  },
+  "declared_only": {
+    "cut": [
+      "addon_install",
+      "share_export"
+    ],
+    "holds": false,
+    "surviving_paths": 2,
+    "surviving": [
+      "settings_read>web_import",
+      "settings_read>voice_synth"
+    ]
+  },
+  "not_checked": [
+    "人の確認の素通し（ask にした道具を人が実際に止めるか）は測っていない",
+    "文脈の中の値の流れは追っていない（文脈は 1 つの汚れうる場所として丸めた）",
+    "札の正しさは確かめていない（札は入力。確度と根拠を見て判断すること）"
+  ]
+}

@@ -1,0 +1,46 @@
+# Skopost composite action（雛形）。利用者のリポジトリに置いて使う。この木では有効化しない。
+# 外部 action はすべて 40 桁の SHA で固定（タグは 2026-10-13 に git ls-remote で解決）。
+# `check --format sarif`・`--baseline`・`baseline` は cli に配線済み（tests/test_integration.Templates が実在を確かめる）。
+name: Skopost
+description: 宣言ファイルから危ない道を探し、SARIF をコード スキャンに上げる（外部通信は upload-sarif のみ）
+inputs:
+  config:
+    description: 宣言ファイル（skopost.json）
+    required: true
+    default: skopost.json
+  baseline:
+    description: 基準線（空なら全部の道で失敗。指定すると新しく増えた道だけで失敗）
+    required: false
+    default: ""
+  python-version:
+    description: Python の版
+    required: false
+    default: "3.11"
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+      with:
+        python-version: ${{ inputs.python-version }}
+    - name: skopost check (SARIF)
+      id: check
+      shell: bash
+      env:
+        SKOPOST_CONFIG: ${{ inputs.config }}
+        SKOPOST_BASELINE: ${{ inputs.baseline }}
+      run: |
+        set +e
+        args=(check "$SKOPOST_CONFIG" --format sarif --out skopost.sarif)
+        if [ -n "$SKOPOST_BASELINE" ]; then args+=(--baseline "$SKOPOST_BASELINE"); fi
+        python3 -m skopost "${args[@]}"
+        echo "code=$?" >> "$GITHUB_OUTPUT"
+    - uses: github/codeql-action/upload-sarif@9f759ee644a3e7c15c1390abf49868036c00067b # v3
+      if: always()
+      with:
+        sarif_file: skopost.sarif
+        category: skopost
+    - name: fail on harmful paths
+      shell: bash
+      env:
+        CODE: ${{ steps.check.outputs.code }}
+      run: test "$CODE" = "0"

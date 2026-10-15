@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git status)",
+      "Edit"
+    ],
+    "ask": [
+      "mcp__mail__send_message"
+    ],
+    "defaultMode": "default"
+  }
+}

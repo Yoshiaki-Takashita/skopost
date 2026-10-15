@@ -1,0 +1,335 @@
+{
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "version": "X",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Skopost",
+          "version": "X",
+          "semanticVersion": "X",
+          "rules": [
+            {
+              "id": "SKP-EXEC",
+              "name": "HarmfulExecution",
+              "shortDescription": {
+                "text": "信頼できない入力が実行に届く道（確認なしの道具だけで成り立つ）"
+              },
+              "fullDescription": {
+                "text": "信頼できない入力が実行に届く道（確認なしの道具だけで成り立つ）"
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              }
+            },
+            {
+              "id": "SKP-ACT",
+              "name": "IrreversibleAction",
+              "shortDescription": {
+                "text": "信頼できない入力が取り返しのつかない操作に届く道"
+              },
+              "fullDescription": {
+                "text": "信頼できない入力が取り返しのつかない操作に届く道"
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              }
+            },
+            {
+              "id": "SKP-EXFIL",
+              "name": "Exfiltration",
+              "shortDescription": {
+                "text": "秘密を読む道具から外へ送る道具へ抜ける道"
+              },
+              "fullDescription": {
+                "text": "秘密を読む道具から外へ送る道具へ抜ける道"
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              }
+            },
+            {
+              "id": "SKP-MISMATCH-UNDER",
+              "name": "UnderDeclared",
+              "shortDescription": {
+                "text": "観察が宣言より危ない（申告より危ない食い違い）"
+              },
+              "fullDescription": {
+                "text": "観察が宣言より危ない（申告より危ない食い違い）"
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              }
+            }
+          ]
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true,
+          "toolExecutionNotifications": [
+            {
+              "level": "note",
+              "message": {
+                "text": "人の確認の素通し（ask にした道具を人が実際に止めるか）は測っていない"
+              },
+              "descriptor": {
+                "id": "SKP-NOT-CHECKED"
+              }
+            },
+            {
+              "level": "note",
+              "message": {
+                "text": "文脈の中の値の流れは追っていない（文脈は 1 つの汚れうる場所として丸めた）"
+              },
+              "descriptor": {
+                "id": "SKP-NOT-CHECKED"
+              }
+            },
+            {
+              "level": "note",
+              "message": {
+                "text": "札の正しさは確かめていない（札は入力。確度と根拠を見て判断すること）"
+              },
+              "descriptor": {
+                "id": "SKP-NOT-CHECKED"
+              }
+            }
+          ]
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "skopost.json"
+          }
+        }
+      ],
+      "results": [
+        {
+          "ruleId": "SKP-EXEC",
+          "ruleIndex": 0,
+          "level": "error",
+          "message": {
+            "text": "実行の道 addon_install（確度 論）：writes_stores→addons（実行される置き場）"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "skopost.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exec:addon_install"
+          },
+          "properties": {
+            "kind": "exec",
+            "tools": [
+              "addon_install"
+            ],
+            "via": [
+              "writes_stores→addons（実行される置き場）"
+            ],
+            "confidence": "論"
+          }
+        },
+        {
+          "ruleId": "SKP-EXFIL",
+          "ruleIndex": 2,
+          "level": "error",
+          "message": {
+            "text": "持ち出しの道 settings_read>web_import（確度 論）：reads_stores→settings（秘密のある置き場） → args_leave"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "skopost.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exfil:settings_read>web_import"
+          },
+          "properties": {
+            "kind": "exfil",
+            "tools": [
+              "settings_read",
+              "web_import"
+            ],
+            "via": [
+              "reads_stores→settings（秘密のある置き場）",
+              "args_leave"
+            ],
+            "confidence": "論"
+          }
+        },
+        {
+          "ruleId": "SKP-EXFIL",
+          "ruleIndex": 2,
+          "level": "error",
+          "message": {
+            "text": "持ち出しの道 settings_read>share_export（確度 論）：reads_stores→settings（秘密のある置き場） → writes_stores→share（外部の置き場）"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "skopost.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exfil:settings_read>share_export"
+          },
+          "properties": {
+            "kind": "exfil",
+            "tools": [
+              "settings_read",
+              "share_export"
+            ],
+            "via": [
+              "reads_stores→settings（秘密のある置き場）",
+              "writes_stores→share（外部の置き場）"
+            ],
+            "confidence": "論"
+          }
+        },
+        {
+          "ruleId": "SKP-EXFIL",
+          "ruleIndex": 2,
+          "level": "note",
+          "message": {
+            "text": "持ち出しの道 settings_read>voice_synth（確度 不明）：reads_stores→settings（秘密のある置き場） → net_out"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "skopost.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exfil:settings_read>voice_synth"
+          },
+          "properties": {
+            "kind": "exfil",
+            "tools": [
+              "settings_read",
+              "voice_synth"
+            ],
+            "via": [
+              "reads_stores→settings（秘密のある置き場）",
+              "net_out"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-MISMATCH-UNDER",
+          "ruleIndex": 3,
+          "level": "warning",
+          "message": {
+            "text": "note_read.reads_untrusted：宣言より観察が危ない（確度 確）。根拠：合成：取り込んだウェブの文が入る"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "skopost.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "skopostMismatch/v1": "note_read:reads_untrusted"
+          }
+        },
+        {
+          "ruleId": "SKP-MISMATCH-UNDER",
+          "ruleIndex": 3,
+          "level": "warning",
+          "message": {
+            "text": "web_import.args_leave：宣言より観察が危ない（確度 確）。根拠：合成：URL がそのまま外へ出る（R-2 の型）"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "skopost.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "skopostMismatch/v1": "web_import:args_leave"
+          }
+        },
+        {
+          "ruleId": "SKP-MISMATCH-UNDER",
+          "ruleIndex": 3,
+          "level": "warning",
+          "message": {
+            "text": "web_import.writes_stores：宣言より観察が危ない（確度 確）。根拠：合成"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "skopost.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "skopostMismatch/v1": "web_import:writes_stores"
+          }
+        }
+      ],
+      "properties": {
+        "notChecked": [
+          "人の確認の素通し（ask にした道具を人が実際に止めるか）は測っていない",
+          "文脈の中の値の流れは追っていない（文脈は 1 つの汚れうる場所として丸めた）",
+          "札の正しさは確かめていない（札は入力。確度と根拠を見て判断すること）"
+        ],
+        "assumed": [
+          "voice_synth.args_leave",
+          "voice_synth.net_out"
+        ],
+        "checkpoints": [
+          "settings_read",
+          "addon_install"
+        ],
+        "exact": true
+      }
+    }
+  ]
+}

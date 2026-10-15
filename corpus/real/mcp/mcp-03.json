@@ -1,0 +1,111 @@
+{
+  "mcpServers": {
+    "calendar": {
+      "command": "uvx",
+      "args": [
+        "./servers/calendar/main"
+      ],
+      "env": {
+        "LOG_LEVEL": "info"
+      },
+      "tools": [
+        {
+          "name": "list_events",
+          "description": "List calendar events in a range.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "start": {
+                "type": "string"
+              },
+              "end": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        {
+          "name": "create_event",
+          "description": "Create a calendar event and invite attendees.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "attendees": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "payments": {
+      "type": "sse",
+      "url": "https://mcp.example.org/payments",
+      "tools": [
+        {
+          "name": "list_invoices",
+          "description": "List invoices for the account.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": true
+          },
+          "version": "x"
+        },
+        {
+          "name": "refund_payment",
+          "description": "Refund a payment to the customer.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "payment": {
+                "type": "string"
+              },
+              "amount": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": true,
+            "destructiveHint": true
+          }
+        }
+      ]
+    },
+    "db": {
+      "command": "node",
+      "args": [
+        "./servers/db/main"
+      ],
+      "env": {
+        "LOG_LEVEL": "info"
+      },
+      "tools": [
+        {
+          "name": "query_db",
+          "description": "Run a read-only SQL query.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "sql": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

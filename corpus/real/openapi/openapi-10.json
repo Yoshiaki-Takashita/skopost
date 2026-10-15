@@ -1,0 +1,92 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Synthetic calendar API",
+    "version": "2"
+  },
+  "paths": {
+    "/events": {
+      "get": {
+        "operationId": "list_events",
+        "summary": "List calendar events in a range.",
+        "parameters": [
+          {
+            "name": "start",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      }
+    },
+    "/event": {
+      "post": {
+        "operationId": "create_event",
+        "summary": "Create a calendar event and invite attendees.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "attendees": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      }
+    },
+    "/push": {
+      "post": {
+        "operationId": "git_push",
+        "summary": "Push the current branch to the remote.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "remote": {
+                    "type": "string"
+                  },
+                  "branch": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      }
+    }
+  }
+}

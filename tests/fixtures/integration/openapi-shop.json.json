@@ -1,0 +1,372 @@
+{
+  "skopost": 1,
+  "name": "Example shop API (synthetic)",
+  "exit_code": 2,
+  "summary": {
+    "tools": 3,
+    "allowed": 3,
+    "paths": 15,
+    "paths_declared_only": 0,
+    "missed_by_declared": 15,
+    "mismatches": 9,
+    "assumed_unknown": 9,
+    "seconds": X
+  },
+  "paths": [
+    {
+      "kind": "exec",
+      "tools": [
+        "searchProducts"
+      ],
+      "confidence": "不明",
+      "via": [
+        "exec"
+      ]
+    },
+    {
+      "kind": "act",
+      "tools": [
+        "searchProducts"
+      ],
+      "confidence": "不明",
+      "via": [
+        "acts:send,purchase,delete,publish,grant,pay"
+      ]
+    },
+    {
+      "kind": "exec",
+      "tools": [
+        "placeOrder"
+      ],
+      "confidence": "不明",
+      "via": [
+        "exec"
+      ]
+    },
+    {
+      "kind": "act",
+      "tools": [
+        "placeOrder"
+      ],
+      "confidence": "不明",
+      "via": [
+        "acts:send,purchase,delete,publish,grant,pay"
+      ]
+    },
+    {
+      "kind": "exec",
+      "tools": [
+        "cancelOrder"
+      ],
+      "confidence": "不明",
+      "via": [
+        "exec"
+      ]
+    },
+    {
+      "kind": "act",
+      "tools": [
+        "cancelOrder"
+      ],
+      "confidence": "不明",
+      "via": [
+        "acts:send,purchase,delete,publish,grant,pay"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "searchProducts",
+        "searchProducts"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "searchProducts",
+        "placeOrder"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "searchProducts",
+        "cancelOrder"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "placeOrder",
+        "searchProducts"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "placeOrder",
+        "placeOrder"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "placeOrder",
+        "cancelOrder"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "cancelOrder",
+        "searchProducts"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "cancelOrder",
+        "placeOrder"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "cancelOrder",
+        "cancelOrder"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    }
+  ],
+  "mismatches": [
+    {
+      "tool": "searchProducts",
+      "cap": "reads_untrusted",
+      "declared": false,
+      "observed": true,
+      "confidence": "推",
+      "evidence": "HTTP GET の応答は外部の文章；名前 'searchProducts' の語；説明文の語（資料として読んだだけ）；説明文の語（資料として読んだだけ）",
+      "severity": "under"
+    },
+    {
+      "tool": "searchProducts",
+      "cap": "net_out",
+      "declared": false,
+      "observed": true,
+      "confidence": "推",
+      "evidence": "servers が外部；名前 'searchProducts' の語；説明文の語（資料として読んだだけ）；説明文の語（資料として読んだだけ）",
+      "severity": "under"
+    },
+    {
+      "tool": "searchProducts",
+      "cap": "args_leave",
+      "declared": false,
+      "observed": true,
+      "confidence": "推",
+      "evidence": "HTTP GET の引数は相手のサーバーに届く；名前 'searchProducts' の語；説明文の語（資料として読んだだけ）；説明文の語（資料として読んだだけ）",
+      "severity": "under"
+    },
+    {
+      "tool": "placeOrder",
+      "cap": "reads_untrusted",
+      "declared": false,
+      "observed": true,
+      "confidence": "推",
+      "evidence": "HTTP POST の応答は外部の文章",
+      "severity": "under"
+    },
+    {
+      "tool": "placeOrder",
+      "cap": "net_out",
+      "declared": false,
+      "observed": true,
+      "confidence": "論",
+      "evidence": "servers が外部",
+      "severity": "under"
+    },
+    {
+      "tool": "placeOrder",
+      "cap": "args_leave",
+      "declared": false,
+      "observed": true,
+      "confidence": "推",
+      "evidence": "HTTP POST の引数は相手のサーバーに届く；名前 'placeOrder' の語；説明文の語（資料として読んだだけ）",
+      "severity": "under"
+    },
+    {
+      "tool": "cancelOrder",
+      "cap": "reads_untrusted",
+      "declared": false,
+      "observed": true,
+      "confidence": "推",
+      "evidence": "HTTP DELETE の応答は外部の文章",
+      "severity": "under"
+    },
+    {
+      "tool": "cancelOrder",
+      "cap": "net_out",
+      "declared": false,
+      "observed": true,
+      "confidence": "論",
+      "evidence": "servers が外部",
+      "severity": "under"
+    },
+    {
+      "tool": "cancelOrder",
+      "cap": "args_leave",
+      "declared": false,
+      "observed": true,
+      "confidence": "推",
+      "evidence": "HTTP DELETE の引数は相手のサーバーに届く；名前 'cancelOrder' の語；説明文の語（資料として読んだだけ）",
+      "severity": "under"
+    }
+  ],
+  "assumed": [
+    {
+      "tool": "searchProducts",
+      "cap": "exec"
+    },
+    {
+      "tool": "searchProducts",
+      "cap": "reads_secret"
+    },
+    {
+      "tool": "searchProducts",
+      "cap": "acts"
+    },
+    {
+      "tool": "placeOrder",
+      "cap": "exec"
+    },
+    {
+      "tool": "placeOrder",
+      "cap": "reads_secret"
+    },
+    {
+      "tool": "placeOrder",
+      "cap": "acts"
+    },
+    {
+      "tool": "cancelOrder",
+      "cap": "exec"
+    },
+    {
+      "tool": "cancelOrder",
+      "cap": "reads_secret"
+    },
+    {
+      "tool": "cancelOrder",
+      "cap": "acts"
+    }
+  ],
+  "checkpoints": {
+    "exact": true,
+    "primary": [
+      "searchProducts",
+      "placeOrder",
+      "cancelOrder"
+    ],
+    "alternatives": [],
+    "size": 3,
+    "reasons": {
+      "searchProducts": [
+        "exec: searchProducts",
+        "act: searchProducts",
+        "exfil: searchProducts>searchProducts",
+        "exfil: searchProducts>placeOrder",
+        "exfil: searchProducts>cancelOrder",
+        "exfil: placeOrder>searchProducts",
+        "exfil: cancelOrder>searchProducts"
+      ],
+      "placeOrder": [
+        "exec: placeOrder",
+        "act: placeOrder",
+        "exfil: searchProducts>placeOrder",
+        "exfil: placeOrder>searchProducts",
+        "exfil: placeOrder>placeOrder",
+        "exfil: placeOrder>cancelOrder",
+        "exfil: cancelOrder>placeOrder"
+      ],
+      "cancelOrder": [
+        "exec: cancelOrder",
+        "act: cancelOrder",
+        "exfil: searchProducts>cancelOrder",
+        "exfil: placeOrder>cancelOrder",
+        "exfil: cancelOrder>searchProducts",
+        "exfil: cancelOrder>placeOrder",
+        "exfil: cancelOrder>cancelOrder"
+      ]
+    }
+  },
+  "declared_only": {
+    "cut": [],
+    "holds": false,
+    "surviving_paths": 15,
+    "surviving": [
+      "searchProducts",
+      "searchProducts",
+      "placeOrder",
+      "placeOrder",
+      "cancelOrder",
+      "cancelOrder",
+      "searchProducts>searchProducts",
+      "searchProducts>placeOrder",
+      "searchProducts>cancelOrder",
+      "placeOrder>searchProducts",
+      "placeOrder>placeOrder",
+      "placeOrder>cancelOrder",
+      "cancelOrder>searchProducts",
+      "cancelOrder>placeOrder",
+      "cancelOrder>cancelOrder"
+    ]
+  },
+  "not_checked": [
+    "人の確認の素通し（ask にした道具を人が実際に止めるか）は測っていない",
+    "文脈の中の値の流れは追っていない（文脈は 1 つの汚れうる場所として丸めた）",
+    "札の正しさは確かめていない（札は入力。確度と根拠を見て判断すること）"
+  ]
+}

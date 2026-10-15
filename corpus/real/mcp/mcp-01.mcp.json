@@ -1,0 +1,75 @@
+{
+  "mcpServers": {
+    "calendar": {
+      "command": "./bin/server",
+      "args": [
+        "./servers/calendar/main"
+      ],
+      "tools": [
+        {
+          "name": "create_event",
+          "description": "Create a calendar event and invite attendees.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "attendees": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": true,
+            "destructiveHint": false
+          }
+        }
+      ]
+    },
+    "git": {
+      "command": "uvx",
+      "args": [
+        "./servers/git/main"
+      ],
+      "tools": [
+        {
+          "name": "git_status",
+          "description": "Show the working tree status.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          }
+        },
+        {
+          "name": "git_push",
+          "description": "Push the current branch to the remote.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "remote": {
+                "type": "string"
+              },
+              "branch": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": true,
+            "destructiveHint": false
+          }
+        }
+      ]
+    },
+    "web": {
+      "type": "sse",
+      "url": "http://localhost:8875/mcp",
+      "headers": {
+        "X-Client": "corpus"
+      }
+    }
+  }
+}

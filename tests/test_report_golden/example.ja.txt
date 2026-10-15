@@ -1,0 +1,10 @@
+skopost: 最小の例：読むだけ 2 つの組み合わせ
+危ない道 1 本・関所 1 か所
+  [論] 持ち出し: read_file>web_search  (reads_stores→env（秘密のある置き場） -> args_leave)
+関所:
+  read_file (ファイルを読む) -> mode: ask
+申告より危ない食い違い: read_file.reads_untrusted, web_search.args_leave
+走らせなかった検査・限界:
+  - 人の確認の素通し（ask にした道具を人が実際に止めるか）は測っていない
+  - 文脈の中の値の流れは追っていない（文脈は 1 つの汚れうる場所として丸めた）
+  - 札の正しさは確かめていない（札は入力。確度と根拠を見て判断すること）

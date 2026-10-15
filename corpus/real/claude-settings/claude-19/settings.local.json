@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Write",
+      "Bash(python3 *)"
+    ],
+    "ask": [
+      "Bash(curl *)",
+      "Bash(make *)",
+      "NotebookEdit"
+    ],
+    "deny": [
+      "Edit",
+      "mcp__notes__search_notes"
+    ]
+  },
+  "themeColor": "x"
+}

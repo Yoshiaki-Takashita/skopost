@@ -1,0 +1,126 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Synthetic shell API",
+    "version": "2"
+  },
+  "servers": [
+    {
+      "url": "https://api.example.com/shell"
+    }
+  ],
+  "paths": {
+    "/command/{id}": {
+      "delete": {
+        "operationId": "run_command",
+        "summary": "Run a shell command in the project directory.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "command": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      },
+      "x-team": "corpus"
+    },
+    "/note/{id}": {
+      "delete": {
+        "operationId": "delete_note",
+        "summary": "Delete a note permanently.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      }
+    },
+    "/notes": {
+      "get": {
+        "operationId": "search_notes",
+        "summary": "Search notes by keyword.",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      }
+    },
+    "/tickets": {
+      "get": {
+        "operationId": "search_tickets",
+        "summary": "Search support tickets.",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "key": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-Api-Key"
+      }
+    }
+  },
+  "security": [
+    {
+      "key": []
+    }
+  ]
+}

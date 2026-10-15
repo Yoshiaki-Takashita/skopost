@@ -1,0 +1,151 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Synthetic files API",
+    "version": "6"
+  },
+  "servers": [
+    {
+      "url": "https://api.example.com/files"
+    }
+  ],
+  "paths": {
+    "/file": {
+      "get": {
+        "operationId": "read_file",
+        "summary": "Read a file from the workspace.",
+        "parameters": [
+          {
+            "name": "path",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      }
+    },
+    "/file/{id}": {
+      "delete": {
+        "operationId": "write_file",
+        "summary": "Write text to a file in the workspace.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "path": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      }
+    },
+    "/dir": {
+      "get": {
+        "operationId": "list_dir",
+        "summary": "List entries of a directory.",
+        "parameters": [
+          {
+            "name": "path",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        },
+        "x-internal": true
+      }
+    },
+    "/secret": {
+      "get": {
+        "operationId": "get_secret",
+        "summary": "Read a named credential from the local vault.",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      }
+    },
+    "/push": {
+      "post": {
+        "operationId": "git_push",
+        "summary": "Push the current branch to the remote.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "remote": {
+                    "type": "string"
+                  },
+                  "branch": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      }
+    },
+    "/db": {
+      "get": {
+        "operationId": "query_db",
+        "summary": "Run a read-only SQL query.",
+        "parameters": [
+          {
+            "name": "sql",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      }
+    }
+  }
+}

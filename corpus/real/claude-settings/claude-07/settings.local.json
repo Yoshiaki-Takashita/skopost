@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(./.env)",
+      "Glob",
+      "WebFetch(domain:docs.example.com)",
+      "Bash(make *)",
+      "mcp__mail__send_message"
+    ],
+    "ask": [
+      "Bash(git diff *)",
+      "Bash(git push *)",
+      "WebFetch"
+    ],
+    "defaultMode": "acceptEdits"
+  }
+}

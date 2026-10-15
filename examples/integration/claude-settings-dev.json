@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": ["Bash(npm test)", "Read", "Edit", "WebFetch(domain:docs.example.com)"],
+    "ask": ["Bash(git push *)"],
+    "deny": ["Read(./.env)"],
+    "defaultMode": "default"
+  }
+}

@@ -1,0 +1,27 @@
+skopost: Example shop API (synthetic)
+危ない道 15 本・関所 3 か所
+  [不明] 実行: searchProducts  (exec)
+  [不明] 取り返しのつかない操作: searchProducts  (acts:send,purchase,delete,publish,grant,pay)
+  [不明] 実行: placeOrder  (exec)
+  [不明] 取り返しのつかない操作: placeOrder  (acts:send,purchase,delete,publish,grant,pay)
+  [不明] 実行: cancelOrder  (exec)
+  [不明] 取り返しのつかない操作: cancelOrder  (acts:send,purchase,delete,publish,grant,pay)
+  [不明] 持ち出し: searchProducts>searchProducts  (reads_secret -> net_out)
+  [不明] 持ち出し: searchProducts>placeOrder  (reads_secret -> net_out)
+  [不明] 持ち出し: searchProducts>cancelOrder  (reads_secret -> net_out)
+  [不明] 持ち出し: placeOrder>searchProducts  (reads_secret -> net_out)
+  [不明] 持ち出し: placeOrder>placeOrder  (reads_secret -> net_out)
+  [不明] 持ち出し: placeOrder>cancelOrder  (reads_secret -> net_out)
+  [不明] 持ち出し: cancelOrder>searchProducts  (reads_secret -> net_out)
+  [不明] 持ち出し: cancelOrder>placeOrder  (reads_secret -> net_out)
+  [不明] 持ち出し: cancelOrder>cancelOrder  (reads_secret -> net_out)
+関所:
+  searchProducts (Search products) -> mode: ask
+  placeOrder (Place an order and charge the saved card) -> mode: ask
+  cancelOrder (Cancel an order) -> mode: ask
+申告より危ない食い違い: searchProducts.reads_untrusted, searchProducts.net_out, searchProducts.args_leave, placeOrder.reads_untrusted, placeOrder.net_out, placeOrder.args_leave, cancelOrder.reads_untrusted, cancelOrder.net_out, cancelOrder.args_leave
+不明として危ない側に倒した項目: searchProducts.exec, searchProducts.reads_secret, searchProducts.acts, placeOrder.exec, placeOrder.reads_secret, placeOrder.acts, cancelOrder.exec, cancelOrder.reads_secret, cancelOrder.acts
+走らせなかった検査・限界:
+  - 人の確認の素通し（ask にした道具を人が実際に止めるか）は測っていない
+  - 文脈の中の値の流れは追っていない（文脈は 1 つの汚れうる場所として丸めた）
+  - 札の正しさは確かめていない（札は入力。確度と根拠を見て判断すること）

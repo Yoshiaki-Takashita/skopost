@@ -1,0 +1,19 @@
+{
+  "openapi": "3.0.3",
+  "info": {"title": "Pet store", "version": "1"},
+  "servers": [{"url": "https://api.example.com/v1"}],
+  "security": [{"apiKey": []}],
+  "components": {"securitySchemes": {"apiKey": {"type": "apiKey", "in": "header", "name": "X-Key"}}},
+  "paths": {
+    "/pets": {
+      "get": {"operationId": "listPets", "summary": "List pets", "security": []},
+      "post": {"operationId": "createPet", "summary": "Create a pet", "requestBody": {"content": {}}}
+    },
+    "/pets/{id}": {
+      "delete": {"summary": "Delete a pet"},
+      "servers": [{"url": "http://127.0.0.1:8080"}]
+    },
+    "/rel": {"get": {"operationId": "rel", "servers": [{"url": "/relative"}]}}
+  },
+  "x-internal": true
+}

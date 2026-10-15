@@ -1,0 +1,14 @@
+{
+ "skopost": 2,
+ "tools": [
+  {
+   "id": "a"
+  }
+ ],
+ "imports": [
+  {
+   "file": "x",
+   "sha256": "ABC"
+  }
+ ]
+}

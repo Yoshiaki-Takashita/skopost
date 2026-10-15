@@ -1,0 +1,1000 @@
+{
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Skopost",
+          "version": "1.1.0.dev0",
+          "semanticVersion": "1.1.0.dev0",
+          "rules": [
+            {
+              "id": "SKP-EXEC",
+              "name": "HarmfulExecution",
+              "shortDescription": {
+                "text": "信頼できない入力が実行に届く道（確認なしの道具だけで成り立つ）"
+              },
+              "fullDescription": {
+                "text": "信頼できない入力が実行に届く道（確認なしの道具だけで成り立つ）"
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              }
+            },
+            {
+              "id": "SKP-ACT",
+              "name": "IrreversibleAction",
+              "shortDescription": {
+                "text": "信頼できない入力が取り返しのつかない操作に届く道"
+              },
+              "fullDescription": {
+                "text": "信頼できない入力が取り返しのつかない操作に届く道"
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              }
+            },
+            {
+              "id": "SKP-EXFIL",
+              "name": "Exfiltration",
+              "shortDescription": {
+                "text": "秘密を読む道具から外へ送る道具へ抜ける道"
+              },
+              "fullDescription": {
+                "text": "秘密を読む道具から外へ送る道具へ抜ける道"
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              }
+            },
+            {
+              "id": "SKP-MISMATCH-UNDER",
+              "name": "UnderDeclared",
+              "shortDescription": {
+                "text": "観察が宣言より危ない（申告より危ない食い違い）"
+              },
+              "fullDescription": {
+                "text": "観察が宣言より危ない（申告より危ない食い違い）"
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              }
+            }
+          ]
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true,
+          "toolExecutionNotifications": [
+            {
+              "level": "note",
+              "message": {
+                "text": "人の確認の素通し（ask にした道具を人が実際に止めるか）は測っていない"
+              },
+              "descriptor": {
+                "id": "SKP-NOT-CHECKED"
+              }
+            },
+            {
+              "level": "note",
+              "message": {
+                "text": "文脈の中の値の流れは追っていない（文脈は 1 つの汚れうる場所として丸めた）"
+              },
+              "descriptor": {
+                "id": "SKP-NOT-CHECKED"
+              }
+            },
+            {
+              "level": "note",
+              "message": {
+                "text": "札の正しさは確かめていない（札は入力。確度と根拠を見て判断すること）"
+              },
+              "descriptor": {
+                "id": "SKP-NOT-CHECKED"
+              }
+            }
+          ]
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "openapi-shop.json"
+          }
+        }
+      ],
+      "results": [
+        {
+          "ruleId": "SKP-EXEC",
+          "ruleIndex": 0,
+          "level": "note",
+          "message": {
+            "text": "実行の道 searchProducts（確度 不明）：exec"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "openapi-shop.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/paths/~1products/get",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exec:searchProducts"
+          },
+          "properties": {
+            "kind": "exec",
+            "tools": [
+              "searchProducts"
+            ],
+            "via": [
+              "exec"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-ACT",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "取り返しのつかない操作の道 searchProducts（確度 不明）：acts:send,purchase,delete,publish,grant,pay"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "openapi-shop.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/paths/~1products/get",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "act:searchProducts"
+          },
+          "properties": {
+            "kind": "act",
+            "tools": [
+              "searchProducts"
+            ],
+            "via": [
+              "acts:send,purchase,delete,publish,grant,pay"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-EXEC",
+          "ruleIndex": 0,
+          "level": "note",
+          "message": {
+            "text": "実行の道 placeOrder（確度 不明）：exec"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "openapi-shop.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/paths/~1orders/post",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exec:placeOrder"
+          },
+          "properties": {
+            "kind": "exec",
+            "tools": [
+              "placeOrder"
+            ],
+            "via": [
+              "exec"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-ACT",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "取り返しのつかない操作の道 placeOrder（確度 不明）：acts:send,purchase,delete,publish,grant,pay"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "openapi-shop.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/paths/~1orders/post",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "act:placeOrder"
+          },
+          "properties": {
+            "kind": "act",
+            "tools": [
+              "placeOrder"
+            ],
+            "via": [
+              "acts:send,purchase,delete,publish,grant,pay"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-EXEC",
+          "ruleIndex": 0,
+          "level": "note",
+          "message": {
+            "text": "実行の道 cancelOrder（確度 不明）：exec"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "openapi-shop.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/paths/~1orders~1{id}/delete",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exec:cancelOrder"
+          },
+          "properties": {
+            "kind": "exec",
+            "tools": [
+              "cancelOrder"
+            ],
+            "via": [
+              "exec"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-ACT",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "取り返しのつかない操作の道 cancelOrder（確度 不明）：acts:send,purchase,delete,publish,grant,pay"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "openapi-shop.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/paths/~1orders~1{id}/delete",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "act:cancelOrder"
+          },
+          "properties": {
+            "kind": "act",
+            "tools": [
+              "cancelOrder"
+            ],
+            "via": [
+              "acts:send,purchase,delete,publish,grant,pay"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-EXFIL",
+          "ruleIndex": 2,
+          "level": "note",
+          "message": {
+            "text": "持ち出しの道 searchProducts>searchProducts（確度 不明）：reads_secret → net_out"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "openapi-shop.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/paths/~1products/get",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exfil:searchProducts>searchProducts"
+          },
+          "properties": {
+            "kind": "exfil",
+            "tools": [
+              "searchProducts",
+              "searchProducts"
+            ],
+            "via": [
+              "reads_secret",
+              "net_out"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-EXFIL",
+          "ruleIndex": 2,
+          "level": "note",
+          "message": {
+            "text": "持ち出しの道 searchProducts>placeOrder（確度 不明）：reads_secret → net_out"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "openapi-shop.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/paths/~1products/get",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exfil:searchProducts>placeOrder"
+          },
+          "properties": {
+            "kind": "exfil",
+            "tools": [
+              "searchProducts",
+              "placeOrder"
+            ],
+            "via": [
+              "reads_secret",
+              "net_out"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-EXFIL",
+          "ruleIndex": 2,
+          "level": "note",
+          "message": {
+            "text": "持ち出しの道 searchProducts>cancelOrder（確度 不明）：reads_secret → net_out"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "openapi-shop.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/paths/~1products/get",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exfil:searchProducts>cancelOrder"
+          },
+          "properties": {
+            "kind": "exfil",
+            "tools": [
+              "searchProducts",
+              "cancelOrder"
+            ],
+            "via": [
+              "reads_secret",
+              "net_out"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-EXFIL",
+          "ruleIndex": 2,
+          "level": "note",
+          "message": {
+            "text": "持ち出しの道 placeOrder>searchProducts（確度 不明）：reads_secret → net_out"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "openapi-shop.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/paths/~1orders/post",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exfil:placeOrder>searchProducts"
+          },
+          "properties": {
+            "kind": "exfil",
+            "tools": [
+              "placeOrder",
+              "searchProducts"
+            ],
+            "via": [
+              "reads_secret",
+              "net_out"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-EXFIL",
+          "ruleIndex": 2,
+          "level": "note",
+          "message": {
+            "text": "持ち出しの道 placeOrder>placeOrder（確度 不明）：reads_secret → net_out"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "openapi-shop.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/paths/~1orders/post",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exfil:placeOrder>placeOrder"
+          },
+          "properties": {
+            "kind": "exfil",
+            "tools": [
+              "placeOrder",
+              "placeOrder"
+            ],
+            "via": [
+              "reads_secret",
+              "net_out"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-EXFIL",
+          "ruleIndex": 2,
+          "level": "note",
+          "message": {
+            "text": "持ち出しの道 placeOrder>cancelOrder（確度 不明）：reads_secret → net_out"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "openapi-shop.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/paths/~1orders/post",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exfil:placeOrder>cancelOrder"
+          },
+          "properties": {
+            "kind": "exfil",
+            "tools": [
+              "placeOrder",
+              "cancelOrder"
+            ],
+            "via": [
+              "reads_secret",
+              "net_out"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-EXFIL",
+          "ruleIndex": 2,
+          "level": "note",
+          "message": {
+            "text": "持ち出しの道 cancelOrder>searchProducts（確度 不明）：reads_secret → net_out"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "openapi-shop.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/paths/~1orders~1{id}/delete",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exfil:cancelOrder>searchProducts"
+          },
+          "properties": {
+            "kind": "exfil",
+            "tools": [
+              "cancelOrder",
+              "searchProducts"
+            ],
+            "via": [
+              "reads_secret",
+              "net_out"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-EXFIL",
+          "ruleIndex": 2,
+          "level": "note",
+          "message": {
+            "text": "持ち出しの道 cancelOrder>placeOrder（確度 不明）：reads_secret → net_out"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "openapi-shop.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/paths/~1orders~1{id}/delete",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exfil:cancelOrder>placeOrder"
+          },
+          "properties": {
+            "kind": "exfil",
+            "tools": [
+              "cancelOrder",
+              "placeOrder"
+            ],
+            "via": [
+              "reads_secret",
+              "net_out"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-EXFIL",
+          "ruleIndex": 2,
+          "level": "note",
+          "message": {
+            "text": "持ち出しの道 cancelOrder>cancelOrder（確度 不明）：reads_secret → net_out"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "openapi-shop.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/paths/~1orders~1{id}/delete",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exfil:cancelOrder>cancelOrder"
+          },
+          "properties": {
+            "kind": "exfil",
+            "tools": [
+              "cancelOrder",
+              "cancelOrder"
+            ],
+            "via": [
+              "reads_secret",
+              "net_out"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-MISMATCH-UNDER",
+          "ruleIndex": 3,
+          "level": "warning",
+          "message": {
+            "text": "searchProducts.reads_untrusted：宣言より観察が危ない（確度 推）。根拠：HTTP GET の応答は外部の文章；名前 'searchProducts' の語；説明文の語（資料として読んだだけ）；説明文の語（資料として読んだだけ）"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "openapi-shop.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/paths/~1products/get",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostMismatch/v1": "searchProducts:reads_untrusted"
+          }
+        },
+        {
+          "ruleId": "SKP-MISMATCH-UNDER",
+          "ruleIndex": 3,
+          "level": "warning",
+          "message": {
+            "text": "searchProducts.net_out：宣言より観察が危ない（確度 推）。根拠：servers が外部；名前 'searchProducts' の語；説明文の語（資料として読んだだけ）；説明文の語（資料として読んだだけ）"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "openapi-shop.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/paths/~1products/get",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostMismatch/v1": "searchProducts:net_out"
+          }
+        },
+        {
+          "ruleId": "SKP-MISMATCH-UNDER",
+          "ruleIndex": 3,
+          "level": "warning",
+          "message": {
+            "text": "searchProducts.args_leave：宣言より観察が危ない（確度 推）。根拠：HTTP GET の引数は相手のサーバーに届く；名前 'searchProducts' の語；説明文の語（資料として読んだだけ）；説明文の語（資料として読んだだけ）"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "openapi-shop.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/paths/~1products/get",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostMismatch/v1": "searchProducts:args_leave"
+          }
+        },
+        {
+          "ruleId": "SKP-MISMATCH-UNDER",
+          "ruleIndex": 3,
+          "level": "warning",
+          "message": {
+            "text": "placeOrder.reads_untrusted：宣言より観察が危ない（確度 推）。根拠：HTTP POST の応答は外部の文章"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "openapi-shop.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/paths/~1orders/post",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostMismatch/v1": "placeOrder:reads_untrusted"
+          }
+        },
+        {
+          "ruleId": "SKP-MISMATCH-UNDER",
+          "ruleIndex": 3,
+          "level": "warning",
+          "message": {
+            "text": "placeOrder.net_out：宣言より観察が危ない（確度 論）。根拠：servers が外部"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "openapi-shop.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/paths/~1orders/post",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostMismatch/v1": "placeOrder:net_out"
+          }
+        },
+        {
+          "ruleId": "SKP-MISMATCH-UNDER",
+          "ruleIndex": 3,
+          "level": "warning",
+          "message": {
+            "text": "placeOrder.args_leave：宣言より観察が危ない（確度 推）。根拠：HTTP POST の引数は相手のサーバーに届く；名前 'placeOrder' の語；説明文の語（資料として読んだだけ）"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "openapi-shop.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/paths/~1orders/post",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostMismatch/v1": "placeOrder:args_leave"
+          }
+        },
+        {
+          "ruleId": "SKP-MISMATCH-UNDER",
+          "ruleIndex": 3,
+          "level": "warning",
+          "message": {
+            "text": "cancelOrder.reads_untrusted：宣言より観察が危ない（確度 推）。根拠：HTTP DELETE の応答は外部の文章"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "openapi-shop.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/paths/~1orders~1{id}/delete",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostMismatch/v1": "cancelOrder:reads_untrusted"
+          }
+        },
+        {
+          "ruleId": "SKP-MISMATCH-UNDER",
+          "ruleIndex": 3,
+          "level": "warning",
+          "message": {
+            "text": "cancelOrder.net_out：宣言より観察が危ない（確度 論）。根拠：servers が外部"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "openapi-shop.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/paths/~1orders~1{id}/delete",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostMismatch/v1": "cancelOrder:net_out"
+          }
+        },
+        {
+          "ruleId": "SKP-MISMATCH-UNDER",
+          "ruleIndex": 3,
+          "level": "warning",
+          "message": {
+            "text": "cancelOrder.args_leave：宣言より観察が危ない（確度 推）。根拠：HTTP DELETE の引数は相手のサーバーに届く；名前 'cancelOrder' の語；説明文の語（資料として読んだだけ）"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "openapi-shop.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/paths/~1orders~1{id}/delete",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostMismatch/v1": "cancelOrder:args_leave"
+          }
+        }
+      ],
+      "properties": {
+        "notChecked": [
+          "人の確認の素通し（ask にした道具を人が実際に止めるか）は測っていない",
+          "文脈の中の値の流れは追っていない（文脈は 1 つの汚れうる場所として丸めた）",
+          "札の正しさは確かめていない（札は入力。確度と根拠を見て判断すること）"
+        ],
+        "assumed": [
+          "searchProducts.exec",
+          "searchProducts.reads_secret",
+          "searchProducts.acts",
+          "placeOrder.exec",
+          "placeOrder.reads_secret",
+          "placeOrder.acts",
+          "cancelOrder.exec",
+          "cancelOrder.reads_secret",
+          "cancelOrder.acts"
+        ],
+        "checkpoints": [
+          "searchProducts",
+          "placeOrder",
+          "cancelOrder"
+        ],
+        "exact": true
+      }
+    }
+  ]
+}

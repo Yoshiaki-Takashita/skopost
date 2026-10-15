@@ -1,0 +1,12 @@
+{
+ "skopost": 2,
+ "tools": [
+  {
+   "id": "a",
+   "origin": {
+    "file": "x",
+    "pointer": "no-slash"
+   }
+  }
+ ]
+}

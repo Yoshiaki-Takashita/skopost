@@ -1,0 +1,30 @@
+"""`skopost example` が出す最小の例（v1）。中身は単一ファイル時代と同一。"""
+from __future__ import annotations
+
+EXAMPLE = {
+    "skopost": 1,
+    "name": "最小の例：読むだけ 2 つの組み合わせ",
+    "stores": [{"id": "env", "label": "環境ファイル", "secret": True}],
+    "tools": [
+        {"id": "read_file", "label": "ファイルを読む", "mode": "allow",
+         "declared": {"reads_stores": ["env"]},
+         "observed": {"reads_stores": {"value": ["env"], "confidence": "確", "evidence": "どのパスでも読める"},
+                      "exec": {"value": False, "confidence": "確", "evidence": "読むだけの実装"},
+                      "net_out": {"value": False, "confidence": "確", "evidence": "通信の呼び出しなし"},
+                      "args_leave": {"value": False, "confidence": "確", "evidence": "引数はローカルのパス"},
+                      "reads_secret": {"value": False, "confidence": "論", "evidence": "置き場 env 経由でのみ"},
+                      "acts": {"value": [], "confidence": "確", "evidence": ""},
+                      "writes_stores": {"value": [], "confidence": "確", "evidence": ""},
+                      "reads_untrusted": {"value": True, "confidence": "確", "evidence": "任意のファイルを読める"}}},
+        {"id": "web_search", "label": "ウェブ検索", "mode": "allow", "frequency": 5,
+         "declared": {"reads_untrusted": True},
+         "observed": {"args_leave": {"value": True, "confidence": "確", "evidence": "検索語を URL に載せて送る"},
+                      "net_out": {"value": False, "confidence": "確", "evidence": "本文は送らない"},
+                      "exec": {"value": False, "confidence": "確", "evidence": ""},
+                      "reads_secret": {"value": False, "confidence": "確", "evidence": ""},
+                      "acts": {"value": [], "confidence": "確", "evidence": ""},
+                      "writes_stores": {"value": [], "confidence": "確", "evidence": ""},
+                      "reads_stores": {"value": [], "confidence": "確", "evidence": ""},
+                      "reads_untrusted": {"value": True, "confidence": "確", "evidence": ""}}},
+    ],
+}

@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch",
+      "Bash(npm run build)",
+      "Bash(git push *)",
+      "mcp__mail__send_message",
+      "Grep"
+    ],
+    "ask": [
+      "WebSearch"
+    ],
+    "defaultMode": "acceptEdits"
+  }
+}

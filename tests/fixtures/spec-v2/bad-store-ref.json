@@ -1,0 +1,16 @@
+{
+ "skopost": 2,
+ "tools": [
+  {
+   "id": "a",
+   "observed": {
+    "reads_stores": {
+     "value": [
+      "x"
+     ],
+     "confidence": "推"
+    }
+   }
+  }
+ ]
+}

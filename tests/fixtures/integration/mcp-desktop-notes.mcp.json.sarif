@@ -1,0 +1,1314 @@
+{
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Skopost",
+          "version": "1.1.0.dev0",
+          "semanticVersion": "1.1.0.dev0",
+          "rules": [
+            {
+              "id": "SKP-EXEC",
+              "name": "HarmfulExecution",
+              "shortDescription": {
+                "text": "信頼できない入力が実行に届く道（確認なしの道具だけで成り立つ）"
+              },
+              "fullDescription": {
+                "text": "信頼できない入力が実行に届く道（確認なしの道具だけで成り立つ）"
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              }
+            },
+            {
+              "id": "SKP-ACT",
+              "name": "IrreversibleAction",
+              "shortDescription": {
+                "text": "信頼できない入力が取り返しのつかない操作に届く道"
+              },
+              "fullDescription": {
+                "text": "信頼できない入力が取り返しのつかない操作に届く道"
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              }
+            },
+            {
+              "id": "SKP-EXFIL",
+              "name": "Exfiltration",
+              "shortDescription": {
+                "text": "秘密を読む道具から外へ送る道具へ抜ける道"
+              },
+              "fullDescription": {
+                "text": "秘密を読む道具から外へ送る道具へ抜ける道"
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              }
+            },
+            {
+              "id": "SKP-MISMATCH-UNDER",
+              "name": "UnderDeclared",
+              "shortDescription": {
+                "text": "観察が宣言より危ない（申告より危ない食い違い）"
+              },
+              "fullDescription": {
+                "text": "観察が宣言より危ない（申告より危ない食い違い）"
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              }
+            }
+          ]
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true,
+          "toolExecutionNotifications": [
+            {
+              "level": "note",
+              "message": {
+                "text": "人の確認の素通し（ask にした道具を人が実際に止めるか）は測っていない"
+              },
+              "descriptor": {
+                "id": "SKP-NOT-CHECKED"
+              }
+            },
+            {
+              "level": "note",
+              "message": {
+                "text": "文脈の中の値の流れは追っていない（文脈は 1 つの汚れうる場所として丸めた）"
+              },
+              "descriptor": {
+                "id": "SKP-NOT-CHECKED"
+              }
+            },
+            {
+              "level": "note",
+              "message": {
+                "text": "札の正しさは確かめていない（札は入力。確度と根拠を見て判断すること）"
+              },
+              "descriptor": {
+                "id": "SKP-NOT-CHECKED"
+              }
+            }
+          ]
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "mcp-desktop-notes.mcp.json"
+          }
+        }
+      ],
+      "results": [
+        {
+          "ruleId": "SKP-EXEC",
+          "ruleIndex": 0,
+          "level": "note",
+          "message": {
+            "text": "実行の道 notes.search_notes（確度 不明）：exec"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mcp-desktop-notes.mcp.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/mcpServers/notes/tools/0",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exec:notes.search_notes"
+          },
+          "properties": {
+            "kind": "exec",
+            "tools": [
+              "notes.search_notes"
+            ],
+            "via": [
+              "exec"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-ACT",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "取り返しのつかない操作の道 notes.search_notes（確度 不明）：acts:send,purchase,delete,publish,grant,pay"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mcp-desktop-notes.mcp.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/mcpServers/notes/tools/0",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "act:notes.search_notes"
+          },
+          "properties": {
+            "kind": "act",
+            "tools": [
+              "notes.search_notes"
+            ],
+            "via": [
+              "acts:send,purchase,delete,publish,grant,pay"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-EXEC",
+          "ruleIndex": 0,
+          "level": "note",
+          "message": {
+            "text": "実行の道 notes.delete_note（確度 不明）：exec"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mcp-desktop-notes.mcp.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/mcpServers/notes/tools/1",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exec:notes.delete_note"
+          },
+          "properties": {
+            "kind": "exec",
+            "tools": [
+              "notes.delete_note"
+            ],
+            "via": [
+              "exec"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-ACT",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "取り返しのつかない操作の道 notes.delete_note（確度 不明）：acts:send,purchase,delete,publish,grant,pay"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mcp-desktop-notes.mcp.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/mcpServers/notes/tools/1",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "act:notes.delete_note"
+          },
+          "properties": {
+            "kind": "act",
+            "tools": [
+              "notes.delete_note"
+            ],
+            "via": [
+              "acts:send,purchase,delete,publish,grant,pay"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-EXEC",
+          "ruleIndex": 0,
+          "level": "note",
+          "message": {
+            "text": "実行の道 web.fetch_url（確度 不明）：exec"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mcp-desktop-notes.mcp.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/mcpServers/web/tools/0",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exec:web.fetch_url"
+          },
+          "properties": {
+            "kind": "exec",
+            "tools": [
+              "web.fetch_url"
+            ],
+            "via": [
+              "exec"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-ACT",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "取り返しのつかない操作の道 web.fetch_url（確度 不明）：acts:send,purchase,delete,publish,grant,pay"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mcp-desktop-notes.mcp.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/mcpServers/web/tools/0",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "act:web.fetch_url"
+          },
+          "properties": {
+            "kind": "act",
+            "tools": [
+              "web.fetch_url"
+            ],
+            "via": [
+              "acts:send,purchase,delete,publish,grant,pay"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-EXEC",
+          "ruleIndex": 0,
+          "level": "note",
+          "message": {
+            "text": "実行の道 mailer.send_email（確度 不明）：exec"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mcp-desktop-notes.mcp.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/mcpServers/mailer/tools/0",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exec:mailer.send_email"
+          },
+          "properties": {
+            "kind": "exec",
+            "tools": [
+              "mailer.send_email"
+            ],
+            "via": [
+              "exec"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-ACT",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "取り返しのつかない操作の道 mailer.send_email（確度 不明）：acts:send,purchase,delete,publish,grant,pay"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mcp-desktop-notes.mcp.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/mcpServers/mailer/tools/0",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "act:mailer.send_email"
+          },
+          "properties": {
+            "kind": "act",
+            "tools": [
+              "mailer.send_email"
+            ],
+            "via": [
+              "acts:send,purchase,delete,publish,grant,pay"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-EXFIL",
+          "ruleIndex": 2,
+          "level": "note",
+          "message": {
+            "text": "持ち出しの道 notes.search_notes>notes.search_notes（確度 不明）：reads_secret → net_out"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mcp-desktop-notes.mcp.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/mcpServers/notes/tools/0",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exfil:notes.search_notes>notes.search_notes"
+          },
+          "properties": {
+            "kind": "exfil",
+            "tools": [
+              "notes.search_notes",
+              "notes.search_notes"
+            ],
+            "via": [
+              "reads_secret",
+              "net_out"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-EXFIL",
+          "ruleIndex": 2,
+          "level": "note",
+          "message": {
+            "text": "持ち出しの道 notes.search_notes>notes.delete_note（確度 不明）：reads_secret → net_out"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mcp-desktop-notes.mcp.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/mcpServers/notes/tools/0",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exfil:notes.search_notes>notes.delete_note"
+          },
+          "properties": {
+            "kind": "exfil",
+            "tools": [
+              "notes.search_notes",
+              "notes.delete_note"
+            ],
+            "via": [
+              "reads_secret",
+              "net_out"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-EXFIL",
+          "ruleIndex": 2,
+          "level": "note",
+          "message": {
+            "text": "持ち出しの道 notes.search_notes>web.fetch_url（確度 不明）：reads_secret → net_out"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mcp-desktop-notes.mcp.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/mcpServers/notes/tools/0",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exfil:notes.search_notes>web.fetch_url"
+          },
+          "properties": {
+            "kind": "exfil",
+            "tools": [
+              "notes.search_notes",
+              "web.fetch_url"
+            ],
+            "via": [
+              "reads_secret",
+              "net_out"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-EXFIL",
+          "ruleIndex": 2,
+          "level": "note",
+          "message": {
+            "text": "持ち出しの道 notes.search_notes>mailer.send_email（確度 不明）：reads_secret → net_out"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mcp-desktop-notes.mcp.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/mcpServers/notes/tools/0",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exfil:notes.search_notes>mailer.send_email"
+          },
+          "properties": {
+            "kind": "exfil",
+            "tools": [
+              "notes.search_notes",
+              "mailer.send_email"
+            ],
+            "via": [
+              "reads_secret",
+              "net_out"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-EXFIL",
+          "ruleIndex": 2,
+          "level": "note",
+          "message": {
+            "text": "持ち出しの道 notes.delete_note>notes.search_notes（確度 不明）：reads_secret → net_out"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mcp-desktop-notes.mcp.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/mcpServers/notes/tools/1",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exfil:notes.delete_note>notes.search_notes"
+          },
+          "properties": {
+            "kind": "exfil",
+            "tools": [
+              "notes.delete_note",
+              "notes.search_notes"
+            ],
+            "via": [
+              "reads_secret",
+              "net_out"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-EXFIL",
+          "ruleIndex": 2,
+          "level": "note",
+          "message": {
+            "text": "持ち出しの道 notes.delete_note>notes.delete_note（確度 不明）：reads_secret → net_out"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mcp-desktop-notes.mcp.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/mcpServers/notes/tools/1",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exfil:notes.delete_note>notes.delete_note"
+          },
+          "properties": {
+            "kind": "exfil",
+            "tools": [
+              "notes.delete_note",
+              "notes.delete_note"
+            ],
+            "via": [
+              "reads_secret",
+              "net_out"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-EXFIL",
+          "ruleIndex": 2,
+          "level": "note",
+          "message": {
+            "text": "持ち出しの道 notes.delete_note>web.fetch_url（確度 不明）：reads_secret → net_out"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mcp-desktop-notes.mcp.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/mcpServers/notes/tools/1",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exfil:notes.delete_note>web.fetch_url"
+          },
+          "properties": {
+            "kind": "exfil",
+            "tools": [
+              "notes.delete_note",
+              "web.fetch_url"
+            ],
+            "via": [
+              "reads_secret",
+              "net_out"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-EXFIL",
+          "ruleIndex": 2,
+          "level": "note",
+          "message": {
+            "text": "持ち出しの道 notes.delete_note>mailer.send_email（確度 不明）：reads_secret → net_out"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mcp-desktop-notes.mcp.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/mcpServers/notes/tools/1",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exfil:notes.delete_note>mailer.send_email"
+          },
+          "properties": {
+            "kind": "exfil",
+            "tools": [
+              "notes.delete_note",
+              "mailer.send_email"
+            ],
+            "via": [
+              "reads_secret",
+              "net_out"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-EXFIL",
+          "ruleIndex": 2,
+          "level": "note",
+          "message": {
+            "text": "持ち出しの道 web.fetch_url>notes.search_notes（確度 不明）：reads_secret → net_out"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mcp-desktop-notes.mcp.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/mcpServers/web/tools/0",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exfil:web.fetch_url>notes.search_notes"
+          },
+          "properties": {
+            "kind": "exfil",
+            "tools": [
+              "web.fetch_url",
+              "notes.search_notes"
+            ],
+            "via": [
+              "reads_secret",
+              "net_out"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-EXFIL",
+          "ruleIndex": 2,
+          "level": "note",
+          "message": {
+            "text": "持ち出しの道 web.fetch_url>notes.delete_note（確度 不明）：reads_secret → net_out"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mcp-desktop-notes.mcp.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/mcpServers/web/tools/0",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exfil:web.fetch_url>notes.delete_note"
+          },
+          "properties": {
+            "kind": "exfil",
+            "tools": [
+              "web.fetch_url",
+              "notes.delete_note"
+            ],
+            "via": [
+              "reads_secret",
+              "net_out"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-EXFIL",
+          "ruleIndex": 2,
+          "level": "note",
+          "message": {
+            "text": "持ち出しの道 web.fetch_url>web.fetch_url（確度 不明）：reads_secret → net_out"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mcp-desktop-notes.mcp.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/mcpServers/web/tools/0",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exfil:web.fetch_url>web.fetch_url"
+          },
+          "properties": {
+            "kind": "exfil",
+            "tools": [
+              "web.fetch_url",
+              "web.fetch_url"
+            ],
+            "via": [
+              "reads_secret",
+              "net_out"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-EXFIL",
+          "ruleIndex": 2,
+          "level": "note",
+          "message": {
+            "text": "持ち出しの道 web.fetch_url>mailer.send_email（確度 不明）：reads_secret → net_out"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mcp-desktop-notes.mcp.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/mcpServers/web/tools/0",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exfil:web.fetch_url>mailer.send_email"
+          },
+          "properties": {
+            "kind": "exfil",
+            "tools": [
+              "web.fetch_url",
+              "mailer.send_email"
+            ],
+            "via": [
+              "reads_secret",
+              "net_out"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-EXFIL",
+          "ruleIndex": 2,
+          "level": "note",
+          "message": {
+            "text": "持ち出しの道 mailer.send_email>notes.search_notes（確度 不明）：reads_secret → net_out"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mcp-desktop-notes.mcp.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/mcpServers/mailer/tools/0",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exfil:mailer.send_email>notes.search_notes"
+          },
+          "properties": {
+            "kind": "exfil",
+            "tools": [
+              "mailer.send_email",
+              "notes.search_notes"
+            ],
+            "via": [
+              "reads_secret",
+              "net_out"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-EXFIL",
+          "ruleIndex": 2,
+          "level": "note",
+          "message": {
+            "text": "持ち出しの道 mailer.send_email>notes.delete_note（確度 不明）：reads_secret → net_out"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mcp-desktop-notes.mcp.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/mcpServers/mailer/tools/0",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exfil:mailer.send_email>notes.delete_note"
+          },
+          "properties": {
+            "kind": "exfil",
+            "tools": [
+              "mailer.send_email",
+              "notes.delete_note"
+            ],
+            "via": [
+              "reads_secret",
+              "net_out"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-EXFIL",
+          "ruleIndex": 2,
+          "level": "note",
+          "message": {
+            "text": "持ち出しの道 mailer.send_email>web.fetch_url（確度 不明）：reads_secret → net_out"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mcp-desktop-notes.mcp.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/mcpServers/mailer/tools/0",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exfil:mailer.send_email>web.fetch_url"
+          },
+          "properties": {
+            "kind": "exfil",
+            "tools": [
+              "mailer.send_email",
+              "web.fetch_url"
+            ],
+            "via": [
+              "reads_secret",
+              "net_out"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-EXFIL",
+          "ruleIndex": 2,
+          "level": "note",
+          "message": {
+            "text": "持ち出しの道 mailer.send_email>mailer.send_email（確度 不明）：reads_secret → net_out"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mcp-desktop-notes.mcp.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/mcpServers/mailer/tools/0",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exfil:mailer.send_email>mailer.send_email"
+          },
+          "properties": {
+            "kind": "exfil",
+            "tools": [
+              "mailer.send_email",
+              "mailer.send_email"
+            ],
+            "via": [
+              "reads_secret",
+              "net_out"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-MISMATCH-UNDER",
+          "ruleIndex": 3,
+          "level": "warning",
+          "message": {
+            "text": "notes.search_notes.reads_untrusted：宣言より観察が危ない（確度 推）。根拠：名前 'search_notes' の語；説明文の語（資料として読んだだけ）"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mcp-desktop-notes.mcp.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/mcpServers/notes/tools/0",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostMismatch/v1": "notes.search_notes:reads_untrusted"
+          }
+        },
+        {
+          "ruleId": "SKP-MISMATCH-UNDER",
+          "ruleIndex": 3,
+          "level": "warning",
+          "message": {
+            "text": "notes.search_notes.net_out：宣言より観察が危ない（確度 推）。根拠：名前 'search_notes' の語；説明文の語（資料として読んだだけ）"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mcp-desktop-notes.mcp.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/mcpServers/notes/tools/0",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostMismatch/v1": "notes.search_notes:net_out"
+          }
+        },
+        {
+          "ruleId": "SKP-MISMATCH-UNDER",
+          "ruleIndex": 3,
+          "level": "warning",
+          "message": {
+            "text": "notes.search_notes.args_leave：宣言より観察が危ない（確度 推）。根拠：名前 'search_notes' の語；説明文の語（資料として読んだだけ）"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mcp-desktop-notes.mcp.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/mcpServers/notes/tools/0",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostMismatch/v1": "notes.search_notes:args_leave"
+          }
+        },
+        {
+          "ruleId": "SKP-MISMATCH-UNDER",
+          "ruleIndex": 3,
+          "level": "warning",
+          "message": {
+            "text": "web.fetch_url.reads_untrusted：宣言より観察が危ない（確度 推）。根拠：openWorldHint=true；入力スキーマの引数名；名前 'fetch_url' の語；説明文の語（資料として読んだだけ）"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mcp-desktop-notes.mcp.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/mcpServers/web/tools/0",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostMismatch/v1": "web.fetch_url:reads_untrusted"
+          }
+        },
+        {
+          "ruleId": "SKP-MISMATCH-UNDER",
+          "ruleIndex": 3,
+          "level": "warning",
+          "message": {
+            "text": "web.fetch_url.args_leave：宣言より観察が危ない（確度 推）。根拠：入力スキーマの引数名；名前 'fetch_url' の語；説明文の語（資料として読んだだけ）"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mcp-desktop-notes.mcp.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/mcpServers/web/tools/0",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostMismatch/v1": "web.fetch_url:args_leave"
+          }
+        },
+        {
+          "ruleId": "SKP-MISMATCH-UNDER",
+          "ruleIndex": 3,
+          "level": "warning",
+          "message": {
+            "text": "mailer.send_email.reads_untrusted：宣言より観察が危ない（確度 推）。根拠：openWorldHint=true"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mcp-desktop-notes.mcp.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/mcpServers/mailer/tools/0",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostMismatch/v1": "mailer.send_email:reads_untrusted"
+          }
+        },
+        {
+          "ruleId": "SKP-MISMATCH-UNDER",
+          "ruleIndex": 3,
+          "level": "warning",
+          "message": {
+            "text": "mailer.send_email.args_leave：宣言より観察が危ない（確度 推）。根拠：入力スキーマの引数名；名前 'send_email' の語；説明文の語（資料として読んだだけ）"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "mcp-desktop-notes.mcp.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "/mcpServers/mailer/tools/0",
+                  "kind": "member"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "skopostMismatch/v1": "mailer.send_email:args_leave"
+          }
+        }
+      ],
+      "properties": {
+        "notChecked": [
+          "人の確認の素通し（ask にした道具を人が実際に止めるか）は測っていない",
+          "文脈の中の値の流れは追っていない（文脈は 1 つの汚れうる場所として丸めた）",
+          "札の正しさは確かめていない（札は入力。確度と根拠を見て判断すること）"
+        ],
+        "assumed": [
+          "notes.search_notes.exec",
+          "notes.search_notes.reads_secret",
+          "notes.search_notes.acts",
+          "notes.delete_note.reads_untrusted",
+          "notes.delete_note.args_leave",
+          "notes.delete_note.exec",
+          "notes.delete_note.net_out",
+          "notes.delete_note.reads_secret",
+          "notes.delete_note.acts",
+          "web.fetch_url.exec",
+          "web.fetch_url.reads_secret",
+          "web.fetch_url.acts",
+          "mailer.send_email.exec",
+          "mailer.send_email.reads_secret",
+          "mailer.send_email.acts"
+        ],
+        "checkpoints": [
+          "notes.search_notes",
+          "notes.delete_note",
+          "web.fetch_url",
+          "mailer.send_email"
+        ],
+        "exact": true
+      }
+    }
+  ]
+}

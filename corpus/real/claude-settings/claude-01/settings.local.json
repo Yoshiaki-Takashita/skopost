@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git diff *)",
+      "WebFetch(domain:docs.example.com)"
+    ],
+    "defaultMode": "default"
+  }
+}

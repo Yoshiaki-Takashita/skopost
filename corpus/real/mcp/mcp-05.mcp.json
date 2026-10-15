@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "vault": {
+      "command": "./bin/server",
+      "args": [
+        "./servers/vault/main"
+      ]
+    }
+  }
+}

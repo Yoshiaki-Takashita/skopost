@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run build)",
+      "WebSearch",
+      "Edit",
+      "Glob",
+      "mcp__notes__search_notes"
+    ],
+    "ask": [
+      "NotebookEdit",
+      "Bash(python3 *)",
+      "Bash(npm test)"
+    ],
+    "defaultMode": "plan"
+  }
+}

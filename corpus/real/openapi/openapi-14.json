@@ -1,0 +1,108 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Synthetic shell API",
+    "version": "4"
+  },
+  "servers": [
+    {
+      "url": "https://shell.example.org/v1"
+    }
+  ],
+  "paths": {
+    "/command/{id}": {
+      "post": {
+        "operationId": "run_command",
+        "summary": "Run a shell command in the project directory.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "command": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      }
+    },
+    "/secret": {
+      "get": {
+        "operationId": "get_secret",
+        "summary": "Read a named credential from the local vault.",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      },
+      "x-team": "corpus"
+    },
+    "/db": {
+      "get": {
+        "operationId": "query_db",
+        "summary": "Run a read-only SQL query.",
+        "parameters": [
+          {
+            "name": "sql",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      }
+    },
+    "/event": {
+      "post": {
+        "operationId": "create_event",
+        "summary": "Create a calendar event and invite attendees.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "attendees": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      }
+    }
+  }
+}

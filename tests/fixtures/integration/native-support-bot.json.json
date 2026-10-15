@@ -1,0 +1,297 @@
+{
+  "skopost": 1,
+  "name": "例：問い合わせ対応ボット（合成。実物の設定ではない）",
+  "exit_code": 2,
+  "summary": {
+    "tools": 4,
+    "allowed": 3,
+    "paths": 14,
+    "paths_declared_only": 1,
+    "missed_by_declared": 13,
+    "mismatches": 0,
+    "assumed_unknown": 15,
+    "seconds": X
+  },
+  "paths": [
+    {
+      "kind": "exec",
+      "tools": [
+        "ticket_read"
+      ],
+      "confidence": "不明",
+      "via": [
+        "exec"
+      ]
+    },
+    {
+      "kind": "act",
+      "tools": [
+        "ticket_read"
+      ],
+      "confidence": "不明",
+      "via": [
+        "acts:send,purchase,delete,publish,grant,pay"
+      ]
+    },
+    {
+      "kind": "exec",
+      "tools": [
+        "crm_lookup"
+      ],
+      "confidence": "不明",
+      "via": [
+        "exec"
+      ]
+    },
+    {
+      "kind": "act",
+      "tools": [
+        "crm_lookup"
+      ],
+      "confidence": "不明",
+      "via": [
+        "acts:send,purchase,delete,publish,grant,pay"
+      ]
+    },
+    {
+      "kind": "exec",
+      "tools": [
+        "reply_draft"
+      ],
+      "confidence": "不明",
+      "via": [
+        "exec"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "ticket_read",
+        "ticket_read"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "ticket_read",
+        "crm_lookup"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "ticket_read",
+        "reply_draft"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "crm_lookup",
+        "ticket_read"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "crm_lookup",
+        "crm_lookup"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "crm_lookup",
+        "reply_draft"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "reply_draft",
+        "ticket_read"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "reply_draft",
+        "crm_lookup"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "reply_draft",
+        "reply_draft"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    }
+  ],
+  "mismatches": [],
+  "assumed": [
+    {
+      "tool": "ticket_read",
+      "cap": "args_leave"
+    },
+    {
+      "tool": "ticket_read",
+      "cap": "exec"
+    },
+    {
+      "tool": "ticket_read",
+      "cap": "net_out"
+    },
+    {
+      "tool": "ticket_read",
+      "cap": "reads_secret"
+    },
+    {
+      "tool": "ticket_read",
+      "cap": "acts"
+    },
+    {
+      "tool": "crm_lookup",
+      "cap": "reads_untrusted"
+    },
+    {
+      "tool": "crm_lookup",
+      "cap": "exec"
+    },
+    {
+      "tool": "crm_lookup",
+      "cap": "net_out"
+    },
+    {
+      "tool": "crm_lookup",
+      "cap": "reads_secret"
+    },
+    {
+      "tool": "crm_lookup",
+      "cap": "acts"
+    },
+    {
+      "tool": "reply_draft",
+      "cap": "reads_untrusted"
+    },
+    {
+      "tool": "reply_draft",
+      "cap": "args_leave"
+    },
+    {
+      "tool": "reply_draft",
+      "cap": "exec"
+    },
+    {
+      "tool": "reply_draft",
+      "cap": "net_out"
+    },
+    {
+      "tool": "reply_draft",
+      "cap": "reads_secret"
+    }
+  ],
+  "checkpoints": {
+    "exact": true,
+    "primary": [
+      "ticket_read",
+      "crm_lookup",
+      "reply_draft"
+    ],
+    "alternatives": [],
+    "size": 3,
+    "reasons": {
+      "ticket_read": [
+        "exec: ticket_read",
+        "act: ticket_read",
+        "exfil: ticket_read>ticket_read",
+        "exfil: ticket_read>crm_lookup",
+        "exfil: ticket_read>reply_draft",
+        "exfil: crm_lookup>ticket_read",
+        "exfil: reply_draft>ticket_read"
+      ],
+      "crm_lookup": [
+        "exec: crm_lookup",
+        "act: crm_lookup",
+        "exfil: ticket_read>crm_lookup",
+        "exfil: crm_lookup>ticket_read",
+        "exfil: crm_lookup>crm_lookup",
+        "exfil: crm_lookup>reply_draft",
+        "exfil: reply_draft>crm_lookup"
+      ],
+      "reply_draft": [
+        "exec: reply_draft",
+        "exfil: ticket_read>reply_draft",
+        "exfil: crm_lookup>reply_draft",
+        "exfil: reply_draft>ticket_read",
+        "exfil: reply_draft>crm_lookup",
+        "exfil: reply_draft>reply_draft"
+      ]
+    }
+  },
+  "declared_only": {
+    "cut": [
+      "crm_lookup"
+    ],
+    "holds": false,
+    "surviving_paths": 7,
+    "surviving": [
+      "ticket_read",
+      "ticket_read",
+      "reply_draft",
+      "ticket_read>ticket_read",
+      "ticket_read>reply_draft",
+      "reply_draft>ticket_read",
+      "reply_draft>reply_draft"
+    ]
+  },
+  "not_checked": [
+    "人の確認の素通し（ask にした道具を人が実際に止めるか）は測っていない",
+    "文脈の中の値の流れは追っていない（文脈は 1 つの汚れうる場所として丸めた）",
+    "札の正しさは確かめていない（札は入力。確度と根拠を見て判断すること）"
+  ]
+}

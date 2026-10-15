@@ -1,0 +1,95 @@
+{
+  "mcpServers": {
+    "files": {
+      "command": "node",
+      "args": [
+        "./servers/files/main"
+      ],
+      "tools": [
+        {
+          "name": "write_file",
+          "description": "Write text to a file in the workspace.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string"
+              },
+              "content": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false,
+            "destructiveHint": true,
+            "experimentalHint": true
+          }
+        },
+        {
+          "name": "read_file",
+          "description": "Read a file from the workspace.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "shell": {
+      "type": "http",
+      "url": "http://localhost:5950/mcp",
+      "tools": [
+        {
+          "name": "run_command",
+          "description": "Run a shell command in the project directory.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "command": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "tickets": {
+      "command": "node",
+      "args": [
+        "./servers/tickets/main"
+      ],
+      "env": {
+        "LOG_LEVEL": "info"
+      },
+      "tools": [
+        {
+          "name": "post_comment",
+          "description": "Post a public comment on a ticket.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "ticket": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": true,
+            "destructiveHint": false
+          }
+        }
+      ],
+      "displayName": "x"
+    }
+  }
+}

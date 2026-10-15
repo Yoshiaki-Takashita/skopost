@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm test)",
+      "mcp__notes__search_notes",
+      "Bash",
+      "Grep",
+      "WebSearch",
+      "Bash(git push *)"
+    ],
+    "ask": [
+      "Bash(python3 *)",
+      "Bash(curl *)"
+    ],
+    "deny": [
+      "Glob",
+      "mcp__mail__send_message"
+    ],
+    "defaultMode": "plan"
+  }
+}

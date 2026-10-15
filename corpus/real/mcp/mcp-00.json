@@ -1,0 +1,90 @@
+{
+  "mcpServers": {
+    "notes": {
+      "type": "sse",
+      "url": "https://mcp.example.org/notes",
+      "headers": {
+        "X-Client": "corpus"
+      },
+      "tools": [
+        {
+          "name": "delete_note",
+          "description": "Delete a note permanently.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false,
+            "destructiveHint": true
+          }
+        }
+      ],
+      "disabled": false
+    },
+    "tickets": {
+      "type": "sse",
+      "url": "http://localhost:6372/mcp",
+      "headers": {
+        "X-Client": "corpus"
+      },
+      "tools": [
+        {
+          "name": "post_comment",
+          "description": "Post a public comment on a ticket.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "ticket": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": true,
+            "destructiveHint": false
+          }
+        }
+      ],
+      "disabled": false
+    },
+    "shell": {
+      "command": "python3",
+      "args": [
+        "./servers/shell/main"
+      ],
+      "env": {
+        "LOG_LEVEL": "info"
+      },
+      "tools": [
+        {
+          "name": "run_command",
+          "description": "Run a shell command in the project directory.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "command": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false,
+            "destructiveHint": true,
+            "experimentalHint": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Synthetic payments API",
+    "version": "1"
+  },
+  "paths": {
+    "/invoices": {
+      "get": {
+        "operationId": "list_invoices",
+        "summary": "List invoices for the account.",
+        "parameters": [
+          {
+            "name": "status",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        },
+        "x-internal": true
+      }
+    },
+    "/payment/{id}": {
+      "delete": {
+        "operationId": "refund_payment",
+        "summary": "Refund a payment to the customer.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "payment": {
+                    "type": "string"
+                  },
+                  "amount": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "key": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-Api-Key"
+      }
+    }
+  },
+  "security": [
+    {
+      "key": []
+    }
+  ],
+  "x-logo": "corpus"
+}

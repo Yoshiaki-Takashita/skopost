@@ -1,0 +1,404 @@
+{
+ "files": {
+  "claude-settings/claude-00/settings.json": {
+   "format": "claude-settings",
+   "planted_unread": []
+  },
+  "claude-settings/claude-01/settings.local.json": {
+   "format": "claude-settings",
+   "planted_unread": []
+  },
+  "claude-settings/claude-02.json": {
+   "format": "claude-settings",
+   "planted_unread": []
+  },
+  "claude-settings/claude-03/settings.json": {
+   "format": "claude-settings",
+   "planted_unread": []
+  },
+  "claude-settings/claude-04/settings.local.json": {
+   "format": "claude-settings",
+   "planted_unread": []
+  },
+  "claude-settings/claude-05.json": {
+   "format": "claude-settings",
+   "planted_unread": []
+  },
+  "claude-settings/claude-06/settings.json": {
+   "format": "claude-settings",
+   "planted_unread": []
+  },
+  "claude-settings/claude-07/settings.local.json": {
+   "format": "claude-settings",
+   "planted_unread": []
+  },
+  "claude-settings/claude-08.json": {
+   "format": "claude-settings",
+   "planted_unread": [
+    "/telemetryProfile"
+   ]
+  },
+  "claude-settings/claude-09/settings.json": {
+   "format": "claude-settings",
+   "planted_unread": [
+    "/telemetryProfile"
+   ]
+  },
+  "claude-settings/claude-10/settings.local.json": {
+   "format": "claude-settings",
+   "planted_unread": [
+    "/permissions/review",
+    "/model"
+   ]
+  },
+  "claude-settings/claude-11.json": {
+   "format": "claude-settings",
+   "planted_unread": []
+  },
+  "claude-settings/claude-12/settings.json": {
+   "format": "claude-settings",
+   "planted_unread": [
+    "/telemetryProfile"
+   ]
+  },
+  "claude-settings/claude-13/settings.local.json": {
+   "format": "claude-settings",
+   "planted_unread": [
+    "/permissions/review"
+   ]
+  },
+  "claude-settings/claude-14.json": {
+   "format": "claude-settings",
+   "planted_unread": []
+  },
+  "claude-settings/claude-15/settings.json": {
+   "format": "claude-settings",
+   "planted_unread": []
+  },
+  "claude-settings/claude-16/settings.local.json": {
+   "format": "claude-settings",
+   "planted_unread": [
+    "/telemetryProfile"
+   ]
+  },
+  "claude-settings/claude-17.json": {
+   "format": "claude-settings",
+   "planted_unread": []
+  },
+  "claude-settings/claude-18/settings.json": {
+   "format": "claude-settings",
+   "planted_unread": []
+  },
+  "claude-settings/claude-19/settings.local.json": {
+   "format": "claude-settings",
+   "planted_unread": [
+    "/themeColor"
+   ]
+  },
+  "claude-settings/claude-20.json": {
+   "format": "claude-settings",
+   "planted_unread": []
+  },
+  "claude-settings/claude-21/settings.json": {
+   "format": "claude-settings",
+   "planted_unread": []
+  },
+  "claude-settings/claude-22/settings.local.json": {
+   "format": "claude-settings",
+   "planted_unread": []
+  },
+  "claude-settings/claude-23.json": {
+   "format": "claude-settings",
+   "planted_unread": [
+    "/editorHints"
+   ]
+  },
+  "mcp/mcp-00.json": {
+   "format": "mcp",
+   "planted_unread": [
+    "/mcpServers/notes/disabled",
+    "/mcpServers/tickets/disabled",
+    "/mcpServers/shell/tools/0/annotations/experimentalHint"
+   ]
+  },
+  "mcp/mcp-01.mcp.json": {
+   "format": "mcp",
+   "planted_unread": []
+  },
+  "mcp/mcp-02.mcp.json": {
+   "format": "mcp",
+   "planted_unread": []
+  },
+  "mcp/mcp-03.json": {
+   "format": "mcp",
+   "planted_unread": [
+    "/mcpServers/payments/tools/0/version"
+   ]
+  },
+  "mcp/mcp-04.mcp.json": {
+   "format": "mcp",
+   "planted_unread": []
+  },
+  "mcp/mcp-05.mcp.json": {
+   "format": "mcp",
+   "planted_unread": []
+  },
+  "mcp/mcp-06.json": {
+   "format": "mcp",
+   "planted_unread": [
+    "/mcpServers/db/displayName",
+    "/mcpServers/mail/tools/1/annotations/costlyHint"
+   ]
+  },
+  "mcp/mcp-07.mcp.json": {
+   "format": "mcp",
+   "planted_unread": []
+  },
+  "mcp/mcp-08.mcp.json": {
+   "format": "mcp",
+   "planted_unread": [
+    "/mcpServers/calendar/tools/0/examples",
+    "/mcpServers/calendar/displayName"
+   ]
+  },
+  "mcp/mcp-09.json": {
+   "format": "mcp",
+   "planted_unread": [
+    "/mcpServers/vault/autoApprove"
+   ]
+  },
+  "mcp/mcp-10.mcp.json": {
+   "format": "mcp",
+   "planted_unread": []
+  },
+  "mcp/mcp-11.mcp.json": {
+   "format": "mcp",
+   "planted_unread": [
+    "/mcpServers/files/tools/0/annotations/experimentalHint",
+    "/mcpServers/tickets/displayName"
+   ]
+  },
+  "mcp/mcp-12.json": {
+   "format": "mcp",
+   "planted_unread": [
+    "/profile"
+   ]
+  },
+  "mcp/mcp-13.mcp.json": {
+   "format": "mcp",
+   "planted_unread": [
+    "/mcpServers/files/tools/1/examples",
+    "/defaults"
+   ]
+  },
+  "mcp/mcp-14.mcp.json": {
+   "format": "mcp",
+   "planted_unread": [
+    "/mcpServers/mail/tools/0/annotations/experimentalHint",
+    "/mcpServers/mail/restartPolicy",
+    "/mcpServers/payments/restartPolicy"
+   ]
+  },
+  "mcp/mcp-15.json": {
+   "format": "mcp",
+   "planted_unread": []
+  },
+  "mcp/mcp-16.mcp.json": {
+   "format": "mcp",
+   "planted_unread": [
+    "/mcpServers/web/tools/0/category",
+    "/version"
+   ]
+  },
+  "mcp/mcp-17.mcp.json": {
+   "format": "mcp",
+   "planted_unread": [
+    "/mcpServers/git/autoApprove"
+   ]
+  },
+  "mcp/mcp-18.json": {
+   "format": "mcp",
+   "planted_unread": []
+  },
+  "mcp/mcp-19.mcp.json": {
+   "format": "mcp",
+   "planted_unread": [
+    "/mcpServers/web/tools/1/annotations/costlyHint",
+    "/mcpServers/payments/tools/0/annotations/experimentalHint"
+   ]
+  },
+  "mcp/mcp-20.mcp.json": {
+   "format": "mcp",
+   "planted_unread": [
+    "/mcpServers/files/tools/0/annotations/networkHint",
+    "/mcpServers/tickets/tools/1/costHint"
+   ]
+  },
+  "mcp/mcp-21.json": {
+   "format": "mcp",
+   "planted_unread": []
+  },
+  "mcp/mcp-22.mcp.json": {
+   "format": "mcp",
+   "planted_unread": [
+    "/mcpServers/git/displayName"
+   ]
+  },
+  "mcp/mcp-23.mcp.json": {
+   "format": "mcp",
+   "planted_unread": [
+    "/mcpServers/vault/timeoutMs"
+   ]
+  },
+  "openapi/openapi-00.json": {
+   "format": "openapi",
+   "planted_unread": []
+  },
+  "openapi/openapi-01.json": {
+   "format": "openapi",
+   "planted_unread": [
+    "/paths/~1event/visibility"
+   ]
+  },
+  "openapi/openapi-02.json": {
+   "format": "openapi",
+   "planted_unread": [
+    "/x-logo"
+   ]
+  },
+  "openapi/openapi-03.json": {
+   "format": "openapi",
+   "planted_unread": [
+    "/paths/~1file~1{id}/delete/x-internal",
+    "/paths/~1events/x-team"
+   ]
+  },
+  "openapi/openapi-04.json": {
+   "format": "openapi",
+   "planted_unread": [
+    "/paths/~1events/get/x-internal"
+   ]
+  },
+  "openapi/openapi-05.json": {
+   "format": "openapi",
+   "planted_unread": []
+  },
+  "openapi/openapi-06.json": {
+   "format": "openapi",
+   "planted_unread": [
+    "/paths/~1push/x-team"
+   ]
+  },
+  "openapi/openapi-07.json": {
+   "format": "openapi",
+   "planted_unread": [
+    "/paths/~1command~1{id}/post/x-internal",
+    "/paths/~1invoices/x-team"
+   ]
+  },
+  "openapi/openapi-08.json": {
+   "format": "openapi",
+   "planted_unread": [
+    "/paths/~1command~1{id}/x-team"
+   ]
+  },
+  "openapi/openapi-09.json": {
+   "format": "openapi",
+   "planted_unread": [
+    "/paths/~1invoices/get/x-internal",
+    "/x-logo"
+   ]
+  },
+  "openapi/openapi-10.json": {
+   "format": "openapi",
+   "planted_unread": []
+  },
+  "openapi/openapi-11.json": {
+   "format": "openapi",
+   "planted_unread": [
+    "/paths/~1payment~1{id}/delete/x-internal",
+    "/paths/~1file~1{id}/visibility"
+   ]
+  },
+  "openapi/openapi-12.json": {
+   "format": "openapi",
+   "planted_unread": [
+    "/paths/~1file~1{id}/delete/x-internal"
+   ]
+  },
+  "openapi/openapi-13.json": {
+   "format": "openapi",
+   "planted_unread": [
+    "/paths/~1comment/post/owner",
+    "/paths/~1comment/post/x-internal"
+   ]
+  },
+  "openapi/openapi-14.json": {
+   "format": "openapi",
+   "planted_unread": [
+    "/paths/~1secret/x-team"
+   ]
+  },
+  "openapi/openapi-15.json": {
+   "format": "openapi",
+   "planted_unread": [
+    "/paths/~1events/get/rateLimit",
+    "/paths/~1event/x-team"
+   ]
+  },
+  "openapi/openapi-16.json": {
+   "format": "openapi",
+   "planted_unread": [
+    "/paths/~1dir/get/x-internal"
+   ]
+  },
+  "openapi/openapi-17.json": {
+   "format": "openapi",
+   "planted_unread": [
+    "/generator",
+    "/x-logo"
+   ]
+  },
+  "openapi/openapi-18.json": {
+   "format": "openapi",
+   "planted_unread": [
+    "/generator"
+   ]
+  },
+  "openapi/openapi-19.json": {
+   "format": "openapi",
+   "planted_unread": [
+    "/paths/~1inbox/get/x-internal",
+    "/contact"
+   ]
+  },
+  "openapi/openapi-20.json": {
+   "format": "openapi",
+   "planted_unread": [
+    "/paths/~1note/x-team",
+    "/paths/~1invoices/x-team",
+    "/generator"
+   ]
+  },
+  "openapi/openapi-21.json": {
+   "format": "openapi",
+   "planted_unread": [
+    "/paths/~1page/get/rateLimit",
+    "/paths/~1event/post/x-internal",
+    "/paths/~1inbox/x-team"
+   ]
+  },
+  "openapi/openapi-22.json": {
+   "format": "openapi",
+   "planted_unread": [
+    "/contact"
+   ]
+  },
+  "openapi/openapi-23.json": {
+   "format": "openapi",
+   "planted_unread": []
+  }
+ },
+ "note": "すべて自作の合成。実在の第三者の設定は写していない。生成：corpus/gen.py real --write",
+ "seed": 20261013
+}

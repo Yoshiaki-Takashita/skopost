@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rm *)",
+      "WebFetch(domain:docs.example.com)",
+      "Read(./.env)",
+      "Bash",
+      "Bash(curl *)"
+    ],
+    "ask": [
+      "mcp__notes__search_notes"
+    ]
+  }
+}

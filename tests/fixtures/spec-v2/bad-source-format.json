@@ -1,0 +1,15 @@
+{
+ "skopost": 2,
+ "tools": [
+  {
+   "id": "a",
+   "observed": {
+    "exec": {
+     "value": true,
+     "confidence": "推",
+     "source": "ai"
+    }
+   }
+  }
+ ]
+}

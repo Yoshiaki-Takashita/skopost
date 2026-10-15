@@ -1,0 +1,106 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Synthetic shell API",
+    "version": "9"
+  },
+  "servers": [
+    {
+      "url": "https://api.example.com/shell"
+    }
+  ],
+  "paths": {
+    "/command/{id}": {
+      "post": {
+        "operationId": "run_command",
+        "summary": "Run a shell command in the project directory.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "command": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      }
+    },
+    "/events": {
+      "get": {
+        "operationId": "list_events",
+        "summary": "List calendar events in a range.",
+        "parameters": [
+          {
+            "name": "start",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      }
+    },
+    "/status": {
+      "get": {
+        "operationId": "git_status",
+        "summary": "Show the working tree status.",
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      }
+    },
+    "/file/{id}": {
+      "delete": {
+        "operationId": "write_file",
+        "summary": "Write text to a file in the workspace.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "path": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        },
+        "x-internal": true
+      }
+    }
+  }
+}

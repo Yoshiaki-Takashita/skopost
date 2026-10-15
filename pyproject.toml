@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "skopost"
+# 公開用の版。内部の「スキーマの版」skopost/model/version.py（1.1.0.dev0）・SARIF の出力とは別（docs/ARCHITECTURE.md §2.3）。
+version = "0.1.0"
+description = "Static analyzer for AI agent tool setups: finds dangerous tool combinations and the smallest set of human-confirmation checkpoints (research preview)."
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+requires-python = ">=3.10"
+dependencies = []
+authors = [{ name = "Yoshiaki Takashita" }]
+keywords = ["ai-agents", "mcp", "security", "static-analysis", "least-privilege"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Natural Language :: Japanese",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Security",
+    "Topic :: Software Development :: Quality Assurance",
+]
+
+[project.urls]
+Repository = "https://github.com/Yoshiaki-Takashita/skopost"
+
+[project.scripts]
+skopost = "skopost.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["skopost", "skopost.*"]
+
+[tool.setuptools.package-data]
+"skopost.ci" = ["templates/*.yml", "templates/*.yaml", "templates/.pre-commit-hooks.yaml"]

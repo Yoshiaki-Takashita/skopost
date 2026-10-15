@@ -1,0 +1,293 @@
+{
+  "skopost": 1,
+  "name": "例：AI のブラウザ操作（合成。実物の製品ではない）",
+  "exit_code": 2,
+  "summary": {
+    "tools": 7,
+    "allowed": 7,
+    "paths": 10,
+    "paths_declared_only": 0,
+    "missed_by_declared": 10,
+    "mismatches": 10,
+    "assumed_unknown": 1,
+    "seconds": X
+  },
+  "paths": [
+    {
+      "kind": "act",
+      "tools": [
+        "click"
+      ],
+      "confidence": "論",
+      "via": [
+        "acts:delete,publish,purchase,send"
+      ]
+    },
+    {
+      "kind": "exec",
+      "tools": [
+        "download"
+      ],
+      "confidence": "不明",
+      "via": [
+        "exec"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "read_page",
+        "navigate"
+      ],
+      "confidence": "論",
+      "via": [
+        "reads_secret",
+        "args_leave"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "read_page",
+        "type_text"
+      ],
+      "confidence": "論",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "read_page",
+        "copy_to_clipboard"
+      ],
+      "confidence": "論",
+      "via": [
+        "reads_secret",
+        "writes_stores→clipboard（外部の置き場）"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "read_page",
+        "download"
+      ],
+      "confidence": "論",
+      "via": [
+        "reads_secret",
+        "args_leave"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "screenshot",
+        "navigate"
+      ],
+      "confidence": "論",
+      "via": [
+        "reads_secret",
+        "args_leave"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "screenshot",
+        "type_text"
+      ],
+      "confidence": "論",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "screenshot",
+        "copy_to_clipboard"
+      ],
+      "confidence": "論",
+      "via": [
+        "reads_secret",
+        "writes_stores→clipboard（外部の置き場）"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "screenshot",
+        "download"
+      ],
+      "confidence": "論",
+      "via": [
+        "reads_secret",
+        "args_leave"
+      ]
+    }
+  ],
+  "mismatches": [
+    {
+      "tool": "navigate",
+      "cap": "args_leave",
+      "declared": false,
+      "observed": true,
+      "confidence": "確",
+      "evidence": "合成：URL（と中の文字列）が宛先へ届く",
+      "severity": "under"
+    },
+    {
+      "tool": "read_page",
+      "cap": "reads_secret",
+      "declared": false,
+      "observed": true,
+      "confidence": "論",
+      "evidence": "合成：ログイン済みのページには個人情報が表示される",
+      "severity": "under"
+    },
+    {
+      "tool": "click",
+      "cap": "reads_untrusted",
+      "declared": false,
+      "observed": true,
+      "confidence": "確",
+      "evidence": "合成",
+      "severity": "under"
+    },
+    {
+      "tool": "click",
+      "cap": "acts",
+      "declared": [],
+      "observed": [
+        "delete",
+        "publish",
+        "purchase",
+        "send"
+      ],
+      "confidence": "論",
+      "evidence": "合成：ボタンが何をするかは画面次第。送信・購入・削除・投稿のどれにもなりうる",
+      "severity": "under"
+    },
+    {
+      "tool": "type_text",
+      "cap": "net_out",
+      "declared": false,
+      "observed": true,
+      "confidence": "論",
+      "evidence": "合成：入力欄に書いた文は送信ボタンで外へ出る",
+      "severity": "under"
+    },
+    {
+      "tool": "copy_to_clipboard",
+      "cap": "writes_stores",
+      "declared": [],
+      "observed": [
+        "clipboard"
+      ],
+      "confidence": "確",
+      "evidence": "合成",
+      "severity": "under"
+    },
+    {
+      "tool": "download",
+      "cap": "reads_untrusted",
+      "declared": false,
+      "observed": true,
+      "confidence": "確",
+      "evidence": "合成",
+      "severity": "under"
+    },
+    {
+      "tool": "download",
+      "cap": "args_leave",
+      "declared": false,
+      "observed": true,
+      "confidence": "確",
+      "evidence": "合成：URL が宛先へ届く",
+      "severity": "under"
+    },
+    {
+      "tool": "screenshot",
+      "cap": "reads_untrusted",
+      "declared": false,
+      "observed": true,
+      "confidence": "確",
+      "evidence": "合成",
+      "severity": "under"
+    },
+    {
+      "tool": "screenshot",
+      "cap": "reads_secret",
+      "declared": false,
+      "observed": true,
+      "confidence": "論",
+      "evidence": "合成：画面に出ている個人情報が画像に入る",
+      "severity": "under"
+    }
+  ],
+  "assumed": [
+    {
+      "tool": "download",
+      "cap": "exec"
+    }
+  ],
+  "checkpoints": {
+    "exact": true,
+    "primary": [
+      "read_page",
+      "click",
+      "download",
+      "screenshot"
+    ],
+    "alternatives": [],
+    "size": 4,
+    "reasons": {
+      "read_page": [
+        "exfil: read_page>navigate",
+        "exfil: read_page>type_text",
+        "exfil: read_page>copy_to_clipboard",
+        "exfil: read_page>download"
+      ],
+      "click": [
+        "act: click"
+      ],
+      "download": [
+        "exec: download",
+        "exfil: read_page>download",
+        "exfil: screenshot>download"
+      ],
+      "screenshot": [
+        "exfil: screenshot>navigate",
+        "exfil: screenshot>type_text",
+        "exfil: screenshot>copy_to_clipboard",
+        "exfil: screenshot>download"
+      ]
+    }
+  },
+  "declared_only": {
+    "cut": [],
+    "holds": false,
+    "surviving_paths": 10,
+    "surviving": [
+      "click",
+      "download",
+      "read_page>navigate",
+      "read_page>type_text",
+      "read_page>copy_to_clipboard",
+      "read_page>download",
+      "screenshot>navigate",
+      "screenshot>type_text",
+      "screenshot>copy_to_clipboard",
+      "screenshot>download"
+    ]
+  },
+  "not_checked": [
+    "人の確認の素通し（ask にした道具を人が実際に止めるか）は測っていない",
+    "文脈の中の値の流れは追っていない（文脈は 1 つの汚れうる場所として丸めた）",
+    "札の正しさは確かめていない（札は入力。確度と根拠を見て判断すること）"
+  ]
+}

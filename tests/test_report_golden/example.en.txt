@@ -1,0 +1,10 @@
+skopost: 最小の例：読むだけ 2 つの組み合わせ
+1 harmful path(s), 1 checkpoint(s)
+  [論] exfiltration: read_file>web_search  (reads_stores→env（秘密のある置き場） -> args_leave)
+checkpoints:
+  read_file (ファイルを読む) -> mode: ask
+under-declared mismatches: read_file.reads_untrusted, web_search.args_leave
+checks not run / limits:
+  - 人の確認の素通し（ask にした道具を人が実際に止めるか）は測っていない
+  - 文脈の中の値の流れは追っていない（文脈は 1 つの汚れうる場所として丸めた）
+  - 札の正しさは確かめていない（札は入力。確度と根拠を見て判断すること）

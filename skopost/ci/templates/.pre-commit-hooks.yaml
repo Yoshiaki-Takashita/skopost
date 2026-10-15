@@ -1,0 +1,8 @@
+# Skopost の pre-commit フック定義（雛形）。標準ライブラリだけで動くので language: system。
+- id: skopost
+  name: skopost check
+  description: 宣言ファイルの危ない道を確かめる（道があれば失敗）
+  entry: python3 -m skopost check
+  language: system
+  files: (^|/)skopost\.json$
+  pass_filenames: true

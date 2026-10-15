@@ -1,0 +1,23 @@
+skopost: 例：AI のブラウザ操作（合成。実物の製品ではない）
+10 harmful path(s), 4 checkpoint(s)
+  [論] irreversible action: click  (acts:delete,publish,purchase,send)
+  [不明] execution: download  (exec)
+  [論] exfiltration: read_page>navigate  (reads_secret -> args_leave)
+  [論] exfiltration: read_page>type_text  (reads_secret -> net_out)
+  [論] exfiltration: read_page>copy_to_clipboard  (reads_secret -> writes_stores→clipboard（外部の置き場）)
+  [論] exfiltration: read_page>download  (reads_secret -> args_leave)
+  [論] exfiltration: screenshot>navigate  (reads_secret -> args_leave)
+  [論] exfiltration: screenshot>type_text  (reads_secret -> net_out)
+  [論] exfiltration: screenshot>copy_to_clipboard  (reads_secret -> writes_stores→clipboard（外部の置き場）)
+  [論] exfiltration: screenshot>download  (reads_secret -> args_leave)
+checkpoints:
+  read_page (ページの文字を読む) -> mode: ask
+  click (クリック) -> mode: ask
+  download (ファイルをダウンロード) -> mode: ask
+  screenshot (画面を撮る) -> mode: ask
+under-declared mismatches: navigate.args_leave, read_page.reads_secret, click.reads_untrusted, click.acts, type_text.net_out, copy_to_clipboard.writes_stores, download.reads_untrusted, download.args_leave, screenshot.reads_untrusted, screenshot.reads_secret
+unknown items assumed dangerous: download.exec
+checks not run / limits:
+  - 人の確認の素通し（ask にした道具を人が実際に止めるか）は測っていない
+  - 文脈の中の値の流れは追っていない（文脈は 1 つの汚れうる場所として丸めた）
+  - 札の正しさは確かめていない（札は入力。確度と根拠を見て判断すること）

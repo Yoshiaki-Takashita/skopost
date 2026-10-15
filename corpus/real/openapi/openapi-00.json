@@ -1,0 +1,80 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Synthetic git API",
+    "version": "5"
+  },
+  "servers": [
+    {
+      "url": "https://git.example.org/v1"
+    }
+  ],
+  "paths": {
+    "/status": {
+      "get": {
+        "operationId": "git_status",
+        "summary": "Show the working tree status.",
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      }
+    },
+    "/push": {
+      "post": {
+        "operationId": "git_push",
+        "summary": "Push the current branch to the remote.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "remote": {
+                    "type": "string"
+                  },
+                  "branch": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      }
+    },
+    "/inbox": {
+      "get": {
+        "operationId": "list_inbox",
+        "summary": "List recent messages in the inbox.",
+        "parameters": [
+          {
+            "name": "folder",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      }
+    }
+  }
+}

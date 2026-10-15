@@ -1,0 +1,47 @@
+{
+  "mcpServers": {
+    "git": {
+      "command": "node",
+      "args": [
+        "./servers/git/main"
+      ],
+      "env": {
+        "LOG_LEVEL": "info"
+      },
+      "tools": [
+        {
+          "name": "git_push",
+          "description": "Push the current branch to the remote.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "remote": {
+                "type": "string"
+              },
+              "branch": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": true,
+            "destructiveHint": false
+          }
+        },
+        {
+          "name": "git_status",
+          "description": "Show the working tree status.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        }
+      ]
+    }
+  }
+}

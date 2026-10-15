@@ -1,0 +1,14 @@
+{
+ "skopost": 1,
+ "tools": [
+  {
+   "id": "a",
+   "observed": {
+    "exec": {
+     "value": true,
+     "confidence": "maybe"
+    }
+   }
+  }
+ ]
+}

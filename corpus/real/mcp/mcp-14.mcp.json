@@ -1,0 +1,145 @@
+{
+  "mcpServers": {
+    "mail": {
+      "type": "sse",
+      "url": "http://localhost:8543/mcp",
+      "tools": [
+        {
+          "name": "send_message",
+          "description": "Send an email message to a recipient.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "to": {
+                "type": "string"
+              },
+              "subject": {
+                "type": "string"
+              },
+              "body": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": true,
+            "destructiveHint": false,
+            "experimentalHint": true
+          }
+        },
+        {
+          "name": "list_inbox",
+          "description": "List recent messages in the inbox.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "folder": {
+                "type": "string"
+              },
+              "limit": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": true
+          }
+        }
+      ],
+      "restartPolicy": "x"
+    },
+    "shell": {
+      "type": "sse",
+      "url": "https://shell.example.com/mcp",
+      "tools": [
+        {
+          "name": "run_command",
+          "description": "Run a shell command in the project directory.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "command": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false,
+            "destructiveHint": true
+          }
+        }
+      ]
+    },
+    "payments": {
+      "command": "node",
+      "args": [
+        "./servers/payments/main"
+      ],
+      "tools": [
+        {
+          "name": "list_invoices",
+          "description": "List invoices for the account.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "refund_payment",
+          "description": "Refund a payment to the customer.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "payment": {
+                "type": "string"
+              },
+              "amount": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": true,
+            "destructiveHint": true
+          }
+        }
+      ],
+      "restartPolicy": "x"
+    },
+    "git": {
+      "command": "uvx",
+      "args": [
+        "./servers/git/main"
+      ],
+      "tools": [
+        {
+          "name": "git_push",
+          "description": "Push the current branch to the remote.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "remote": {
+                "type": "string"
+              },
+              "branch": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

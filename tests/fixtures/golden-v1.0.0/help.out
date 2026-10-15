@@ -1,0 +1,10 @@
+Skopost — 見張りの持ち場：AI エージェントの道具の札から「危ない道」を数え、最小の確認点を出す。
+
+標準ライブラリのみ。外へ通信しない。既定では何も書かない（--out を付けたときだけ 1 ファイル書く）。
+仕様は SPEC.md。設計は DESIGN.md。限界は LIMITATIONS.md。
+
+使い方:
+  python3 skopost.py check 宣言.json [--format md|json] [--explain] [--out FILE]
+  python3 skopost.py validate 宣言.json
+  python3 skopost.py example > my.json
+

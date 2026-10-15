@@ -1,0 +1,16 @@
+{
+  "openapi": "3.0.3",
+  "info": {"title": "Example shop API (synthetic)", "version": "2"},
+  "servers": [{"url": "https://shop.example.com/api"}],
+  "paths": {
+    "/products": {
+      "get": {"operationId": "searchProducts", "summary": "Search products", "description": "Full-text search over the public catalog."}
+    },
+    "/orders": {
+      "post": {"operationId": "placeOrder", "summary": "Place an order and charge the saved card", "requestBody": {"content": {}}}
+    },
+    "/orders/{id}": {
+      "delete": {"operationId": "cancelOrder", "summary": "Cancel an order"}
+    }
+  }
+}

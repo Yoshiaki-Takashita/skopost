@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git push *)",
+      "Edit",
+      "WebSearch"
+    ],
+    "ask": [
+      "Read(./.env)"
+    ],
+    "deny": [
+      "Glob",
+      "Write"
+    ],
+    "defaultMode": "default"
+  }
+}

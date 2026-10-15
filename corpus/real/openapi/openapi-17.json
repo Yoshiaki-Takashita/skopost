@@ -1,0 +1,41 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Synthetic shell API",
+    "version": "3"
+  },
+  "servers": [
+    {
+      "url": "https://api.example.com/shell"
+    }
+  ],
+  "paths": {
+    "/command/{id}": {
+      "delete": {
+        "operationId": "run_command",
+        "summary": "Run a shell command in the project directory.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "command": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      }
+    }
+  },
+  "generator": "x",
+  "x-logo": "corpus"
+}

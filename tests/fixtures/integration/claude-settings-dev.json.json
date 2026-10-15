@@ -1,0 +1,502 @@
+{
+  "skopost": 1,
+  "name": "claude-settings",
+  "exit_code": 2,
+  "summary": {
+    "tools": 4,
+    "allowed": 4,
+    "paths": 24,
+    "paths_declared_only": 0,
+    "missed_by_declared": 24,
+    "mismatches": 4,
+    "assumed_unknown": 20,
+    "seconds": X
+  },
+  "paths": [
+    {
+      "kind": "exec",
+      "tools": [
+        "Read"
+      ],
+      "confidence": "不明",
+      "via": [
+        "exec"
+      ]
+    },
+    {
+      "kind": "act",
+      "tools": [
+        "Read"
+      ],
+      "confidence": "不明",
+      "via": [
+        "acts:send,purchase,delete,publish,grant,pay"
+      ]
+    },
+    {
+      "kind": "exec",
+      "tools": [
+        "Bash"
+      ],
+      "confidence": "論",
+      "via": [
+        "exec"
+      ]
+    },
+    {
+      "kind": "act",
+      "tools": [
+        "Bash"
+      ],
+      "confidence": "不明",
+      "via": [
+        "acts:send,purchase,delete,publish,grant,pay"
+      ]
+    },
+    {
+      "kind": "exec",
+      "tools": [
+        "Edit"
+      ],
+      "confidence": "不明",
+      "via": [
+        "exec"
+      ]
+    },
+    {
+      "kind": "act",
+      "tools": [
+        "Edit"
+      ],
+      "confidence": "不明",
+      "via": [
+        "acts:send,purchase,delete,publish,grant,pay"
+      ]
+    },
+    {
+      "kind": "exec",
+      "tools": [
+        "WebFetch"
+      ],
+      "confidence": "不明",
+      "via": [
+        "exec"
+      ]
+    },
+    {
+      "kind": "act",
+      "tools": [
+        "WebFetch"
+      ],
+      "confidence": "不明",
+      "via": [
+        "acts:send,purchase,delete,publish,grant,pay"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "Read",
+        "Read"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "Read",
+        "Bash"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "Read",
+        "Edit"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "Read",
+        "WebFetch"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "Bash",
+        "Read"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "Bash",
+        "Bash"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "Bash",
+        "Edit"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "Bash",
+        "WebFetch"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "Edit",
+        "Read"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "Edit",
+        "Bash"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "Edit",
+        "Edit"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "Edit",
+        "WebFetch"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "WebFetch",
+        "Read"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "WebFetch",
+        "Bash"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "WebFetch",
+        "Edit"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    },
+    {
+      "kind": "exfil",
+      "tools": [
+        "WebFetch",
+        "WebFetch"
+      ],
+      "confidence": "不明",
+      "via": [
+        "reads_secret",
+        "net_out"
+      ]
+    }
+  ],
+  "mismatches": [
+    {
+      "tool": "Bash",
+      "cap": "exec",
+      "declared": false,
+      "observed": true,
+      "confidence": "論",
+      "evidence": "Claude Code の道具 bash の定義上の働き",
+      "severity": "under"
+    },
+    {
+      "tool": "WebFetch",
+      "cap": "reads_untrusted",
+      "declared": false,
+      "observed": true,
+      "confidence": "論",
+      "evidence": "Claude Code の道具 webfetch の定義上の働き",
+      "severity": "under"
+    },
+    {
+      "tool": "WebFetch",
+      "cap": "net_out",
+      "declared": false,
+      "observed": true,
+      "confidence": "論",
+      "evidence": "Claude Code の道具 webfetch の定義上の働き",
+      "severity": "under"
+    },
+    {
+      "tool": "WebFetch",
+      "cap": "args_leave",
+      "declared": false,
+      "observed": true,
+      "confidence": "論",
+      "evidence": "Claude Code の道具 webfetch の定義上の働き",
+      "severity": "under"
+    }
+  ],
+  "assumed": [
+    {
+      "tool": "Read",
+      "cap": "reads_untrusted"
+    },
+    {
+      "tool": "Read",
+      "cap": "args_leave"
+    },
+    {
+      "tool": "Read",
+      "cap": "exec"
+    },
+    {
+      "tool": "Read",
+      "cap": "net_out"
+    },
+    {
+      "tool": "Read",
+      "cap": "reads_secret"
+    },
+    {
+      "tool": "Read",
+      "cap": "acts"
+    },
+    {
+      "tool": "Bash",
+      "cap": "reads_untrusted"
+    },
+    {
+      "tool": "Bash",
+      "cap": "args_leave"
+    },
+    {
+      "tool": "Bash",
+      "cap": "net_out"
+    },
+    {
+      "tool": "Bash",
+      "cap": "reads_secret"
+    },
+    {
+      "tool": "Bash",
+      "cap": "acts"
+    },
+    {
+      "tool": "Edit",
+      "cap": "reads_untrusted"
+    },
+    {
+      "tool": "Edit",
+      "cap": "args_leave"
+    },
+    {
+      "tool": "Edit",
+      "cap": "exec"
+    },
+    {
+      "tool": "Edit",
+      "cap": "net_out"
+    },
+    {
+      "tool": "Edit",
+      "cap": "reads_secret"
+    },
+    {
+      "tool": "Edit",
+      "cap": "acts"
+    },
+    {
+      "tool": "WebFetch",
+      "cap": "exec"
+    },
+    {
+      "tool": "WebFetch",
+      "cap": "reads_secret"
+    },
+    {
+      "tool": "WebFetch",
+      "cap": "acts"
+    }
+  ],
+  "checkpoints": {
+    "exact": true,
+    "primary": [
+      "Read",
+      "Bash",
+      "Edit",
+      "WebFetch"
+    ],
+    "alternatives": [],
+    "size": 4,
+    "reasons": {
+      "Read": [
+        "exec: Read",
+        "act: Read",
+        "exfil: Read>Read",
+        "exfil: Read>Bash",
+        "exfil: Read>Edit",
+        "exfil: Read>WebFetch",
+        "exfil: Bash>Read",
+        "exfil: Edit>Read",
+        "exfil: WebFetch>Read"
+      ],
+      "Bash": [
+        "exec: Bash",
+        "act: Bash",
+        "exfil: Read>Bash",
+        "exfil: Bash>Read",
+        "exfil: Bash>Bash",
+        "exfil: Bash>Edit",
+        "exfil: Bash>WebFetch",
+        "exfil: Edit>Bash",
+        "exfil: WebFetch>Bash"
+      ],
+      "Edit": [
+        "exec: Edit",
+        "act: Edit",
+        "exfil: Read>Edit",
+        "exfil: Bash>Edit",
+        "exfil: Edit>Read",
+        "exfil: Edit>Bash",
+        "exfil: Edit>Edit",
+        "exfil: Edit>WebFetch",
+        "exfil: WebFetch>Edit"
+      ],
+      "WebFetch": [
+        "exec: WebFetch",
+        "act: WebFetch",
+        "exfil: Read>WebFetch",
+        "exfil: Bash>WebFetch",
+        "exfil: Edit>WebFetch",
+        "exfil: WebFetch>Read",
+        "exfil: WebFetch>Bash",
+        "exfil: WebFetch>Edit",
+        "exfil: WebFetch>WebFetch"
+      ]
+    }
+  },
+  "declared_only": {
+    "cut": [],
+    "holds": false,
+    "surviving_paths": 24,
+    "surviving": [
+      "Read",
+      "Read",
+      "Bash",
+      "Bash",
+      "Edit",
+      "Edit",
+      "WebFetch",
+      "WebFetch",
+      "Read>Read",
+      "Read>Bash",
+      "Read>Edit",
+      "Read>WebFetch",
+      "Bash>Read",
+      "Bash>Bash",
+      "Bash>Edit",
+      "Bash>WebFetch",
+      "Edit>Read",
+      "Edit>Bash",
+      "Edit>Edit",
+      "Edit>WebFetch",
+      "WebFetch>Read",
+      "WebFetch>Bash",
+      "WebFetch>Edit",
+      "WebFetch>WebFetch"
+    ]
+  },
+  "not_checked": [
+    "人の確認の素通し（ask にした道具を人が実際に止めるか）は測っていない",
+    "文脈の中の値の流れは追っていない（文脈は 1 つの汚れうる場所として丸めた）",
+    "札の正しさは確かめていない（札は入力。確度と根拠を見て判断すること）"
+  ]
+}

@@ -1,0 +1,37 @@
+skopost: claude-settings
+危ない道 24 本・関所 4 か所
+  [不明] 実行: Read  (exec)
+  [不明] 取り返しのつかない操作: Read  (acts:send,purchase,delete,publish,grant,pay)
+  [論] 実行: Bash  (exec)
+  [不明] 取り返しのつかない操作: Bash  (acts:send,purchase,delete,publish,grant,pay)
+  [不明] 実行: Edit  (exec)
+  [不明] 取り返しのつかない操作: Edit  (acts:send,purchase,delete,publish,grant,pay)
+  [不明] 実行: WebFetch  (exec)
+  [不明] 取り返しのつかない操作: WebFetch  (acts:send,purchase,delete,publish,grant,pay)
+  [不明] 持ち出し: Read>Read  (reads_secret -> net_out)
+  [不明] 持ち出し: Read>Bash  (reads_secret -> net_out)
+  [不明] 持ち出し: Read>Edit  (reads_secret -> net_out)
+  [不明] 持ち出し: Read>WebFetch  (reads_secret -> net_out)
+  [不明] 持ち出し: Bash>Read  (reads_secret -> net_out)
+  [不明] 持ち出し: Bash>Bash  (reads_secret -> net_out)
+  [不明] 持ち出し: Bash>Edit  (reads_secret -> net_out)
+  [不明] 持ち出し: Bash>WebFetch  (reads_secret -> net_out)
+  [不明] 持ち出し: Edit>Read  (reads_secret -> net_out)
+  [不明] 持ち出し: Edit>Bash  (reads_secret -> net_out)
+  [不明] 持ち出し: Edit>Edit  (reads_secret -> net_out)
+  [不明] 持ち出し: Edit>WebFetch  (reads_secret -> net_out)
+  [不明] 持ち出し: WebFetch>Read  (reads_secret -> net_out)
+  [不明] 持ち出し: WebFetch>Bash  (reads_secret -> net_out)
+  [不明] 持ち出し: WebFetch>Edit  (reads_secret -> net_out)
+  [不明] 持ち出し: WebFetch>WebFetch  (reads_secret -> net_out)
+関所:
+  Read -> mode: ask
+  Bash -> mode: ask
+  Edit -> mode: ask
+  WebFetch -> mode: ask
+申告より危ない食い違い: Bash.exec, WebFetch.reads_untrusted, WebFetch.net_out, WebFetch.args_leave
+不明として危ない側に倒した項目: Read.reads_untrusted, Read.args_leave, Read.exec, Read.net_out, Read.reads_secret, Read.acts, Bash.reads_untrusted, Bash.args_leave, Bash.net_out, Bash.reads_secret, Bash.acts, Edit.reads_untrusted, Edit.args_leave, Edit.exec, Edit.net_out, Edit.reads_secret, Edit.acts, WebFetch.exec, WebFetch.reads_secret, WebFetch.acts
+走らせなかった検査・限界:
+  - 人の確認の素通し（ask にした道具を人が実際に止めるか）は測っていない
+  - 文脈の中の値の流れは追っていない（文脈は 1 つの汚れうる場所として丸めた）
+  - 札の正しさは確かめていない（札は入力。確度と根拠を見て判断すること）

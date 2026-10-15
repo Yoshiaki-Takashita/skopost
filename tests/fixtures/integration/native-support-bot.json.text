@@ -1,0 +1,25 @@
+skopost: 例：問い合わせ対応ボット（合成。実物の設定ではない）
+危ない道 14 本・関所 3 か所
+  [不明] 実行: ticket_read  (exec)
+  [不明] 取り返しのつかない操作: ticket_read  (acts:send,purchase,delete,publish,grant,pay)
+  [不明] 実行: crm_lookup  (exec)
+  [不明] 取り返しのつかない操作: crm_lookup  (acts:send,purchase,delete,publish,grant,pay)
+  [不明] 実行: reply_draft  (exec)
+  [不明] 持ち出し: ticket_read>ticket_read  (reads_secret -> net_out)
+  [不明] 持ち出し: ticket_read>crm_lookup  (reads_secret -> net_out)
+  [不明] 持ち出し: ticket_read>reply_draft  (reads_secret -> net_out)
+  [不明] 持ち出し: crm_lookup>ticket_read  (reads_secret -> net_out)
+  [不明] 持ち出し: crm_lookup>crm_lookup  (reads_secret -> net_out)
+  [不明] 持ち出し: crm_lookup>reply_draft  (reads_secret -> net_out)
+  [不明] 持ち出し: reply_draft>ticket_read  (reads_secret -> net_out)
+  [不明] 持ち出し: reply_draft>crm_lookup  (reads_secret -> net_out)
+  [不明] 持ち出し: reply_draft>reply_draft  (reads_secret -> net_out)
+関所:
+  ticket_read (問い合わせを読む) -> mode: ask
+  crm_lookup (顧客台帳を引く) -> mode: ask
+  reply_draft (返信を下書きに置く) -> mode: ask
+不明として危ない側に倒した項目: ticket_read.args_leave, ticket_read.exec, ticket_read.net_out, ticket_read.reads_secret, ticket_read.acts, crm_lookup.reads_untrusted, crm_lookup.exec, crm_lookup.net_out, crm_lookup.reads_secret, crm_lookup.acts, reply_draft.reads_untrusted, reply_draft.args_leave, reply_draft.exec, reply_draft.net_out, reply_draft.reads_secret
+走らせなかった検査・限界:
+  - 人の確認の素通し（ask にした道具を人が実際に止めるか）は測っていない
+  - 文脈の中の値の流れは追っていない（文脈は 1 つの汚れうる場所として丸めた）
+  - 札の正しさは確かめていない（札は入力。確度と根拠を見て判断すること）

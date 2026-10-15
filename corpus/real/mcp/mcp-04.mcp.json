@@ -1,0 +1,26 @@
+{
+  "mcpServers": {
+    "db": {
+      "type": "sse",
+      "url": "https://mcp.example.org/db",
+      "tools": [
+        {
+          "name": "query_db",
+          "description": "Run a read-only SQL query.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "sql": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        }
+      ]
+    }
+  }
+}

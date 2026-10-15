@@ -1,0 +1,28 @@
+{
+  "mcpServers": {
+    "git": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "example-git-server"
+      ],
+      "env": {
+        "LOG_LEVEL": "info"
+      },
+      "tools": [
+        {
+          "name": "git_status",
+          "description": "Show the working tree status.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        }
+      ]
+    }
+  }
+}

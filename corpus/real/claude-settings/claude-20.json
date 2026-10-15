@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(./.env)",
+      "Bash(git status)",
+      "Bash(npm test)",
+      "Bash(npm run build)",
+      "Read",
+      "Write"
+    ],
+    "ask": [
+      "WebSearch",
+      "mcp__mail__send_message",
+      "WebFetch(domain:docs.example.com)"
+    ],
+    "deny": [
+      "NotebookEdit",
+      "Bash(python3 *)"
+    ]
+  }
+}

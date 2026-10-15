@@ -1,0 +1,76 @@
+{
+  "mcpServers": {
+    "web": {
+      "command": "python3",
+      "args": [
+        "./servers/web/main"
+      ],
+      "tools": [
+        {
+          "name": "search_web",
+          "description": "Search the web and return result snippets.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "query": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        {
+          "name": "fetch_page",
+          "description": "Fetch a web page and return its text.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": true,
+            "costlyHint": true
+          }
+        }
+      ]
+    },
+    "payments": {
+      "command": "python3",
+      "args": [
+        "./servers/payments/main"
+      ],
+      "tools": [
+        {
+          "name": "refund_payment",
+          "description": "Refund a payment to the customer.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "payment": {
+                "type": "string"
+              },
+              "amount": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": true,
+            "destructiveHint": true,
+            "experimentalHint": true
+          }
+        }
+      ]
+    },
+    "mail": {
+      "command": "uvx",
+      "args": [
+        "./servers/mail/main"
+      ]
+    }
+  }
+}

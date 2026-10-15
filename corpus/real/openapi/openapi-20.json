@@ -1,0 +1,105 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Synthetic web API",
+    "version": "3"
+  },
+  "servers": [
+    {
+      "url": "https://api.example.com/web"
+    }
+  ],
+  "paths": {
+    "/page": {
+      "get": {
+        "operationId": "fetch_page",
+        "summary": "Fetch a web page and return its text.",
+        "parameters": [
+          {
+            "name": "url",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      }
+    },
+    "/web": {
+      "get": {
+        "operationId": "search_web",
+        "summary": "Search the web and return result snippets.",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      }
+    },
+    "/note": {
+      "post": {
+        "operationId": "create_note",
+        "summary": "Create a new note.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "body": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      },
+      "x-team": "corpus"
+    },
+    "/invoices": {
+      "get": {
+        "operationId": "list_invoices",
+        "summary": "List invoices for the account.",
+        "parameters": [
+          {
+            "name": "status",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      },
+      "x-team": "corpus"
+    }
+  },
+  "generator": "x"
+}

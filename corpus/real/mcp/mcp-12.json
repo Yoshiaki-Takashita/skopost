@@ -1,0 +1,56 @@
+{
+  "mcpServers": {
+    "files": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "example-files-server"
+      ],
+      "tools": [
+        {
+          "name": "write_file",
+          "description": "Write text to a file in the workspace.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string"
+              },
+              "content": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "web": {
+      "command": "node",
+      "args": [
+        "./servers/web/main"
+      ],
+      "env": {
+        "LOG_LEVEL": "info"
+      },
+      "tools": [
+        {
+          "name": "search_web",
+          "description": "Search the web and return result snippets.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "query": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": true
+          }
+        }
+      ]
+    }
+  },
+  "profile": 1
+}

@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git diff *)",
+      "mcp__mail__send_message",
+      "WebFetch(domain:docs.example.com)",
+      "Edit",
+      "mcp__notes__search_notes"
+    ],
+    "ask": [
+      "Glob"
+    ],
+    "deny": [
+      "Bash(git status)",
+      "Write"
+    ],
+    "defaultMode": "default"
+  },
+  "telemetryProfile": "x"
+}

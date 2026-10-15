@@ -1,0 +1,164 @@
+{
+ "unread": {
+  "per_format": {
+   "claude-settings": {
+    "planted": 9,
+    "recorded": 9
+   },
+   "mcp": {
+    "planted": 26,
+    "recorded": 26
+   },
+   "openapi": {
+    "planted": 32,
+    "recorded": 32
+   }
+  },
+  "unread_recall_non_x": 1.0,
+  "unread_recall_x_path_op": 1.0,
+  "planted_non_x": 48,
+  "planted_x_path_op": 19,
+  "misses": []
+ },
+ "detect": {
+  "n": 192,
+  "wrong": [],
+  "refused": [],
+  "error": 0.0
+ },
+ "detect_renamed": {
+  "n": 192,
+  "wrong": [],
+  "refused": [],
+  "error": 0.0
+ },
+ "infer": {
+  "distribution": {
+   "論": 195,
+   "推": 276
+  },
+  "by_format": {
+   "claude-settings": {
+    "論": 85
+   },
+   "mcp": {
+    "推": 124
+   },
+   "openapi": {
+    "推": 152,
+    "論": 110
+   }
+  },
+  "total": 471,
+  "inferred_kaku": 0,
+  "inferred_suisoku_share": 0.5859872611464968
+ },
+ "exact": {
+  "configs": 1000,
+  "exact_vs_brute_mismatch": 0,
+  "mismatch": [],
+  "nonexact": 0,
+  "brute_size_hist": {
+   "1": 8,
+   "2": 24,
+   "3": 60,
+   "4": 169,
+   "5": 211,
+   "6": 209,
+   "7": 158,
+   "8": 100,
+   "9": 43,
+   "10": 15,
+   "11": 3
+  }
+ },
+ "time64": {
+  "reps": 50,
+  "p95_seconds_n64": 0.018665700000042307,
+  "mean": 0.012635853339996856,
+  "max": 0.0206570789999887,
+  "exact": 50,
+  "methods": {
+   "bipartite-konig": 50
+  },
+  "paths_mean": 532.9
+ },
+ "monotone": {
+  "configs": 1000,
+  "monotone_shrink_configs": 0,
+  "monotone_grow_share": 0.898,
+  "monotone_path_increase": 0.2895818749513872,
+  "v1_paths": 179994,
+  "monotone_paths": 232117,
+  "cut_grows": 610
+ },
+ "judgement": [
+  {
+   "id": "C1",
+   "desc": "実例風 72 件で、植えた鍵のうち x- 拡張でないものが ingest の notes に 100% 記録される（I3）",
+   "value": 1.0,
+   "hit": true
+  },
+  {
+   "id": "C1b",
+   "desc": "OpenAPI の Path Item・Operation に植えた x- 拡張は記録されない（記録率 0%。コードを読んでの予言）",
+   "value": 1.0,
+   "hit": false
+  },
+  {
+   "id": "C2",
+   "desc": "混在コーパス（実例風 72＋合成 native 120）で自動判別の誤り率（誤判別＋判別拒否）< 2%（I4）",
+   "value": 0.0,
+   "hit": true
+  },
+  {
+   "id": "C2b",
+   "desc": "同じコーパスでファイル名を全部 config.json にしても誤り率 < 2%",
+   "value": 0.0,
+   "hit": true
+  },
+  {
+   "id": "C3",
+   "desc": "実例風 72 件で infer の規則が足した札のうち「確」は 0 件（F2）",
+   "value": 0,
+   "hit": true
+  },
+  {
+   "id": "C3b",
+   "desc": "規則が足した札のうち「推」の割合 >= 80%",
+   "value": 0.5859872611464968,
+   "hit": false
+  },
+  {
+   "id": "C4",
+   "desc": "合成 n=10〜14 の 1,000 構成で、厳密解の大きさ == 全探索の最小（G1。不一致 0）",
+   "value": 0,
+   "hit": true
+  },
+  {
+   "id": "C5",
+   "desc": "合成 n=64 の 50 構成で analyze の 95 パーセンタイル < 2 秒（G2）",
+   "value": 0.018665700000042307,
+   "hit": true
+  },
+  {
+   "id": "C6",
+   "desc": "合成 1,000 構成で monotone の道が v1 より少ない構成は 0",
+   "value": 0,
+   "hit": true
+  },
+  {
+   "id": "C6b",
+   "desc": "monotone で道が増える構成の割合は 10%〜50%",
+   "value": 0.898,
+   "hit": false
+  },
+  {
+   "id": "C6c",
+   "desc": "道の総数の増加率（monotone/v1 - 1）は 2%〜25%",
+   "value": 0.2895818749513872,
+   "hit": false
+  }
+ ],
+ "seconds": 32.06011116799999
+}

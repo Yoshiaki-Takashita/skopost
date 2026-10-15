@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm test)",
+      "Bash(curl *)",
+      "WebFetch"
+    ],
+    "ask": [
+      "Grep",
+      "Bash(git status)",
+      "Write"
+    ],
+    "deny": [
+      "Bash(rm *)",
+      "Bash(git push *)"
+    ]
+  }
+}

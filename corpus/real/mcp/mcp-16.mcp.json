@@ -1,0 +1,102 @@
+{
+  "mcpServers": {
+    "web": {
+      "type": "sse",
+      "url": "https://mcp.example.org/web",
+      "headers": {
+        "X-Client": "corpus"
+      },
+      "tools": [
+        {
+          "name": "search_web",
+          "description": "Search the web and return result snippets.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "query": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": true
+          },
+          "category": "x"
+        },
+        {
+          "name": "fetch_page",
+          "description": "Fetch a web page and return its text.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "db": {
+      "command": "uvx",
+      "args": [
+        "./servers/db/main"
+      ]
+    },
+    "mail": {
+      "command": "node",
+      "args": [
+        "./servers/mail/main"
+      ],
+      "env": {
+        "LOG_LEVEL": "info"
+      },
+      "tools": [
+        {
+          "name": "send_message",
+          "description": "Send an email message to a recipient.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "to": {
+                "type": "string"
+              },
+              "subject": {
+                "type": "string"
+              },
+              "body": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": true,
+            "destructiveHint": false
+          }
+        },
+        {
+          "name": "list_inbox",
+          "description": "List recent messages in the inbox.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "folder": {
+                "type": "string"
+              },
+              "limit": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": true
+          }
+        }
+      ]
+    }
+  },
+  "version": 1
+}

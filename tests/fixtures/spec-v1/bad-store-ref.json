@@ -1,0 +1,13 @@
+{
+ "skopost": 1,
+ "tools": [
+  {
+   "id": "a",
+   "declared": {
+    "reads_stores": [
+     "nope"
+    ]
+   }
+  }
+ ]
+}

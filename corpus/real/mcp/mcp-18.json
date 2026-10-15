@@ -1,0 +1,97 @@
+{
+  "mcpServers": {
+    "files": {
+      "command": "python3",
+      "args": [
+        "./servers/files/main"
+      ],
+      "tools": [
+        {
+          "name": "write_file",
+          "description": "Write text to a file in the workspace.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string"
+              },
+              "content": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        {
+          "name": "list_dir",
+          "description": "List entries of a directory.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "read_file",
+          "description": "Read a file from the workspace.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        }
+      ]
+    },
+    "git": {
+      "type": "http",
+      "url": "http://localhost:7165/mcp",
+      "tools": [
+        {
+          "name": "git_status",
+          "description": "Show the working tree status.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        },
+        {
+          "name": "git_push",
+          "description": "Push the current branch to the remote.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "remote": {
+                "type": "string"
+              },
+              "branch": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": true,
+            "destructiveHint": false
+          }
+        }
+      ]
+    }
+  }
+}

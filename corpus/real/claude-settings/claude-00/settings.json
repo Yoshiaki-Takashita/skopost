@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:docs.example.com)",
+      "Grep",
+      "Glob",
+      "Bash",
+      "Read"
+    ],
+    "ask": [
+      "WebFetch",
+      "Bash(rm *)",
+      "Bash(git status)"
+    ],
+    "deny": [
+      "Edit"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(make *)",
+      "Bash(npm test)",
+      "mcp__mail__send_message",
+      "Bash"
+    ],
+    "ask": [
+      "Bash(git push *)"
+    ],
+    "deny": [
+      "Bash(npm run build)",
+      "Bash(rm *)"
+    ]
+  }
+}

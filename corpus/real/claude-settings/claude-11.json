@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rm *)",
+      "WebFetch",
+      "Edit",
+      "NotebookEdit"
+    ],
+    "ask": [
+      "Bash(npm run build)",
+      "mcp__notes__search_notes",
+      "Bash(make *)"
+    ],
+    "deny": [
+      "Bash(git push *)",
+      "Bash"
+    ]
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Synthetic web API",
+    "version": "9"
+  },
+  "servers": [
+    {
+      "url": "https://api.example.com/web"
+    }
+  ],
+  "paths": {
+    "/page": {
+      "get": {
+        "operationId": "fetch_page",
+        "summary": "Fetch a web page and return its text.",
+        "parameters": [
+          {
+            "name": "url",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        },
+        "rateLimit": "x"
+      }
+    },
+    "/web": {
+      "get": {
+        "operationId": "search_web",
+        "summary": "Search the web and return result snippets.",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      }
+    },
+    "/event": {
+      "post": {
+        "operationId": "create_event",
+        "summary": "Create a calendar event and invite attendees.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "attendees": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        },
+        "x-internal": true
+      }
+    },
+    "/push": {
+      "post": {
+        "operationId": "git_push",
+        "summary": "Push the current branch to the remote.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "remote": {
+                    "type": "string"
+                  },
+                  "branch": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      }
+    },
+    "/inbox": {
+      "get": {
+        "operationId": "list_inbox",
+        "summary": "List recent messages in the inbox.",
+        "parameters": [
+          {
+            "name": "folder",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      },
+      "x-team": "corpus"
+    }
+  }
+}

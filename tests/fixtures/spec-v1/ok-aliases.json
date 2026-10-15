@@ -1,0 +1,49 @@
+{
+ "skopost": 1,
+ "name": "英語の確度",
+ "untrusted_in_context": false,
+ "stores": [
+  {
+   "id": "s",
+   "external": true
+  }
+ ],
+ "tools": [
+  {
+   "id": "a.b-c_1",
+   "mode": "ask",
+   "frequency": 1000000,
+   "declared": {
+    "acts": [
+     "send",
+     "send"
+    ],
+    "writes_stores": [
+     "s"
+    ]
+   },
+   "observed": {
+    "exec": {
+     "value": true,
+     "confidence": "sure"
+    },
+    "net_out": {
+     "confidence": "unknown",
+     "value": "無視される"
+    },
+    "acts": [
+     "pay"
+    ],
+    "reads_secret": {
+     "value": false,
+     "confidence": "derived",
+     "evidence": "x"
+    },
+    "args_leave": {
+     "value": true,
+     "confidence": "guess"
+    }
+   }
+  }
+ ]
+}

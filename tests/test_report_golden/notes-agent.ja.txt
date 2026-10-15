@@ -1,0 +1,15 @@
+skopost: 例：ノート・エージェントの道具（合成。実物の設定ではない）
+危ない道 4 本・関所 2 か所
+  [論] 実行: addon_install  (writes_stores→addons（実行される置き場）)
+  [論] 持ち出し: settings_read>web_import  (reads_stores→settings（秘密のある置き場） -> args_leave)
+  [論] 持ち出し: settings_read>share_export  (reads_stores→settings（秘密のある置き場） -> writes_stores→share（外部の置き場）)
+  [不明] 持ち出し: settings_read>voice_synth  (reads_stores→settings（秘密のある置き場） -> net_out)
+関所:
+  settings_read (設定を読む) -> mode: ask
+  addon_install (追加ぶんを入れる) -> mode: ask
+申告より危ない食い違い: note_read.reads_untrusted, web_import.args_leave, web_import.writes_stores
+不明として危ない側に倒した項目: voice_synth.args_leave, voice_synth.net_out
+走らせなかった検査・限界:
+  - 人の確認の素通し（ask にした道具を人が実際に止めるか）は測っていない
+  - 文脈の中の値の流れは追っていない（文脈は 1 つの汚れうる場所として丸めた）
+  - 札の正しさは確かめていない（札は入力。確度と根拠を見て判断すること）

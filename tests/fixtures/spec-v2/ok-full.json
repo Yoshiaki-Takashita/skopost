@@ -1,0 +1,54 @@
+{
+ "skopost": 2,
+ "name": "v2 の全部",
+ "imports": [
+  {
+   "file": ".mcp.json",
+   "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+   "adapter": "mcp"
+  }
+ ],
+ "stores": [
+  {
+   "id": "env",
+   "secret": true
+  }
+ ],
+ "tools": [
+  {
+   "id": "read",
+   "origin": {
+    "file": ".mcp.json",
+    "pointer": "/mcpServers/fs",
+    "line": 3
+   },
+   "declared": {
+    "reads_stores": [
+     "env"
+    ]
+   },
+   "observed": {
+    "exec": {
+     "value": false,
+     "confidence": "推",
+     "source": "infer:R-OPENAPI-GET"
+    },
+    "reads_untrusted": {
+     "value": true,
+     "confidence": "確",
+     "source": "manual"
+    },
+    "net_out": {
+     "confidence": "不明",
+     "source": "ingest:mcp"
+    }
+   }
+  },
+  {
+   "id": "send",
+   "origin": {
+    "file": "x.json"
+   }
+  }
+ ]
+}

@@ -1,0 +1,705 @@
+{
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "version": "X",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Skopost",
+          "version": "X",
+          "semanticVersion": "X",
+          "rules": [
+            {
+              "id": "SKP-EXEC",
+              "name": "HarmfulExecution",
+              "shortDescription": {
+                "text": "信頼できない入力が実行に届く道（確認なしの道具だけで成り立つ）"
+              },
+              "fullDescription": {
+                "text": "信頼できない入力が実行に届く道（確認なしの道具だけで成り立つ）"
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              }
+            },
+            {
+              "id": "SKP-ACT",
+              "name": "IrreversibleAction",
+              "shortDescription": {
+                "text": "信頼できない入力が取り返しのつかない操作に届く道"
+              },
+              "fullDescription": {
+                "text": "信頼できない入力が取り返しのつかない操作に届く道"
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              }
+            },
+            {
+              "id": "SKP-EXFIL",
+              "name": "Exfiltration",
+              "shortDescription": {
+                "text": "秘密を読む道具から外へ送る道具へ抜ける道"
+              },
+              "fullDescription": {
+                "text": "秘密を読む道具から外へ送る道具へ抜ける道"
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              }
+            },
+            {
+              "id": "SKP-MISMATCH-UNDER",
+              "name": "UnderDeclared",
+              "shortDescription": {
+                "text": "観察が宣言より危ない（申告より危ない食い違い）"
+              },
+              "fullDescription": {
+                "text": "観察が宣言より危ない（申告より危ない食い違い）"
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              }
+            }
+          ]
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true,
+          "toolExecutionNotifications": [
+            {
+              "level": "note",
+              "message": {
+                "text": "人の確認の素通し（ask にした道具を人が実際に止めるか）は測っていない"
+              },
+              "descriptor": {
+                "id": "SKP-NOT-CHECKED"
+              }
+            },
+            {
+              "level": "note",
+              "message": {
+                "text": "文脈の中の値の流れは追っていない（文脈は 1 つの汚れうる場所として丸めた）"
+              },
+              "descriptor": {
+                "id": "SKP-NOT-CHECKED"
+              }
+            },
+            {
+              "level": "note",
+              "message": {
+                "text": "札の正しさは確かめていない（札は入力。確度と根拠を見て判断すること）"
+              },
+              "descriptor": {
+                "id": "SKP-NOT-CHECKED"
+              }
+            }
+          ]
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "skopost.json"
+          }
+        }
+      ],
+      "results": [
+        {
+          "ruleId": "SKP-ACT",
+          "ruleIndex": 1,
+          "level": "error",
+          "message": {
+            "text": "取り返しのつかない操作の道 click（確度 論）：acts:delete,publish,purchase,send"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "skopost.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "act:click"
+          },
+          "properties": {
+            "kind": "act",
+            "tools": [
+              "click"
+            ],
+            "via": [
+              "acts:delete,publish,purchase,send"
+            ],
+            "confidence": "論"
+          }
+        },
+        {
+          "ruleId": "SKP-EXEC",
+          "ruleIndex": 0,
+          "level": "note",
+          "message": {
+            "text": "実行の道 download（確度 不明）：exec"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "skopost.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exec:download"
+          },
+          "properties": {
+            "kind": "exec",
+            "tools": [
+              "download"
+            ],
+            "via": [
+              "exec"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-EXFIL",
+          "ruleIndex": 2,
+          "level": "error",
+          "message": {
+            "text": "持ち出しの道 read_page>navigate（確度 論）：reads_secret → args_leave"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "skopost.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exfil:read_page>navigate"
+          },
+          "properties": {
+            "kind": "exfil",
+            "tools": [
+              "read_page",
+              "navigate"
+            ],
+            "via": [
+              "reads_secret",
+              "args_leave"
+            ],
+            "confidence": "論"
+          }
+        },
+        {
+          "ruleId": "SKP-EXFIL",
+          "ruleIndex": 2,
+          "level": "error",
+          "message": {
+            "text": "持ち出しの道 read_page>type_text（確度 論）：reads_secret → net_out"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "skopost.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exfil:read_page>type_text"
+          },
+          "properties": {
+            "kind": "exfil",
+            "tools": [
+              "read_page",
+              "type_text"
+            ],
+            "via": [
+              "reads_secret",
+              "net_out"
+            ],
+            "confidence": "論"
+          }
+        },
+        {
+          "ruleId": "SKP-EXFIL",
+          "ruleIndex": 2,
+          "level": "error",
+          "message": {
+            "text": "持ち出しの道 read_page>copy_to_clipboard（確度 論）：reads_secret → writes_stores→clipboard（外部の置き場）"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "skopost.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exfil:read_page>copy_to_clipboard"
+          },
+          "properties": {
+            "kind": "exfil",
+            "tools": [
+              "read_page",
+              "copy_to_clipboard"
+            ],
+            "via": [
+              "reads_secret",
+              "writes_stores→clipboard（外部の置き場）"
+            ],
+            "confidence": "論"
+          }
+        },
+        {
+          "ruleId": "SKP-EXFIL",
+          "ruleIndex": 2,
+          "level": "error",
+          "message": {
+            "text": "持ち出しの道 read_page>download（確度 論）：reads_secret → args_leave"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "skopost.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exfil:read_page>download"
+          },
+          "properties": {
+            "kind": "exfil",
+            "tools": [
+              "read_page",
+              "download"
+            ],
+            "via": [
+              "reads_secret",
+              "args_leave"
+            ],
+            "confidence": "論"
+          }
+        },
+        {
+          "ruleId": "SKP-EXFIL",
+          "ruleIndex": 2,
+          "level": "error",
+          "message": {
+            "text": "持ち出しの道 screenshot>navigate（確度 論）：reads_secret → args_leave"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "skopost.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exfil:screenshot>navigate"
+          },
+          "properties": {
+            "kind": "exfil",
+            "tools": [
+              "screenshot",
+              "navigate"
+            ],
+            "via": [
+              "reads_secret",
+              "args_leave"
+            ],
+            "confidence": "論"
+          }
+        },
+        {
+          "ruleId": "SKP-EXFIL",
+          "ruleIndex": 2,
+          "level": "error",
+          "message": {
+            "text": "持ち出しの道 screenshot>type_text（確度 論）：reads_secret → net_out"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "skopost.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exfil:screenshot>type_text"
+          },
+          "properties": {
+            "kind": "exfil",
+            "tools": [
+              "screenshot",
+              "type_text"
+            ],
+            "via": [
+              "reads_secret",
+              "net_out"
+            ],
+            "confidence": "論"
+          }
+        },
+        {
+          "ruleId": "SKP-EXFIL",
+          "ruleIndex": 2,
+          "level": "error",
+          "message": {
+            "text": "持ち出しの道 screenshot>copy_to_clipboard（確度 論）：reads_secret → writes_stores→clipboard（外部の置き場）"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "skopost.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exfil:screenshot>copy_to_clipboard"
+          },
+          "properties": {
+            "kind": "exfil",
+            "tools": [
+              "screenshot",
+              "copy_to_clipboard"
+            ],
+            "via": [
+              "reads_secret",
+              "writes_stores→clipboard（外部の置き場）"
+            ],
+            "confidence": "論"
+          }
+        },
+        {
+          "ruleId": "SKP-EXFIL",
+          "ruleIndex": 2,
+          "level": "error",
+          "message": {
+            "text": "持ち出しの道 screenshot>download（確度 論）：reads_secret → args_leave"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "skopost.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exfil:screenshot>download"
+          },
+          "properties": {
+            "kind": "exfil",
+            "tools": [
+              "screenshot",
+              "download"
+            ],
+            "via": [
+              "reads_secret",
+              "args_leave"
+            ],
+            "confidence": "論"
+          }
+        },
+        {
+          "ruleId": "SKP-MISMATCH-UNDER",
+          "ruleIndex": 3,
+          "level": "warning",
+          "message": {
+            "text": "navigate.args_leave：宣言より観察が危ない（確度 確）。根拠：合成：URL（と中の文字列）が宛先へ届く"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "skopost.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "skopostMismatch/v1": "navigate:args_leave"
+          }
+        },
+        {
+          "ruleId": "SKP-MISMATCH-UNDER",
+          "ruleIndex": 3,
+          "level": "warning",
+          "message": {
+            "text": "read_page.reads_secret：宣言より観察が危ない（確度 論）。根拠：合成：ログイン済みのページには個人情報が表示される"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "skopost.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "skopostMismatch/v1": "read_page:reads_secret"
+          }
+        },
+        {
+          "ruleId": "SKP-MISMATCH-UNDER",
+          "ruleIndex": 3,
+          "level": "warning",
+          "message": {
+            "text": "click.reads_untrusted：宣言より観察が危ない（確度 確）。根拠：合成"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "skopost.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "skopostMismatch/v1": "click:reads_untrusted"
+          }
+        },
+        {
+          "ruleId": "SKP-MISMATCH-UNDER",
+          "ruleIndex": 3,
+          "level": "warning",
+          "message": {
+            "text": "click.acts：宣言より観察が危ない（確度 論）。根拠：合成：ボタンが何をするかは画面次第。送信・購入・削除・投稿のどれにもなりうる"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "skopost.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "skopostMismatch/v1": "click:acts"
+          }
+        },
+        {
+          "ruleId": "SKP-MISMATCH-UNDER",
+          "ruleIndex": 3,
+          "level": "warning",
+          "message": {
+            "text": "type_text.net_out：宣言より観察が危ない（確度 論）。根拠：合成：入力欄に書いた文は送信ボタンで外へ出る"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "skopost.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "skopostMismatch/v1": "type_text:net_out"
+          }
+        },
+        {
+          "ruleId": "SKP-MISMATCH-UNDER",
+          "ruleIndex": 3,
+          "level": "warning",
+          "message": {
+            "text": "copy_to_clipboard.writes_stores：宣言より観察が危ない（確度 確）。根拠：合成"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "skopost.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "skopostMismatch/v1": "copy_to_clipboard:writes_stores"
+          }
+        },
+        {
+          "ruleId": "SKP-MISMATCH-UNDER",
+          "ruleIndex": 3,
+          "level": "warning",
+          "message": {
+            "text": "download.reads_untrusted：宣言より観察が危ない（確度 確）。根拠：合成"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "skopost.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "skopostMismatch/v1": "download:reads_untrusted"
+          }
+        },
+        {
+          "ruleId": "SKP-MISMATCH-UNDER",
+          "ruleIndex": 3,
+          "level": "warning",
+          "message": {
+            "text": "download.args_leave：宣言より観察が危ない（確度 確）。根拠：合成：URL が宛先へ届く"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "skopost.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "skopostMismatch/v1": "download:args_leave"
+          }
+        },
+        {
+          "ruleId": "SKP-MISMATCH-UNDER",
+          "ruleIndex": 3,
+          "level": "warning",
+          "message": {
+            "text": "screenshot.reads_untrusted：宣言より観察が危ない（確度 確）。根拠：合成"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "skopost.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "skopostMismatch/v1": "screenshot:reads_untrusted"
+          }
+        },
+        {
+          "ruleId": "SKP-MISMATCH-UNDER",
+          "ruleIndex": 3,
+          "level": "warning",
+          "message": {
+            "text": "screenshot.reads_secret：宣言より観察が危ない（確度 論）。根拠：合成：画面に出ている個人情報が画像に入る"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "skopost.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "skopostMismatch/v1": "screenshot:reads_secret"
+          }
+        }
+      ],
+      "properties": {
+        "notChecked": [
+          "人の確認の素通し（ask にした道具を人が実際に止めるか）は測っていない",
+          "文脈の中の値の流れは追っていない（文脈は 1 つの汚れうる場所として丸めた）",
+          "札の正しさは確かめていない（札は入力。確度と根拠を見て判断すること）"
+        ],
+        "assumed": [
+          "download.exec"
+        ],
+        "checkpoints": [
+          "read_page",
+          "click",
+          "download",
+          "screenshot"
+        ],
+        "exact": true
+      }
+    }
+  ]
+}

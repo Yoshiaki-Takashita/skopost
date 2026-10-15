@@ -1,0 +1,119 @@
+{
+  "skopost": 1,
+  "name": "例：ノート・エージェントの道具（合成。実物の設定ではない）",
+  "untrusted_in_context": true,
+  "stores": [
+    { "id": "notes", "label": "ノート（端末内）", "external": false, "executes": false, "secret": false },
+    { "id": "settings", "label": "設定（API 鍵を含む）", "external": false, "executes": false, "secret": true },
+    { "id": "addons", "label": "追加ぶん（読み込まれて実行される）", "external": false, "executes": true, "secret": false },
+    { "id": "share", "label": "共有フォルダ（他の人が見る）", "external": true, "executes": false, "secret": false }
+  ],
+  "tools": [
+    {
+      "id": "note_read", "label": "ノートを読む", "mode": "allow", "frequency": 20,
+      "declared": { "reads_stores": ["notes"] },
+      "observed": {
+        "reads_stores": { "value": ["notes"], "confidence": "確", "evidence": "合成：ノートの置き場だけ" },
+        "reads_untrusted": { "value": true, "confidence": "確", "evidence": "合成：取り込んだウェブの文が入る" },
+        "reads_secret": { "value": false, "confidence": "確", "evidence": "合成" },
+        "net_out": { "value": false, "confidence": "確", "evidence": "合成" },
+        "args_leave": { "value": false, "confidence": "確", "evidence": "合成" },
+        "exec": { "value": false, "confidence": "確", "evidence": "合成" },
+        "acts": { "value": [], "confidence": "確", "evidence": "合成" },
+        "writes_stores": { "value": [], "confidence": "確", "evidence": "合成" }
+      }
+    },
+    {
+      "id": "note_write", "label": "ノートに書く", "mode": "allow", "frequency": 10,
+      "declared": { "writes_stores": ["notes"] },
+      "observed": {
+        "writes_stores": { "value": ["notes"], "confidence": "確", "evidence": "合成" },
+        "reads_stores": { "value": [], "confidence": "確", "evidence": "合成" },
+        "reads_untrusted": { "value": false, "confidence": "確", "evidence": "合成" },
+        "reads_secret": { "value": false, "confidence": "確", "evidence": "合成" },
+        "net_out": { "value": false, "confidence": "確", "evidence": "合成" },
+        "args_leave": { "value": false, "confidence": "確", "evidence": "合成" },
+        "exec": { "value": false, "confidence": "確", "evidence": "合成" },
+        "acts": { "value": [], "confidence": "確", "evidence": "合成" }
+      }
+    },
+    {
+      "id": "web_import", "label": "ウェブ取り込み", "mode": "allow", "frequency": 5,
+      "declared": { "reads_untrusted": true },
+      "observed": {
+        "reads_untrusted": { "value": true, "confidence": "確", "evidence": "合成" },
+        "args_leave": { "value": true, "confidence": "確", "evidence": "合成：URL がそのまま外へ出る（R-2 の型）" },
+        "net_out": { "value": false, "confidence": "確", "evidence": "合成：本文は送らない" },
+        "reads_secret": { "value": false, "confidence": "確", "evidence": "合成" },
+        "exec": { "value": false, "confidence": "確", "evidence": "合成" },
+        "acts": { "value": [], "confidence": "確", "evidence": "合成" },
+        "writes_stores": { "value": ["notes"], "confidence": "確", "evidence": "合成" },
+        "reads_stores": { "value": [], "confidence": "確", "evidence": "合成" }
+      }
+    },
+    {
+      "id": "settings_read", "label": "設定を読む", "mode": "allow", "frequency": 2,
+      "declared": { "reads_stores": ["settings"] },
+      "observed": {
+        "reads_stores": { "value": ["settings"], "confidence": "確", "evidence": "合成：鍵の欄も返す" },
+        "reads_untrusted": { "value": false, "confidence": "確", "evidence": "合成" },
+        "reads_secret": { "value": false, "confidence": "論", "evidence": "合成：置き場 settings 経由" },
+        "net_out": { "value": false, "confidence": "確", "evidence": "合成" },
+        "args_leave": { "value": false, "confidence": "確", "evidence": "合成" },
+        "exec": { "value": false, "confidence": "確", "evidence": "合成" },
+        "acts": { "value": [], "confidence": "確", "evidence": "合成" },
+        "writes_stores": { "value": [], "confidence": "確", "evidence": "合成" }
+      }
+    },
+    {
+      "id": "addon_install", "label": "追加ぶんを入れる", "mode": "allow", "frequency": 1,
+      "declared": { "writes_stores": ["addons"] },
+      "observed": {
+        "writes_stores": { "value": ["addons"], "confidence": "確", "evidence": "合成：書いた物が次回読み込まれる" },
+        "reads_stores": { "value": [], "confidence": "確", "evidence": "合成" },
+        "reads_untrusted": { "value": false, "confidence": "確", "evidence": "合成" },
+        "reads_secret": { "value": false, "confidence": "確", "evidence": "合成" },
+        "net_out": { "value": false, "confidence": "確", "evidence": "合成" },
+        "args_leave": { "value": false, "confidence": "確", "evidence": "合成" },
+        "exec": { "value": false, "confidence": "確", "evidence": "合成：直接の実行はしない" },
+        "acts": { "value": [], "confidence": "確", "evidence": "合成" }
+      }
+    },
+    {
+      "id": "share_export", "label": "共有フォルダへ書き出し", "mode": "allow", "frequency": 1,
+      "declared": { "writes_stores": ["share"] },
+      "observed": {
+        "writes_stores": { "value": ["share"], "confidence": "確", "evidence": "合成" },
+        "reads_stores": { "value": [], "confidence": "確", "evidence": "合成" },
+        "reads_untrusted": { "value": false, "confidence": "確", "evidence": "合成" },
+        "reads_secret": { "value": false, "confidence": "確", "evidence": "合成" },
+        "net_out": { "value": false, "confidence": "確", "evidence": "合成" },
+        "args_leave": { "value": false, "confidence": "確", "evidence": "合成" },
+        "exec": { "value": false, "confidence": "確", "evidence": "合成" },
+        "acts": { "value": [], "confidence": "確", "evidence": "合成" }
+      }
+    },
+    {
+      "id": "mail_send", "label": "メール送信", "mode": "ask", "frequency": 1,
+      "declared": { "acts": ["send"], "net_out": true },
+      "observed": {
+        "acts": { "value": ["send"], "confidence": "確", "evidence": "合成" },
+        "net_out": { "value": true, "confidence": "確", "evidence": "合成" }
+      }
+    },
+    {
+      "id": "voice_synth", "label": "音声合成", "mode": "allow", "frequency": 3,
+      "declared": {},
+      "observed": {
+        "exec": { "value": false, "confidence": "確", "evidence": "合成" },
+        "net_out": { "value": false, "confidence": "不明", "evidence": "合成：外部のモデルを呼ぶかどうか未確認" },
+        "reads_secret": { "value": false, "confidence": "確", "evidence": "合成" },
+        "args_leave": { "value": false, "confidence": "不明", "evidence": "合成：未確認" },
+        "acts": { "value": [], "confidence": "確", "evidence": "合成" },
+        "writes_stores": { "value": [], "confidence": "確", "evidence": "合成" },
+        "reads_stores": { "value": [], "confidence": "確", "evidence": "合成" },
+        "reads_untrusted": { "value": false, "confidence": "確", "evidence": "合成" }
+      }
+    }
+  ]
+}

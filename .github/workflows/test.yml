@@ -1,0 +1,59 @@
+name: test
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  unit:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.11", "3.12", "3.13"]
+    steps:
+      # 外部 action は 40 桁の commit SHA で固定（タグは動かせるため）。SHA は git ls-remote で取得。
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: unit tests (tests/)
+        run: python -m unittest discover -s tests
+      - name: legacy single-file tests
+        run: python tests/test_skopost.py
+      - name: corpus fuzz and property tests
+        run: python -m unittest discover -s corpus
+      - name: install and smoke-test the console script
+        run: |
+          python -m venv /tmp/venv
+          /tmp/venv/bin/pip install .
+          /tmp/venv/bin/skopost --help
+          # 終了コード 2 = 危ない道が見つかった（この例では期待どおり）
+          set +e
+          /tmp/venv/bin/skopost check examples/notes-agent.json > /dev/null
+          code=$?
+          set -e
+          test "$code" -eq 2
+
+  verify-quick:
+    # 合成の評価（約 40 秒）。終了コード 3 = 事前登録の予言に外れがある（既知・記録済み）なので成功扱い。
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.12"
+      - name: verify.py --quick
+        run: |
+          set +e
+          python verify.py --quick
+          code=$?
+          set -e
+          test "$code" -eq 0 -o "$code" -eq 3

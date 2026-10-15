@@ -1,0 +1,114 @@
+{
+  "mcpServers": {
+    "files": {
+      "command": "node",
+      "args": [
+        "./servers/files/main"
+      ],
+      "tools": [
+        {
+          "name": "read_file",
+          "description": "Read a file from the workspace.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false,
+            "networkHint": true
+          }
+        }
+      ]
+    },
+    "shell": {
+      "command": "node",
+      "args": [
+        "./servers/shell/main"
+      ],
+      "tools": [
+        {
+          "name": "run_command",
+          "description": "Run a shell command in the project directory.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "command": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false,
+            "destructiveHint": true
+          }
+        }
+      ]
+    },
+    "tickets": {
+      "type": "http",
+      "url": "http://localhost:6187/mcp",
+      "tools": [
+        {
+          "name": "search_tickets",
+          "description": "Search support tickets.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "query": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "post_comment",
+          "description": "Post a public comment on a ticket.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "ticket": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": true,
+            "destructiveHint": false
+          },
+          "costHint": "x"
+        }
+      ]
+    },
+    "git": {
+      "type": "sse",
+      "url": "https://mcp.example.org/git",
+      "headers": {
+        "X-Client": "corpus"
+      },
+      "tools": [
+        {
+          "name": "git_status",
+          "description": "Show the working tree status.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      ]
+    }
+  }
+}

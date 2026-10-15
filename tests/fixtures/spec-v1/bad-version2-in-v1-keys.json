@@ -1,0 +1,11 @@
+{
+ "skopost": 1,
+ "tools": [
+  {
+   "id": "a",
+   "origin": {
+    "file": "x"
+   }
+  }
+ ]
+}

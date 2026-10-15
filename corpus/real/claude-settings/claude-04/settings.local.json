@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Read",
+      "Bash(rm *)"
+    ],
+    "ask": [
+      "Bash(git push *)",
+      "WebFetch",
+      "Glob"
+    ],
+    "deny": [
+      "mcp__mail__send_message"
+    ]
+  }
+}

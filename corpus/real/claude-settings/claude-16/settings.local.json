@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:docs.example.com)",
+      "Grep"
+    ],
+    "ask": [
+      "Read(./.env)",
+      "Bash(python3 *)",
+      "WebFetch"
+    ],
+    "deny": [
+      "Read",
+      "mcp__notes__search_notes"
+    ],
+    "defaultMode": "plan"
+  },
+  "telemetryProfile": "x"
+}

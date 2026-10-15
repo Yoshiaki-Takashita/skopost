@@ -1,0 +1,33 @@
+{
+  "mcpServers": {
+    "notes": {
+      "command": "node",
+      "args": ["./servers/notes/index.js"],
+      "tools": [
+        {"name": "search_notes", "description": "Search the user's notes by keyword.",
+         "inputSchema": {"type": "object", "properties": {"query": {"type": "string"}, "limit": {"type": "integer"}}},
+         "annotations": {"readOnlyHint": true, "openWorldHint": false}},
+        {"name": "delete_note", "description": "Delete a note permanently.",
+         "inputSchema": {"type": "object", "properties": {"id": {"type": "string"}}},
+         "annotations": {"readOnlyHint": false, "destructiveHint": true, "openWorldHint": false}}
+      ]
+    },
+    "web": {
+      "command": "npx",
+      "args": ["-y", "example-fetch-server"],
+      "tools": [
+        {"name": "fetch_url", "description": "Fetch a web page and return its text.",
+         "inputSchema": {"type": "object", "properties": {"url": {"type": "string"}}},
+         "annotations": {"readOnlyHint": true, "openWorldHint": true}}
+      ]
+    },
+    "mailer": {
+      "url": "https://mail.example.com/mcp",
+      "tools": [
+        {"name": "send_email", "description": "Send an email to a recipient.",
+         "inputSchema": {"type": "object", "properties": {"to": {"type": "string"}, "subject": {"type": "string"}, "body": {"type": "string"}}},
+         "annotations": {"readOnlyHint": false, "destructiveHint": false, "openWorldHint": true}}
+      ]
+    }
+  }
+}

@@ -1,0 +1,622 @@
+{
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Skopost",
+          "version": "1.1.0.dev0",
+          "semanticVersion": "1.1.0.dev0",
+          "rules": [
+            {
+              "id": "SKP-EXEC",
+              "name": "HarmfulExecution",
+              "shortDescription": {
+                "text": "信頼できない入力が実行に届く道（確認なしの道具だけで成り立つ）"
+              },
+              "fullDescription": {
+                "text": "信頼できない入力が実行に届く道（確認なしの道具だけで成り立つ）"
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              }
+            },
+            {
+              "id": "SKP-ACT",
+              "name": "IrreversibleAction",
+              "shortDescription": {
+                "text": "信頼できない入力が取り返しのつかない操作に届く道"
+              },
+              "fullDescription": {
+                "text": "信頼できない入力が取り返しのつかない操作に届く道"
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              }
+            },
+            {
+              "id": "SKP-EXFIL",
+              "name": "Exfiltration",
+              "shortDescription": {
+                "text": "秘密を読む道具から外へ送る道具へ抜ける道"
+              },
+              "fullDescription": {
+                "text": "秘密を読む道具から外へ送る道具へ抜ける道"
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              }
+            },
+            {
+              "id": "SKP-MISMATCH-UNDER",
+              "name": "UnderDeclared",
+              "shortDescription": {
+                "text": "観察が宣言より危ない（申告より危ない食い違い）"
+              },
+              "fullDescription": {
+                "text": "観察が宣言より危ない（申告より危ない食い違い）"
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              }
+            }
+          ]
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true,
+          "toolExecutionNotifications": [
+            {
+              "level": "note",
+              "message": {
+                "text": "人の確認の素通し（ask にした道具を人が実際に止めるか）は測っていない"
+              },
+              "descriptor": {
+                "id": "SKP-NOT-CHECKED"
+              }
+            },
+            {
+              "level": "note",
+              "message": {
+                "text": "文脈の中の値の流れは追っていない（文脈は 1 つの汚れうる場所として丸めた）"
+              },
+              "descriptor": {
+                "id": "SKP-NOT-CHECKED"
+              }
+            },
+            {
+              "level": "note",
+              "message": {
+                "text": "札の正しさは確かめていない（札は入力。確度と根拠を見て判断すること）"
+              },
+              "descriptor": {
+                "id": "SKP-NOT-CHECKED"
+              }
+            }
+          ]
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "skopost.json"
+          }
+        }
+      ],
+      "results": [
+        {
+          "ruleId": "SKP-EXEC",
+          "ruleIndex": 0,
+          "level": "note",
+          "message": {
+            "text": "実行の道 ticket_read（確度 不明）：exec"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "skopost.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exec:ticket_read"
+          },
+          "properties": {
+            "kind": "exec",
+            "tools": [
+              "ticket_read"
+            ],
+            "via": [
+              "exec"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-ACT",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "取り返しのつかない操作の道 ticket_read（確度 不明）：acts:send,purchase,delete,publish,grant,pay"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "skopost.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "act:ticket_read"
+          },
+          "properties": {
+            "kind": "act",
+            "tools": [
+              "ticket_read"
+            ],
+            "via": [
+              "acts:send,purchase,delete,publish,grant,pay"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-EXEC",
+          "ruleIndex": 0,
+          "level": "note",
+          "message": {
+            "text": "実行の道 crm_lookup（確度 不明）：exec"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "skopost.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exec:crm_lookup"
+          },
+          "properties": {
+            "kind": "exec",
+            "tools": [
+              "crm_lookup"
+            ],
+            "via": [
+              "exec"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-ACT",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "取り返しのつかない操作の道 crm_lookup（確度 不明）：acts:send,purchase,delete,publish,grant,pay"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "skopost.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "act:crm_lookup"
+          },
+          "properties": {
+            "kind": "act",
+            "tools": [
+              "crm_lookup"
+            ],
+            "via": [
+              "acts:send,purchase,delete,publish,grant,pay"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-EXEC",
+          "ruleIndex": 0,
+          "level": "note",
+          "message": {
+            "text": "実行の道 reply_draft（確度 不明）：exec"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "skopost.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exec:reply_draft"
+          },
+          "properties": {
+            "kind": "exec",
+            "tools": [
+              "reply_draft"
+            ],
+            "via": [
+              "exec"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-EXFIL",
+          "ruleIndex": 2,
+          "level": "note",
+          "message": {
+            "text": "持ち出しの道 ticket_read>ticket_read（確度 不明）：reads_secret → net_out"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "skopost.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exfil:ticket_read>ticket_read"
+          },
+          "properties": {
+            "kind": "exfil",
+            "tools": [
+              "ticket_read",
+              "ticket_read"
+            ],
+            "via": [
+              "reads_secret",
+              "net_out"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-EXFIL",
+          "ruleIndex": 2,
+          "level": "note",
+          "message": {
+            "text": "持ち出しの道 ticket_read>crm_lookup（確度 不明）：reads_secret → net_out"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "skopost.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exfil:ticket_read>crm_lookup"
+          },
+          "properties": {
+            "kind": "exfil",
+            "tools": [
+              "ticket_read",
+              "crm_lookup"
+            ],
+            "via": [
+              "reads_secret",
+              "net_out"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-EXFIL",
+          "ruleIndex": 2,
+          "level": "note",
+          "message": {
+            "text": "持ち出しの道 ticket_read>reply_draft（確度 不明）：reads_secret → net_out"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "skopost.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exfil:ticket_read>reply_draft"
+          },
+          "properties": {
+            "kind": "exfil",
+            "tools": [
+              "ticket_read",
+              "reply_draft"
+            ],
+            "via": [
+              "reads_secret",
+              "net_out"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-EXFIL",
+          "ruleIndex": 2,
+          "level": "note",
+          "message": {
+            "text": "持ち出しの道 crm_lookup>ticket_read（確度 不明）：reads_secret → net_out"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "skopost.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exfil:crm_lookup>ticket_read"
+          },
+          "properties": {
+            "kind": "exfil",
+            "tools": [
+              "crm_lookup",
+              "ticket_read"
+            ],
+            "via": [
+              "reads_secret",
+              "net_out"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-EXFIL",
+          "ruleIndex": 2,
+          "level": "note",
+          "message": {
+            "text": "持ち出しの道 crm_lookup>crm_lookup（確度 不明）：reads_secret → net_out"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "skopost.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exfil:crm_lookup>crm_lookup"
+          },
+          "properties": {
+            "kind": "exfil",
+            "tools": [
+              "crm_lookup",
+              "crm_lookup"
+            ],
+            "via": [
+              "reads_secret",
+              "net_out"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-EXFIL",
+          "ruleIndex": 2,
+          "level": "note",
+          "message": {
+            "text": "持ち出しの道 crm_lookup>reply_draft（確度 不明）：reads_secret → net_out"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "skopost.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exfil:crm_lookup>reply_draft"
+          },
+          "properties": {
+            "kind": "exfil",
+            "tools": [
+              "crm_lookup",
+              "reply_draft"
+            ],
+            "via": [
+              "reads_secret",
+              "net_out"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-EXFIL",
+          "ruleIndex": 2,
+          "level": "note",
+          "message": {
+            "text": "持ち出しの道 reply_draft>ticket_read（確度 不明）：reads_secret → net_out"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "skopost.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exfil:reply_draft>ticket_read"
+          },
+          "properties": {
+            "kind": "exfil",
+            "tools": [
+              "reply_draft",
+              "ticket_read"
+            ],
+            "via": [
+              "reads_secret",
+              "net_out"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-EXFIL",
+          "ruleIndex": 2,
+          "level": "note",
+          "message": {
+            "text": "持ち出しの道 reply_draft>crm_lookup（確度 不明）：reads_secret → net_out"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "skopost.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exfil:reply_draft>crm_lookup"
+          },
+          "properties": {
+            "kind": "exfil",
+            "tools": [
+              "reply_draft",
+              "crm_lookup"
+            ],
+            "via": [
+              "reads_secret",
+              "net_out"
+            ],
+            "confidence": "不明"
+          }
+        },
+        {
+          "ruleId": "SKP-EXFIL",
+          "ruleIndex": 2,
+          "level": "note",
+          "message": {
+            "text": "持ち出しの道 reply_draft>reply_draft（確度 不明）：reads_secret → net_out"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "skopost.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "skopostPath/v1": "exfil:reply_draft>reply_draft"
+          },
+          "properties": {
+            "kind": "exfil",
+            "tools": [
+              "reply_draft",
+              "reply_draft"
+            ],
+            "via": [
+              "reads_secret",
+              "net_out"
+            ],
+            "confidence": "不明"
+          }
+        }
+      ],
+      "properties": {
+        "notChecked": [
+          "人の確認の素通し（ask にした道具を人が実際に止めるか）は測っていない",
+          "文脈の中の値の流れは追っていない（文脈は 1 つの汚れうる場所として丸めた）",
+          "札の正しさは確かめていない（札は入力。確度と根拠を見て判断すること）"
+        ],
+        "assumed": [
+          "ticket_read.args_leave",
+          "ticket_read.exec",
+          "ticket_read.net_out",
+          "ticket_read.reads_secret",
+          "ticket_read.acts",
+          "crm_lookup.reads_untrusted",
+          "crm_lookup.exec",
+          "crm_lookup.net_out",
+          "crm_lookup.reads_secret",
+          "crm_lookup.acts",
+          "reply_draft.reads_untrusted",
+          "reply_draft.args_leave",
+          "reply_draft.exec",
+          "reply_draft.net_out",
+          "reply_draft.reads_secret"
+        ],
+        "checkpoints": [
+          "ticket_read",
+          "crm_lookup",
+          "reply_draft"
+        ],
+        "exact": true
+      }
+    }
+  ]
+}

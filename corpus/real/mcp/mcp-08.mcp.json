@@ -1,0 +1,148 @@
+{
+  "mcpServers": {
+    "payments": {
+      "type": "sse",
+      "url": "https://payments.example.com/mcp",
+      "tools": [
+        {
+          "name": "list_invoices",
+          "description": "List invoices for the account.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": true
+          }
+        },
+        {
+          "name": "refund_payment",
+          "description": "Refund a payment to the customer.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "payment": {
+                "type": "string"
+              },
+              "amount": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "calendar": {
+      "type": "http",
+      "url": "https://calendar.example.com/mcp",
+      "tools": [
+        {
+          "name": "list_events",
+          "description": "List calendar events in a range.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "start": {
+                "type": "string"
+              },
+              "end": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          },
+          "examples": "x"
+        },
+        {
+          "name": "create_event",
+          "description": "Create a calendar event and invite attendees.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "attendees": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": true,
+            "destructiveHint": false
+          }
+        }
+      ],
+      "displayName": "x"
+    },
+    "tickets": {
+      "type": "sse",
+      "url": "https://mcp.example.org/tickets",
+      "tools": [
+        {
+          "name": "search_tickets",
+          "description": "Search support tickets.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "query": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        {
+          "name": "post_comment",
+          "description": "Post a public comment on a ticket.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "ticket": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": true,
+            "destructiveHint": false
+          }
+        }
+      ]
+    },
+    "vault": {
+      "type": "http",
+      "url": "http://localhost:6607/mcp",
+      "tools": [
+        {
+          "name": "get_secret",
+          "description": "Read a named credential from the local vault.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "skopost": 1,
+  "name": "例：問い合わせ対応ボット（合成。実物の設定ではない）",
+  "untrusted_in_context": true,
+  "stores": [
+    {"id": "crm", "label": "顧客台帳", "secret": true},
+    {"id": "outbox", "label": "送信待ちのメール", "external": true}
+  ],
+  "tools": [
+    {"id": "ticket_read", "label": "問い合わせを読む",
+     "declared": {"reads_untrusted": true},
+     "observed": {"reads_untrusted": {"value": true, "confidence": "確", "evidence": "本文は外部の利用者が書く"}}},
+    {"id": "crm_lookup", "label": "顧客台帳を引く",
+     "declared": {"reads_stores": ["crm"]},
+     "observed": {"reads_stores": {"value": ["crm"], "confidence": "確", "evidence": "台帳の API を読む"},
+                  "args_leave": {"value": false, "confidence": "論", "evidence": "社内の API だけ"}}},
+    {"id": "reply_draft", "label": "返信を下書きに置く", "mode": "allow",
+     "declared": {"writes_stores": ["outbox"]},
+     "observed": {"writes_stores": {"value": ["outbox"], "confidence": "確", "evidence": "送信待ちに入る"},
+                  "acts": {"value": [], "confidence": "推", "evidence": "送るのは別の担当"}}},
+    {"id": "refund", "label": "返金する", "mode": "ask",
+     "declared": {"acts": ["pay"]},
+     "observed": {"acts": {"value": ["pay"], "confidence": "確", "evidence": "決済の API"}}}
+  ]
+}

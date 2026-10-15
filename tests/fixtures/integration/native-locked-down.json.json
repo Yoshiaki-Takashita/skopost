@@ -1,0 +1,36 @@
+{
+  "skopost": 1,
+  "name": "例：読むだけの調べ物の道具（合成。道が無い構成）",
+  "exit_code": 0,
+  "summary": {
+    "tools": 1,
+    "allowed": 1,
+    "paths": 0,
+    "paths_declared_only": 0,
+    "missed_by_declared": 0,
+    "mismatches": 0,
+    "assumed_unknown": 0,
+    "seconds": X
+  },
+  "paths": [],
+  "mismatches": [],
+  "assumed": [],
+  "checkpoints": {
+    "exact": true,
+    "primary": [],
+    "alternatives": [],
+    "size": 0,
+    "reasons": {}
+  },
+  "declared_only": {
+    "cut": [],
+    "holds": true,
+    "surviving_paths": 0,
+    "surviving": []
+  },
+  "not_checked": [
+    "人の確認の素通し（ask にした道具を人が実際に止めるか）は測っていない",
+    "文脈の中の値の流れは追っていない（文脈は 1 つの汚れうる場所として丸めた）",
+    "札の正しさは確かめていない（札は入力。確度と根拠を見て判断すること）"
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "mcpServers": {
+    "db": {
+      "type": "http",
+      "url": "https://mcp.example.org/db",
+      "tools": [
+        {
+          "name": "drop_table",
+          "description": "Drop a database table.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "table": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false,
+            "destructiveHint": true
+          }
+        },
+        {
+          "name": "query_db",
+          "description": "Run a read-only SQL query.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "sql": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        }
+      ]
+    },
+    "web": {
+      "type": "sse",
+      "url": "https://mcp.example.org/web"
+    },
+    "shell": {
+      "type": "http",
+      "url": "http://localhost:3961/mcp",
+      "headers": {
+        "X-Client": "corpus"
+      },
+      "tools": [
+        {
+          "name": "run_command",
+          "description": "Run a shell command in the project directory.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "command": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false,
+            "destructiveHint": true
+          }
+        }
+      ]
+    }
+  }
+}

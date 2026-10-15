@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "NotebookEdit",
+      "WebSearch"
+    ],
+    "ask": [
+      "mcp__notes__search_notes",
+      "Bash(git status)"
+    ],
+    "deny": [
+      "WebFetch(domain:docs.example.com)",
+      "Bash(rm *)"
+    ],
+    "defaultMode": "plan",
+    "review": []
+  },
+  "model": "default"
+}

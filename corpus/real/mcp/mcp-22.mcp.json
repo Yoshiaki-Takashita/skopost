@@ -1,0 +1,79 @@
+{
+  "mcpServers": {
+    "payments": {
+      "command": "uvx",
+      "args": [
+        "./servers/payments/main"
+      ],
+      "tools": [
+        {
+          "name": "refund_payment",
+          "description": "Refund a payment to the customer.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "payment": {
+                "type": "string"
+              },
+              "amount": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": true,
+            "destructiveHint": true
+          }
+        },
+        {
+          "name": "list_invoices",
+          "description": "List invoices for the account.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "git": {
+      "type": "sse",
+      "url": "http://localhost:6777/mcp",
+      "tools": [
+        {
+          "name": "git_status",
+          "description": "Show the working tree status.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          }
+        },
+        {
+          "name": "git_push",
+          "description": "Push the current branch to the remote.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "remote": {
+                "type": "string"
+              },
+              "branch": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": true,
+            "destructiveHint": false
+          }
+        }
+      ],
+      "displayName": "x"
+    }
+  }
+}

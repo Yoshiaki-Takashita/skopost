@@ -1,0 +1,55 @@
+{
+  "mcpServers": {
+    "vault": {
+      "command": "./bin/server",
+      "args": [
+        "./servers/vault/main"
+      ],
+      "autoApprove": "x"
+    },
+    "shell": {
+      "type": "http",
+      "url": "http://localhost:7889/mcp",
+      "headers": {
+        "X-Client": "corpus"
+      },
+      "tools": [
+        {
+          "name": "run_command",
+          "description": "Run a shell command in the project directory.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "command": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": false,
+            "openWorldHint": false,
+            "destructiveHint": true
+          }
+        }
+      ]
+    },
+    "web": {
+      "type": "sse",
+      "url": "http://localhost:6912/mcp",
+      "tools": [
+        {
+          "name": "search_web",
+          "description": "Search the web and return result snippets.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "query": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

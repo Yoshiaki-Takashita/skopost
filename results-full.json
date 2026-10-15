@@ -1,0 +1,1228 @@
+{
+ "bench": {
+  "seed": 20261013,
+  "configs_per_cell": 400,
+  "grid": {
+   "n": [
+    6,
+    10,
+    16
+   ],
+   "p": [
+    0.0,
+    0.1,
+    0.2,
+    0.3
+   ],
+   "e": [
+    0.0,
+    0.3
+   ],
+   "u": [
+    0.0,
+    0.2
+   ]
+  },
+  "cells": [
+   {
+    "cell": "n6_p0_e0_u0",
+    "n": 6,
+    "p": 0.0,
+    "e": 0.0,
+    "u": 0.0,
+    "configs": 400,
+    "configs_with_paths": 300,
+    "mean_truth_paths": 2.205,
+    "f": 0.0,
+    "g": {
+     "declared": 0.0,
+     "denylist": 0.12333333333333334,
+     "askall": 0.0,
+     "skopost": 0.0
+    },
+    "burden": {
+     "declared": 1.215,
+     "denylist": 1.3725,
+     "askall": 4.2125,
+     "skopost": 1.215
+    },
+    "sec_per_config": 4.111404499326454e-05
+   },
+   {
+    "cell": "n6_p0_e0_u0.2",
+    "n": 6,
+    "p": 0.0,
+    "e": 0.0,
+    "u": 0.2,
+    "configs": 400,
+    "configs_with_paths": 310,
+    "mean_truth_paths": 2.125,
+    "f": 0.0,
+    "g": {
+     "declared": 0.0,
+     "denylist": 0.07741935483870968,
+     "askall": 0.0,
+     "skopost": 0.0
+    },
+    "burden": {
+     "declared": 1.2875,
+     "denylist": 1.53,
+     "askall": 4.16,
+     "skopost": 2.3325
+    },
+    "sec_per_config": 4.7950525024589295e-05
+   },
+   {
+    "cell": "n6_p0_e0.3_u0",
+    "n": 6,
+    "p": 0.0,
+    "e": 0.3,
+    "u": 0.0,
+    "configs": 400,
+    "configs_with_paths": 353,
+    "mean_truth_paths": 3.49,
+    "f": 0.0,
+    "g": {
+     "declared": 0.0,
+     "denylist": 0.4164305949008499,
+     "askall": 0.0,
+     "skopost": 0.0
+    },
+    "burden": {
+     "declared": 1.6675,
+     "denylist": 1.4625,
+     "askall": 4.24,
+     "skopost": 1.6675
+    },
+    "sec_per_config": 4.040833000317434e-05
+   },
+   {
+    "cell": "n6_p0_e0.3_u0.2",
+    "n": 6,
+    "p": 0.0,
+    "e": 0.3,
+    "u": 0.2,
+    "configs": 400,
+    "configs_with_paths": 335,
+    "mean_truth_paths": 3.2625,
+    "f": 0.0,
+    "g": {
+     "declared": 0.0,
+     "denylist": 0.4,
+     "askall": 0.0,
+     "skopost": 0.0
+    },
+    "burden": {
+     "declared": 1.5925,
+     "denylist": 1.4025,
+     "askall": 4.135,
+     "skopost": 2.475
+    },
+    "sec_per_config": 5.309785497502162e-05
+   },
+   {
+    "cell": "n6_p0.1_e0_u0",
+    "n": 6,
+    "p": 0.1,
+    "e": 0.0,
+    "u": 0.0,
+    "configs": 400,
+    "configs_with_paths": 323,
+    "mean_truth_paths": 2.44,
+    "f": 0.15163934426229508,
+    "g": {
+     "declared": 0.22910216718266255,
+     "denylist": 0.30340557275541796,
+     "askall": 0.0,
+     "skopost": 0.0
+    },
+    "burden": {
+     "declared": 1.1925,
+     "denylist": 1.3675,
+     "askall": 4.095,
+     "skopost": 1.3925
+    },
+    "sec_per_config": 3.878518250076013e-05
+   },
+   {
+    "cell": "n6_p0.1_e0_u0.2",
+    "n": 6,
+    "p": 0.1,
+    "e": 0.0,
+    "u": 0.2,
+    "configs": 400,
+    "configs_with_paths": 319,
+    "mean_truth_paths": 2.315,
+    "f": 0.14362850971922247,
+    "g": {
+     "declared": 0.25705329153605017,
+     "denylist": 0.329153605015674,
+     "askall": 0.0,
+     "skopost": 0.0
+    },
+    "burden": {
+     "declared": 1.1475,
+     "denylist": 1.365,
+     "askall": 4.21,
+     "skopost": 2.42
+    },
+    "sec_per_config": 5.363049751849758e-05
+   },
+   {
+    "cell": "n6_p0.1_e0.3_u0",
+    "n": 6,
+    "p": 0.1,
+    "e": 0.3,
+    "u": 0.0,
+    "configs": 400,
+    "configs_with_paths": 358,
+    "mean_truth_paths": 3.9375,
+    "f": 0.11936507936507937,
+    "g": {
+     "declared": 0.24860335195530725,
+     "denylist": 0.5782122905027933,
+     "askall": 0.0,
+     "skopost": 0.0
+    },
+    "burden": {
+     "declared": 1.685,
+     "denylist": 1.4775,
+     "askall": 4.225,
+     "skopost": 1.915
+    },
+    "sec_per_config": 4.4816544980221804e-05
+   },
+   {
+    "cell": "n6_p0.1_e0.3_u0.2",
+    "n": 6,
+    "p": 0.1,
+    "e": 0.3,
+    "u": 0.2,
+    "configs": 400,
+    "configs_with_paths": 361,
+    "mean_truth_paths": 3.635,
+    "f": 0.10522696011004126,
+    "g": {
+     "declared": 0.19113573407202217,
+     "denylist": 0.556786703601108,
+     "askall": 0.0,
+     "skopost": 0.0
+    },
+    "burden": {
+     "declared": 1.6,
+     "denylist": 1.35,
+     "askall": 4.2325,
+     "skopost": 2.67
+    },
+    "sec_per_config": 5.55514874849905e-05
+   },
+   {
+    "cell": "n6_p0.2_e0_u0",
+    "n": 6,
+    "p": 0.2,
+    "e": 0.0,
+    "u": 0.0,
+    "configs": 400,
+    "configs_with_paths": 352,
+    "mean_truth_paths": 3.145,
+    "f": 0.24324324324324326,
+    "g": {
+     "declared": 0.4318181818181818,
+     "denylist": 0.45454545454545453,
+     "askall": 0.0,
+     "skopost": 0.0
+    },
+    "burden": {
+     "declared": 1.3325,
+     "denylist": 1.4875,
+     "askall": 4.3125,
+     "skopost": 1.7175
+    },
+    "sec_per_config": 4.0960312494462416e-05
+   },
+   {
+    "cell": "n6_p0.2_e0_u0.2",
+    "n": 6,
+    "p": 0.2,
+    "e": 0.0,
+    "u": 0.2,
+    "configs": 400,
+    "configs_with_paths": 346,
+    "mean_truth_paths": 3.015,
+    "f": 0.2504145936981758,
+    "g": {
+     "declared": 0.41329479768786126,
+     "denylist": 0.4277456647398844,
+     "askall": 0.0,
+     "skopost": 0.0
+    },
+    "burden": {
+     "declared": 1.255,
+     "denylist": 1.435,
+     "askall": 4.2225,
+     "skopost": 2.575
+    },
+    "sec_per_config": 5.64094299829776e-05
+   },
+   {
+    "cell": "n6_p0.2_e0.3_u0",
+    "n": 6,
+    "p": 0.2,
+    "e": 0.3,
+    "u": 0.0,
+    "configs": 400,
+    "configs_with_paths": 366,
+    "mean_truth_paths": 4.1075,
+    "f": 0.1856360316494218,
+    "g": {
+     "declared": 0.34153005464480873,
+     "denylist": 0.6530054644808743,
+     "askall": 0.0,
+     "skopost": 0.0
+    },
+    "burden": {
+     "declared": 1.615,
+     "denylist": 1.345,
+     "askall": 4.14,
+     "skopost": 1.9625
+    },
+    "sec_per_config": 4.75777600058791e-05
+   },
+   {
+    "cell": "n6_p0.2_e0.3_u0.2",
+    "n": 6,
+    "p": 0.2,
+    "e": 0.3,
+    "u": 0.2,
+    "configs": 400,
+    "configs_with_paths": 365,
+    "mean_truth_paths": 4.1175,
+    "f": 0.1766848816029144,
+    "g": {
+     "declared": 0.3150684931506849,
+     "denylist": 0.5780821917808219,
+     "askall": 0.0,
+     "skopost": 0.0
+    },
+    "burden": {
+     "declared": 1.62,
+     "denylist": 1.405,
+     "askall": 4.1575,
+     "skopost": 2.72
+    },
+    "sec_per_config": 6.310658249958579e-05
+   },
+   {
+    "cell": "n6_p0.3_e0_u0",
+    "n": 6,
+    "p": 0.3,
+    "e": 0.0,
+    "u": 0.0,
+    "configs": 400,
+    "configs_with_paths": 364,
+    "mean_truth_paths": 3.59,
+    "f": 0.34958217270194986,
+    "g": {
+     "declared": 0.6071428571428571,
+     "denylist": 0.6043956043956044,
+     "askall": 0.0,
+     "skopost": 0.0
+    },
+    "burden": {
+     "declared": 1.265,
+     "denylist": 1.425,
+     "askall": 4.29,
+     "skopost": 1.955
+    },
+    "sec_per_config": 4.2400515008012006e-05
+   },
+   {
+    "cell": "n6_p0.3_e0_u0.2",
+    "n": 6,
+    "p": 0.3,
+    "e": 0.0,
+    "u": 0.2,
+    "configs": 400,
+    "configs_with_paths": 355,
+    "mean_truth_paths": 3.3025,
+    "f": 0.32475397426192276,
+    "g": {
+     "declared": 0.5267605633802817,
+     "denylist": 0.5154929577464789,
+     "askall": 0.0,
+     "skopost": 0.0
+    },
+    "burden": {
+     "declared": 1.225,
+     "denylist": 1.415,
+     "askall": 4.155,
+     "skopost": 2.6475
+    },
+    "sec_per_config": 5.5462457487465146e-05
+   },
+   {
+    "cell": "n6_p0.3_e0.3_u0",
+    "n": 6,
+    "p": 0.3,
+    "e": 0.3,
+    "u": 0.0,
+    "configs": 400,
+    "configs_with_paths": 380,
+    "mean_truth_paths": 4.9275,
+    "f": 0.2572298325722983,
+    "g": {
+     "declared": 0.5157894736842106,
+     "denylist": 0.7026315789473684,
+     "askall": 0.0,
+     "skopost": 0.0
+    },
+    "burden": {
+     "declared": 1.7675,
+     "denylist": 1.5475,
+     "askall": 4.185,
+     "skopost": 2.32
+    },
+    "sec_per_config": 4.9327299989272434e-05
+   },
+   {
+    "cell": "n6_p0.3_e0.3_u0.2",
+    "n": 6,
+    "p": 0.3,
+    "e": 0.3,
+    "u": 0.2,
+    "configs": 400,
+    "configs_with_paths": 373,
+    "mean_truth_paths": 4.5425,
+    "f": 0.2740781507980187,
+    "g": {
+     "declared": 0.4959785522788204,
+     "denylist": 0.7211796246648794,
+     "askall": 0.0,
+     "skopost": 0.0
+    },
+    "burden": {
+     "declared": 1.575,
+     "denylist": 1.2575,
+     "askall": 4.1925,
+     "skopost": 2.8825
+    },
+    "sec_per_config": 5.817508497102608e-05
+   },
+   {
+    "cell": "n10_p0_e0_u0",
+    "n": 10,
+    "p": 0.0,
+    "e": 0.0,
+    "u": 0.0,
+    "configs": 400,
+    "configs_with_paths": 376,
+    "mean_truth_paths": 4.87,
+    "f": 0.0,
+    "g": {
+     "declared": 0.0,
+     "denylist": 0.18617021276595744,
+     "askall": 0.0,
+     "skopost": 0.0
+    },
+    "burden": {
+     "declared": 2.13,
+     "denylist": 2.3225,
+     "askall": 6.9125,
+     "skopost": 2.13
+    },
+    "sec_per_config": 9.164563749664012e-05
+   },
+   {
+    "cell": "n10_p0_e0_u0.2",
+    "n": 10,
+    "p": 0.0,
+    "e": 0.0,
+    "u": 0.2,
+    "configs": 400,
+    "configs_with_paths": 373,
+    "mean_truth_paths": 4.955,
+    "f": 0.0,
+    "g": {
+     "declared": 0.0,
+     "denylist": 0.18498659517426275,
+     "askall": 0.0,
+     "skopost": 0.0
+    },
+    "burden": {
+     "declared": 2.2075,
+     "denylist": 2.455,
+     "askall": 6.9725,
+     "skopost": 3.92
+    },
+    "sec_per_config": 0.000148185002487935
+   },
+   {
+    "cell": "n10_p0_e0.3_u0",
+    "n": 10,
+    "p": 0.0,
+    "e": 0.3,
+    "u": 0.0,
+    "configs": 400,
+    "configs_with_paths": 393,
+    "mean_truth_paths": 7.75,
+    "f": 0.0,
+    "g": {
+     "declared": 0.0,
+     "denylist": 0.5954198473282443,
+     "askall": 0.0,
+     "skopost": 0.0
+    },
+    "burden": {
+     "declared": 2.7975,
+     "denylist": 2.2875,
+     "askall": 7.115,
+     "skopost": 2.7975
+    },
+    "sec_per_config": 0.00011167922750018988
+   },
+   {
+    "cell": "n10_p0_e0.3_u0.2",
+    "n": 10,
+    "p": 0.0,
+    "e": 0.3,
+    "u": 0.2,
+    "configs": 400,
+    "configs_with_paths": 391,
+    "mean_truth_paths": 7.4275,
+    "f": 0.0,
+    "g": {
+     "declared": 0.0,
+     "denylist": 0.5703324808184144,
+     "askall": 0.0,
+     "skopost": 0.0
+    },
+    "burden": {
+     "declared": 2.76,
+     "denylist": 2.285,
+     "askall": 6.925,
+     "skopost": 4.36
+    },
+    "sec_per_config": 0.00020777118750856972
+   },
+   {
+    "cell": "n10_p0.1_e0_u0",
+    "n": 10,
+    "p": 0.1,
+    "e": 0.0,
+    "u": 0.0,
+    "configs": 400,
+    "configs_with_paths": 375,
+    "mean_truth_paths": 6.09,
+    "f": 0.14614121510673234,
+    "g": {
+     "declared": 0.32266666666666666,
+     "denylist": 0.42133333333333334,
+     "askall": 0.0,
+     "skopost": 0.0
+    },
+    "burden": {
+     "declared": 2.165,
+     "denylist": 2.3775,
+     "askall": 6.9525,
+     "skopost": 2.5075
+    },
+    "sec_per_config": 0.00010275200748765201
+   },
+   {
+    "cell": "n10_p0.1_e0_u0.2",
+    "n": 10,
+    "p": 0.1,
+    "e": 0.0,
+    "u": 0.2,
+    "configs": 400,
+    "configs_with_paths": 378,
+    "mean_truth_paths": 5.86,
+    "f": 0.14419795221843004,
+    "g": {
+     "declared": 0.3201058201058201,
+     "denylist": 0.4576719576719577,
+     "askall": 0.0,
+     "skopost": 0.0
+    },
+    "burden": {
+     "declared": 2.14,
+     "denylist": 2.3,
+     "askall": 6.9875,
+     "skopost": 4.2275
+    },
+    "sec_per_config": 0.00019184440752496813
+   },
+   {
+    "cell": "n10_p0.1_e0.3_u0",
+    "n": 10,
+    "p": 0.1,
+    "e": 0.3,
+    "u": 0.0,
+    "configs": 400,
+    "configs_with_paths": 396,
+    "mean_truth_paths": 9.725,
+    "f": 0.1141388174807198,
+    "g": {
+     "declared": 0.29292929292929293,
+     "denylist": 0.7070707070707071,
+     "askall": 0.0,
+     "skopost": 0.0
+    },
+    "burden": {
+     "declared": 2.96,
+     "denylist": 2.4225,
+     "askall": 7.135,
+     "skopost": 3.2725
+    },
+    "sec_per_config": 0.00012987471001451922
+   },
+   {
+    "cell": "n10_p0.1_e0.3_u0.2",
+    "n": 10,
+    "p": 0.1,
+    "e": 0.3,
+    "u": 0.2,
+    "configs": 400,
+    "configs_with_paths": 392,
+    "mean_truth_paths": 9.25,
+    "f": 0.11054054054054054,
+    "g": {
+     "declared": 0.3137755102040816,
+     "denylist": 0.7244897959183674,
+     "askall": 0.0,
+     "skopost": 0.0
+    },
+    "burden": {
+     "declared": 2.9025,
+     "denylist": 2.335,
+     "askall": 6.985,
+     "skopost": 4.6475
+    },
+    "sec_per_config": 0.00018563983749118052
+   },
+   {
+    "cell": "n10_p0.2_e0_u0",
+    "n": 10,
+    "p": 0.2,
+    "e": 0.0,
+    "u": 0.0,
+    "configs": 400,
+    "configs_with_paths": 389,
+    "mean_truth_paths": 6.7475,
+    "f": 0.28195628010374213,
+    "g": {
+     "declared": 0.5732647814910026,
+     "denylist": 0.6066838046272494,
+     "askall": 0.0,
+     "skopost": 0.0
+    },
+    "burden": {
+     "declared": 2.105,
+     "denylist": 2.3025,
+     "askall": 6.8875,
+     "skopost": 2.8525
+    },
+    "sec_per_config": 0.00010568904749106877
+   },
+   {
+    "cell": "n10_p0.2_e0_u0.2",
+    "n": 10,
+    "p": 0.2,
+    "e": 0.0,
+    "u": 0.2,
+    "configs": 400,
+    "configs_with_paths": 380,
+    "mean_truth_paths": 6.415,
+    "f": 0.23928293063133282,
+    "g": {
+     "declared": 0.5263157894736842,
+     "denylist": 0.5736842105263158,
+     "askall": 0.0,
+     "skopost": 0.0
+    },
+    "burden": {
+     "declared": 2.1275,
+     "denylist": 2.3025,
+     "askall": 7.03,
+     "skopost": 4.4
+    },
+    "sec_per_config": 0.00019548894000990914
+   },
+   {
+    "cell": "n10_p0.2_e0.3_u0",
+    "n": 10,
+    "p": 0.2,
+    "e": 0.3,
+    "u": 0.0,
+    "configs": 400,
+    "configs_with_paths": 396,
+    "mean_truth_paths": 9.71,
+    "f": 0.18769309989701338,
+    "g": {
+     "declared": 0.4671717171717172,
+     "denylist": 0.8005050505050505,
+     "askall": 0.0,
+     "skopost": 0.0
+    },
+    "burden": {
+     "declared": 2.8,
+     "denylist": 2.275,
+     "askall": 6.935,
+     "skopost": 3.35
+    },
+    "sec_per_config": 0.00013668446748170028
+   },
+   {
+    "cell": "n10_p0.2_e0.3_u0.2",
+    "n": 10,
+    "p": 0.2,
+    "e": 0.3,
+    "u": 0.2,
+    "configs": 400,
+    "configs_with_paths": 396,
+    "mean_truth_paths": 9.725,
+    "f": 0.19460154241645244,
+    "g": {
+     "declared": 0.48484848484848486,
+     "denylist": 0.7702020202020202,
+     "askall": 0.0,
+     "skopost": 0.0
+    },
+    "burden": {
+     "declared": 2.7625,
+     "denylist": 2.2525,
+     "askall": 6.9475,
+     "skopost": 4.685
+    },
+    "sec_per_config": 0.0002050757725191943
+   },
+   {
+    "cell": "n10_p0.3_e0_u0",
+    "n": 10,
+    "p": 0.3,
+    "e": 0.0,
+    "u": 0.0,
+    "configs": 400,
+    "configs_with_paths": 392,
+    "mean_truth_paths": 7.5425,
+    "f": 0.3453762015246934,
+    "g": {
+     "declared": 0.6658163265306123,
+     "denylist": 0.6938775510204082,
+     "askall": 0.0,
+     "skopost": 0.0
+    },
+    "burden": {
+     "declared": 2.0925,
+     "denylist": 2.32,
+     "askall": 6.9225,
+     "skopost": 3.065
+    },
+    "sec_per_config": 0.0001374612124664054
+   },
+   {
+    "cell": "n10_p0.3_e0_u0.2",
+    "n": 10,
+    "p": 0.3,
+    "e": 0.0,
+    "u": 0.2,
+    "configs": 400,
+    "configs_with_paths": 395,
+    "mean_truth_paths": 8.0325,
+    "f": 0.3134142545907252,
+    "g": {
+     "declared": 0.6886075949367089,
+     "denylist": 0.7265822784810126,
+     "askall": 0.0,
+     "skopost": 0.0
+    },
+    "burden": {
+     "declared": 2.295,
+     "denylist": 2.4525,
+     "askall": 7.15,
+     "skopost": 4.67
+    },
+    "sec_per_config": 0.0001965597125149543
+   },
+   {
+    "cell": "n10_p0.3_e0.3_u0",
+    "n": 10,
+    "p": 0.3,
+    "e": 0.3,
+    "u": 0.0,
+    "configs": 400,
+    "configs_with_paths": 395,
+    "mean_truth_paths": 11.1525,
+    "f": 0.2544272584622282,
+    "g": {
+     "declared": 0.6075949367088608,
+     "denylist": 0.8683544303797468,
+     "askall": 0.0,
+     "skopost": 0.0
+    },
+    "burden": {
+     "declared": 2.8925,
+     "denylist": 2.3725,
+     "askall": 7.0275,
+     "skopost": 3.745
+    },
+    "sec_per_config": 0.000161488962517069
+   },
+   {
+    "cell": "n10_p0.3_e0.3_u0.2",
+    "n": 10,
+    "p": 0.3,
+    "e": 0.3,
+    "u": 0.2,
+    "configs": 400,
+    "configs_with_paths": 395,
+    "mean_truth_paths": 10.73,
+    "f": 0.2569897483690587,
+    "g": {
+     "declared": 0.620253164556962,
+     "denylist": 0.8582278481012658,
+     "askall": 0.0,
+     "skopost": 0.0
+    },
+    "burden": {
+     "declared": 2.76,
+     "denylist": 2.2275,
+     "askall": 6.96,
+     "skopost": 4.79
+    },
+    "sec_per_config": 0.0002069699099911304
+   },
+   {
+    "cell": "n16_p0_e0_u0",
+    "n": 16,
+    "p": 0.0,
+    "e": 0.0,
+    "u": 0.0,
+    "configs": 400,
+    "configs_with_paths": 394,
+    "mean_truth_paths": 10.5925,
+    "f": 0.0,
+    "g": {
+     "declared": 0.0,
+     "denylist": 0.25888324873096447,
+     "askall": 0.0,
+     "skopost": 0.0
+    },
+    "burden": {
+     "declared": 3.5225,
+     "denylist": 3.735,
+     "askall": 11.2275,
+     "skopost": 3.5225
+    },
+    "sec_per_config": 0.0008178413899827319
+   },
+   {
+    "cell": "n16_p0_e0_u0.2",
+    "n": 16,
+    "p": 0.0,
+    "e": 0.0,
+    "u": 0.2,
+    "configs": 400,
+    "configs_with_paths": 393,
+    "mean_truth_paths": 10.64,
+    "f": 0.0,
+    "g": {
+     "declared": 0.0,
+     "denylist": 0.3155216284987277,
+     "askall": 0.0,
+     "skopost": 0.0
+    },
+    "burden": {
+     "declared": 3.525,
+     "denylist": 3.6475,
+     "askall": 11.1525,
+     "skopost": 6.455
+    },
+    "sec_per_config": 0.0029105654024783687
+   },
+   {
+    "cell": "n16_p0_e0.3_u0",
+    "n": 16,
+    "p": 0.0,
+    "e": 0.3,
+    "u": 0.0,
+    "configs": 400,
+    "configs_with_paths": 400,
+    "mean_truth_paths": 18.8225,
+    "f": 0.0,
+    "g": {
+     "declared": 0.0,
+     "denylist": 0.78,
+     "askall": 0.0,
+     "skopost": 0.0
+    },
+    "burden": {
+     "declared": 4.825,
+     "denylist": 3.81,
+     "askall": 11.12,
+     "skopost": 4.825
+    },
+    "sec_per_config": 0.0015001750750070642
+   },
+   {
+    "cell": "n16_p0_e0.3_u0.2",
+    "n": 16,
+    "p": 0.0,
+    "e": 0.3,
+    "u": 0.2,
+    "configs": 400,
+    "configs_with_paths": 400,
+    "mean_truth_paths": 18.655,
+    "f": 0.0,
+    "g": {
+     "declared": 0.0,
+     "denylist": 0.7575,
+     "askall": 0.0,
+     "skopost": 0.0
+    },
+    "burden": {
+     "declared": 4.805,
+     "denylist": 3.9,
+     "askall": 11.2725,
+     "skopost": 7.39
+    },
+    "sec_per_config": 0.004846937357526713
+   },
+   {
+    "cell": "n16_p0.1_e0_u0",
+    "n": 16,
+    "p": 0.1,
+    "e": 0.0,
+    "u": 0.0,
+    "configs": 400,
+    "configs_with_paths": 399,
+    "mean_truth_paths": 12.5925,
+    "f": 0.152074647607703,
+    "g": {
+     "declared": 0.48120300751879697,
+     "denylist": 0.6115288220551378,
+     "askall": 0.0,
+     "skopost": 0.0
+    },
+    "burden": {
+     "declared": 3.5475,
+     "denylist": 3.725,
+     "askall": 11.07,
+     "skopost": 4.0725
+    },
+    "sec_per_config": 0.0011048537200326791
+   },
+   {
+    "cell": "n16_p0.1_e0_u0.2",
+    "n": 16,
+    "p": 0.1,
+    "e": 0.0,
+    "u": 0.2,
+    "configs": 400,
+    "configs_with_paths": 398,
+    "mean_truth_paths": 13.7325,
+    "f": 0.13508101219734206,
+    "g": {
+     "declared": 0.4648241206030151,
+     "denylist": 0.6005025125628141,
+     "askall": 0.0,
+     "skopost": 0.0
+    },
+    "burden": {
+     "declared": 3.7575,
+     "denylist": 3.8875,
+     "askall": 11.145,
+     "skopost": 6.8375
+    },
+    "sec_per_config": 0.0029338163400029773
+   },
+   {
+    "cell": "n16_p0.1_e0.3_u0",
+    "n": 16,
+    "p": 0.1,
+    "e": 0.3,
+    "u": 0.0,
+    "configs": 400,
+    "configs_with_paths": 399,
+    "mean_truth_paths": 19.94,
+    "f": 0.09302908726178535,
+    "g": {
+     "declared": 0.40852130325814534,
+     "denylist": 0.8796992481203008,
+     "askall": 0.0,
+     "skopost": 0.0
+    },
+    "burden": {
+     "declared": 4.7575,
+     "denylist": 3.7425,
+     "askall": 11.215,
+     "skopost": 5.23
+    },
+    "sec_per_config": 0.0020741834150157954
+   },
+   {
+    "cell": "n16_p0.1_e0.3_u0.2",
+    "n": 16,
+    "p": 0.1,
+    "e": 0.3,
+    "u": 0.2,
+    "configs": 400,
+    "configs_with_paths": 400,
+    "mean_truth_paths": 19.7675,
+    "f": 0.10459086885038574,
+    "g": {
+     "declared": 0.4125,
+     "denylist": 0.8925,
+     "askall": 0.0,
+     "skopost": 0.0
+    },
+    "burden": {
+     "declared": 4.675,
+     "denylist": 3.635,
+     "askall": 11.215,
+     "skopost": 7.475
+    },
+    "sec_per_config": 0.0036754493775083574
+   },
+   {
+    "cell": "n16_p0.2_e0_u0",
+    "n": 16,
+    "p": 0.2,
+    "e": 0.0,
+    "u": 0.0,
+    "configs": 400,
+    "configs_with_paths": 397,
+    "mean_truth_paths": 15.8475,
+    "f": 0.23284429720776148,
+    "g": {
+     "declared": 0.6851385390428212,
+     "denylist": 0.7732997481108312,
+     "askall": 0.0,
+     "skopost": 0.0
+    },
+    "burden": {
+     "declared": 3.705,
+     "denylist": 3.86,
+     "askall": 11.285,
+     "skopost": 4.74
+    },
+    "sec_per_config": 0.0016175562025091495
+   },
+   {
+    "cell": "n16_p0.2_e0_u0.2",
+    "n": 16,
+    "p": 0.2,
+    "e": 0.0,
+    "u": 0.2,
+    "configs": 400,
+    "configs_with_paths": 400,
+    "mean_truth_paths": 15.13,
+    "f": 0.2656972901520159,
+    "g": {
+     "declared": 0.6875,
+     "denylist": 0.805,
+     "askall": 0.0,
+     "skopost": 0.0
+    },
+    "burden": {
+     "declared": 3.6125,
+     "denylist": 3.71,
+     "askall": 11.2175,
+     "skopost": 7.2175
+    },
+    "sec_per_config": 0.0033874064725023345
+   },
+   {
+    "cell": "n16_p0.2_e0.3_u0",
+    "n": 16,
+    "p": 0.2,
+    "e": 0.3,
+    "u": 0.0,
+    "configs": 400,
+    "configs_with_paths": 400,
+    "mean_truth_paths": 22.375,
+    "f": 0.18,
+    "g": {
+     "declared": 0.6625,
+     "denylist": 0.9125,
+     "askall": 0.0,
+     "skopost": 0.0
+    },
+    "burden": {
+     "declared": 4.745,
+     "denylist": 3.695,
+     "askall": 11.1675,
+     "skopost": 5.6575
+    },
+    "sec_per_config": 0.0025667735300021377
+   },
+   {
+    "cell": "n16_p0.2_e0.3_u0.2",
+    "n": 16,
+    "p": 0.2,
+    "e": 0.3,
+    "u": 0.2,
+    "configs": 400,
+    "configs_with_paths": 400,
+    "mean_truth_paths": 22.585,
+    "f": 0.19282709763117112,
+    "g": {
+     "declared": 0.655,
+     "denylist": 0.9275,
+     "askall": 0.0,
+     "skopost": 0.0
+    },
+    "burden": {
+     "declared": 4.705,
+     "denylist": 3.75,
+     "askall": 11.2225,
+     "skopost": 7.6975
+    },
+    "sec_per_config": 0.0041864031849945605
+   },
+   {
+    "cell": "n16_p0.3_e0_u0",
+    "n": 16,
+    "p": 0.3,
+    "e": 0.0,
+    "u": 0.0,
+    "configs": 400,
+    "configs_with_paths": 400,
+    "mean_truth_paths": 17.485,
+    "f": 0.30955104375178727,
+    "g": {
+     "declared": 0.84,
+     "denylist": 0.8825,
+     "askall": 0.0,
+     "skopost": 0.0
+    },
+    "burden": {
+     "declared": 3.77,
+     "denylist": 3.91,
+     "askall": 11.24,
+     "skopost": 5.2725
+    },
+    "sec_per_config": 0.0015585722750370223
+   },
+   {
+    "cell": "n16_p0.3_e0_u0.2",
+    "n": 16,
+    "p": 0.3,
+    "e": 0.0,
+    "u": 0.2,
+    "configs": 400,
+    "configs_with_paths": 400,
+    "mean_truth_paths": 16.9475,
+    "f": 0.3311697890544328,
+    "g": {
+     "declared": 0.82,
+     "denylist": 0.8675,
+     "askall": 0.0,
+     "skopost": 0.0
+    },
+    "burden": {
+     "declared": 3.66,
+     "denylist": 3.7025,
+     "askall": 11.245,
+     "skopost": 7.455
+    },
+    "sec_per_config": 0.003509096895006678
+   },
+   {
+    "cell": "n16_p0.3_e0.3_u0",
+    "n": 16,
+    "p": 0.3,
+    "e": 0.3,
+    "u": 0.0,
+    "configs": 400,
+    "configs_with_paths": 399,
+    "mean_truth_paths": 25.6025,
+    "f": 0.24968264817888877,
+    "g": {
+     "declared": 0.8045112781954887,
+     "denylist": 0.9523809523809523,
+     "askall": 0.0,
+     "skopost": 0.0
+    },
+    "burden": {
+     "declared": 4.765,
+     "denylist": 3.8325,
+     "askall": 11.37,
+     "skopost": 6.1
+    },
+    "sec_per_config": 0.003417016574983336
+   },
+   {
+    "cell": "n16_p0.3_e0.3_u0.2",
+    "n": 16,
+    "p": 0.3,
+    "e": 0.3,
+    "u": 0.2,
+    "configs": 400,
+    "configs_with_paths": 400,
+    "mean_truth_paths": 25.615,
+    "f": 0.24663283232480968,
+    "g": {
+     "declared": 0.77,
+     "denylist": 0.9625,
+     "askall": 0.0,
+     "skopost": 0.0
+    },
+    "burden": {
+     "declared": 4.87,
+     "denylist": 3.8575,
+     "askall": 11.3525,
+     "skopost": 8.1325
+    },
+    "sec_per_config": 0.004365014109976073
+   }
+  ]
+ },
+ "prereg_checks": [
+  {
+   "id": "P1",
+   "ok": true,
+   "detail": "declared g at n=10,p=0.1,e=0,u=0 in [0.20,0.35] → 0.323"
+  },
+  {
+   "id": "P2",
+   "ok": false,
+   "detail": "declared g at n=10,p=0.2,e=0,u=0 in [0.35,0.55] → 0.573"
+  },
+  {
+   "id": "P3",
+   "ok": true,
+   "detail": "declared g and f at p=0 == 0 → 0.000, f=0.000"
+  },
+  {
+   "id": "P4",
+   "ok": true,
+   "detail": "skopost g == 0 on all cells → max 0.000"
+  },
+  {
+   "id": "P5",
+   "ok": false,
+   "detail": "skopost burden / denylist burden <= 0.5 at n=10,p=0.1,e=0,u=0 → 1.055"
+  },
+  {
+   "id": "P6",
+   "ok": true,
+   "detail": "skopost burden(u=0.2) - burden(u=0) in [0.5,2.0] at n=10,p=0.1,e=0 → +1.720"
+  },
+  {
+   "id": "P7",
+   "ok": false,
+   "detail": "declared g(e=0.3) - g(e=0) >= 0.05 at n=10,p=0.1,u=0 → -0.030"
+  },
+  {
+   "id": "P8",
+   "ok": true,
+   "detail": "mean exact-cut time at n=16 < 0.5 s → mean 0.0028"
+  },
+  {
+   "id": "P9",
+   "ok": false,
+   "detail": "denylist g < declared g at n=10,p=0.1,e=0,u=0 → 0.421 < 0.323"
+  }
+ ]
+}

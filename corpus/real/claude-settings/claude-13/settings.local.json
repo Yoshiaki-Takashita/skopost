@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch",
+      "Bash(npm test)",
+      "WebFetch(domain:docs.example.com)",
+      "Bash(python3 *)",
+      "Bash(git diff *)"
+    ],
+    "ask": [
+      "Bash"
+    ],
+    "review": []
+  }
+}

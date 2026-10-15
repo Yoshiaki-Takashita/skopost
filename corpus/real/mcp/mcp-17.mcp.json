@@ -1,0 +1,63 @@
+{
+  "mcpServers": {
+    "payments": {
+      "type": "sse",
+      "url": "https://mcp.example.org/payments",
+      "tools": [
+        {
+          "name": "list_invoices",
+          "description": "List invoices for the account.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "string"
+              }
+            }
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": true
+          }
+        }
+      ]
+    },
+    "git": {
+      "type": "sse",
+      "url": "https://mcp.example.org/git",
+      "tools": [
+        {
+          "name": "git_status",
+          "description": "Show the working tree status.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "annotations": {
+            "readOnlyHint": true,
+            "openWorldHint": false
+          }
+        }
+      ],
+      "autoApprove": "x"
+    },
+    "shell": {
+      "type": "http",
+      "url": "https://shell.example.com/mcp",
+      "tools": [
+        {
+          "name": "run_command",
+          "description": "Run a shell command in the project directory.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "command": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
